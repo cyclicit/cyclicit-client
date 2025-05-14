@@ -1,0 +1,36 @@
+.right-content {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* or whatever height you prefer */
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-tag {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* use "contain" if you want to show the full video without cropping */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* optional overlay to make text more readable */
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  /* Add any additional styling you need for your content */
+}
