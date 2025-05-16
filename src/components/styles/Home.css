@@ -1,4 +1,4 @@
-.right-content {
+. a  {
   position: relative;
   width: 100%;
   height: 100vh; /* or whatever height you prefer */
@@ -33,4 +33,13 @@
   position: relative;
   z-index: 1;
   /* Add any additional styling you need for your content */
+}
+
+.pp {
+  width: 100%;
+  max-width: 800px; /* Optional: Limits width on large screens */
+  text-align: center;
+  ;
+  margin: 0 auto;
+  padding: 2rem;
 }
