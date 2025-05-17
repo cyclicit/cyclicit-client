@@ -58,6 +58,9 @@ const Services = ({ darkMode }) => {
   };
 
   return (
+
+    
+    
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -68,6 +71,9 @@ const Services = ({ darkMode }) => {
         padding: '1rem 0.5rem'
       }}
     >
+      
+
+
       <div style={{
         maxWidth: '1400px',
         margin: '0 auto',
@@ -352,6 +358,7 @@ const Services = ({ darkMode }) => {
                 />
               </Link>
             </motion.div>
+          
             
             <motion.div
               variants={buttonVariants}

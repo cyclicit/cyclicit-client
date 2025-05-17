@@ -1044,3 +1044,186 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+
+
+.hero-animation {
+  position: relative;
+  width: 50px;
+  height:50px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: pulse 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+.circle-animation.delay-1 {
+  animation-delay: 1s;
+  border-color: rgba(20, 185, 25, 0.7);
+}
+
+.circle-animation.delay-2 {
+  animation-delay: 2s;
+  border-color: rgba(12, 182, 20, 0.5);
+}
+
+/* Center dot */
+.hero-animation::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+    border-width: 1px;
+  }
+  50% {
+    opacity: 0.4;
+    border-width: 3px;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    border-width: 0;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.8;
+    border-width: 1px;
+  }
+  50% {
+    opacity: 0.4;
+    border-width: 3px;
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+    opacity: 0;
+    border-width: 0;
+  }
+}
+
+/* Glow effect on hover */
+.hero-animation:hover .circle-animation {
+  animation-duration: 3s;
+}
+
+.hero-animation:hover .circle-animation.delay-1 {
+  border-color: rgba(11, 210, 18, 0.9);
+}
+
+.hero-animation:hover .circle-animation.delay-2 {
+  border-color: rgba(15, 205, 24, 0.7);
+}
+.floating-elements {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-element {
+  position: absolute;
+  background-color: rgba(0, 255, 89, 0.1);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 600;
+  animation: float 6s infinite ease-in-out;
+}
+
+.el1 {
+  width: 120px;
+  height: 120px;
+  top: 0;
+  left: 0;
+  animation-delay: 0s;
+}
+
+.el2 {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.el3 {
+  width: 150px;
+  height: 150px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.el4 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+.el5 {
+  width: 110px;
+  height: 110px;
+  bottom: 10%;
+  right: 20%;
+  animation-delay: 4s;
+}
+
+  @media (max-width: 768px) {
+    .floating-elements {
+      height: 150px;
+      margin: 2rem auto;
+    }
+    
+    .floating-element {
+      width: 70px !important;
+      height: 70px !important;
+      font-size: 0.8rem !important;
+      border-radius: 14px !important;
+    }
+    
+    .el1 { left: 5% !important; top: 10% !important; }
+    .el2 { left: 25% !important; top: 50% !important; }
+    .el3 { right: 5% !important; top: 5% !important; width: 90px !important; height: 90px !important; }
+    .el4 { left: 5% !important; bottom: 10% !important; }
+    .el5 { right: 20% !important; bottom: 5% !important; }
+  }
+
+  @media (max-width: 480px) {
+    .floating-elements {
+      height: 120px;
+    }
+    
+    .floating-element {
+      width: 60px !important;
+      height: 60px !important;
+      font-size: 0.7rem !important;
+    }
+    
+    .el3 { width: 80px !important; height: 80px !important; }
+  }

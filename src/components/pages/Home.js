@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import backgroundVideo from '../../assets/3209829-uhd_3840_2160_25fps.mp4';
 import posterImage from '../../assets/Screenshot 2025-05-17 024832.png';
-
+import { motion } from 'framer-motion';
 const Home = ({ darkMode }) => {
   const videoRef = useRef(null);
 
@@ -60,6 +60,8 @@ const Home = ({ darkMode }) => {
           zIndex: 1
         }}></div>
       </div>
+
+      
       
       {/* Centered Content */}
       <div style={{
@@ -86,6 +88,8 @@ const Home = ({ darkMode }) => {
         }}>
           Welcome to Cyclic<span style={{ color: '#4caf50' }}>iT</span>
         </h1>
+       
+
         
         <p style={{
           fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
@@ -96,9 +100,10 @@ const Home = ({ darkMode }) => {
           textShadow: '0 1px 5px rgba(0,0,0,0.2)'
         }}>
           Where imagination meets execution 
+          
         </p>
-        
-        <Link 
+          
+           <Link 
           to="/services" 
           style={{
             display: 'inline-block',
@@ -122,6 +127,210 @@ const Home = ({ darkMode }) => {
         >
           Explore Our Services
         </Link>
+
+        {/* Floating Tech Elements */}
+<motion.div 
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.5 }}
+  className="floating-elements"
+  style={{
+    position: 'relative',
+    width: '100%',
+    height: '200px',
+    margin: '3rem auto',
+    overflow: 'hidden'
+  }}
+>
+  {/* Floating elements with improved animations and spacing */}
+  <motion.div
+    className="floating-element el1"
+    initial={{ y: 0, x: 0 }}
+    animate={{ 
+      y: [0, -40, 0, -20, 0],
+      x: [0, 10, -5, 5, 0]
+    }}
+    transition={{ 
+      duration: 12,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+    style={{
+      position: 'absolute',
+      width: '120px',
+      height: '120px',
+      top: '10%',
+      left: '5%',
+      fontSize: '1.1rem',
+      background: darkMode ? 'rgba(76, 175, 80, 0.15)' : 'rgba(46, 125, 50, 0.15)',
+      color: darkMode ? '#81c784' : '#2e7d32',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '24px',
+      border: `1px solid ${darkMode ? 'rgba(76, 175, 80, 0.4)' : 'rgba(46, 125, 50, 0.4)'}`,
+      zIndex: 1,
+      boxShadow: darkMode 
+        ? '0 4px 20px rgba(76, 175, 80, 0.1)' 
+        : '0 4px 20px rgba(46, 125, 50, 0.1)'
+    }}
+  >
+    Web
+  </motion.div>
+  
+  <motion.div
+    className="floating-element el2"
+    initial={{ y: 0, x: 0 }}
+    animate={{ 
+      y: [0, 30, -20, 10, 0],
+      x: [0, -15, 10, -5, 0]
+    }}
+    transition={{ 
+      duration: 14,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 1
+    }}
+    style={{
+      position: 'absolute',
+      width: '100px',
+      height: '100px',
+      top: '40%',
+      left: '20%',
+      fontSize: '1rem',
+      background: darkMode ? 'rgba(76, 175, 80, 0.15)' : 'rgba(46, 125, 50, 0.15)',
+      color: darkMode ? '#81c784' : '#2e7d32',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '20px',
+      border: `1px solid ${darkMode ? 'rgba(76, 175, 80, 0.4)' : 'rgba(46, 125, 50, 0.4)'}`,
+      zIndex: 1,
+      boxShadow: darkMode 
+        ? '0 4px 20px rgba(76, 175, 80, 0.1)' 
+        : '0 4px 20px rgba(46, 125, 50, 0.1)'
+    }}
+  >
+    Mobile
+  </motion.div>
+  
+  <motion.div
+    className="floating-element el3"
+    initial={{ y: 0, x: 0 }}
+    animate={{ 
+      y: [0, -30, 20, -10, 0],
+      x: [0, 15, -10, 5, 0]
+    }}
+    transition={{ 
+      duration: 16,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 2
+    }}
+    style={{
+      position: 'absolute',
+      width: '150px',
+      height: '150px',
+      top: '5%',
+      right: '10%',
+      fontSize: '1.3rem',
+      background: darkMode ? 'rgba(76, 175, 80, 0.15)' : 'rgba(46, 125, 50, 0.15)',
+      color: darkMode ? '#81c784' : '#2e7d32',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '30px',
+      border: `1px solid ${darkMode ? 'rgba(76, 175, 80, 0.4)' : 'rgba(46, 125, 50, 0.4)'}`,
+      zIndex: 1,
+      boxShadow: darkMode 
+        ? '0 4px 20px rgba(76, 175, 80, 0.1)' 
+        : '0 4px 20px rgba(46, 125, 50, 0.1)'
+    }}
+  >
+    AI
+  </motion.div>
+  
+  <motion.div
+    className="floating-element el4"
+    initial={{ y: 0, x: 0 }}
+    animate={{ 
+      y: [0, 40, -30, 20, 0],
+      x: [0, -10, 15, -5, 0]
+    }}
+    transition={{ 
+      duration: 18,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 3
+    }}
+    style={{
+      position: 'absolute',
+      width: '80px',
+      height: '80px',
+      bottom: '15%',
+      left: '10%',
+      fontSize: '0.9rem',
+      background: darkMode ? 'rgba(76, 175, 80, 0.15)' : 'rgba(46, 125, 50, 0.15)',
+      color: darkMode ? '#81c784' : '#2e7d32',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '16px',
+      border: `1px solid ${darkMode ? 'rgba(76, 175, 80, 0.4)' : 'rgba(46, 125, 50, 0.4)'}`,
+      zIndex: 1,
+      boxShadow: darkMode 
+        ? '0 4px 20px rgba(76, 175, 80, 0.1)' 
+        : '0 4px 20px rgba(46, 125, 50, 0.1)'
+    }}
+  >
+    Cloud
+  </motion.div>
+  
+  <motion.div
+    className="floating-element el5"
+    initial={{ y: 0, x: 0 }}
+    animate={{ 
+      y: [0, -25, 15, -5, 0],
+      x: [0, 20, -15, 10, 0]
+    }}
+    transition={{ 
+      duration: 20,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 4
+    }}
+    style={{
+      position: 'absolute',
+      width: '110px',
+      height: '110px',
+      bottom: '5%',
+      right: '20%',
+      fontSize: '1rem',
+      background: darkMode ? 'rgba(76, 175, 80, 0.15)' : 'rgba(46, 125, 50, 0.15)',
+      color: darkMode ? '#81c784' : '#2e7d32',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '22px',
+      border: `1px solid ${darkMode ? 'rgba(76, 175, 80, 0.4)' : 'rgba(46, 125, 50, 0.4)'}`,
+      zIndex: 1,
+      boxShadow: darkMode 
+        ? '0 4px 20px rgba(76, 175, 80, 0.1)' 
+        : '0 4px 20px rgba(46, 125, 50, 0.1)'
+    }}
+  >
+    IoT
+  </motion.div>
+
+  
+
+
+</motion.div>
+
+
+        
+        
+        
       </div>
     </div>
   );
