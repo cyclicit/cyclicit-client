@@ -147,7 +147,7 @@ const Home = ({ darkMode }) => {
     className="floating-element el1"
     initial={{ y: 0, x: 0 }}
     animate={{ 
-      y: [0, -40, 0, -20, 0],
+      y: [0, -15, 0, -10, 0],
       x: [0, 10, -5, 5, 0]
     }}
     transition={{ 
@@ -183,7 +183,7 @@ const Home = ({ darkMode }) => {
     initial={{ y: 0, x: 0 }}
     animate={{ 
       y: [0, 30, -20, 10, 0],
-      x: [0, -15, 10, -5, 0]
+      x: [0, -10, 10, -5, 0]
     }}
     transition={{ 
       duration: 14,
@@ -193,8 +193,8 @@ const Home = ({ darkMode }) => {
     }}
     style={{
       position: 'absolute',
-      width: '100px',
-      height: '100px',
+      width: '80px',
+      height: '80px',
       top: '40%',
       left: '20%',
       fontSize: '1rem',
@@ -218,7 +218,7 @@ const Home = ({ darkMode }) => {
     className="floating-element el3"
     initial={{ y: 0, x: 0 }}
     animate={{ 
-      y: [0, -30, 20, -10, 0],
+      y: [0, -10, 20, -10, 0],
       x: [0, 15, -10, 5, 0]
     }}
     transition={{ 
@@ -254,7 +254,7 @@ const Home = ({ darkMode }) => {
     className="floating-element el4"
     initial={{ y: 0, x: 0 }}
     animate={{ 
-      y: [0, 40, -30, 20, 0],
+      y: [0, 20, -5, 10, 0],
       x: [0, -10, 15, -5, 0]
     }}
     transition={{ 
@@ -265,8 +265,8 @@ const Home = ({ darkMode }) => {
     }}
     style={{
       position: 'absolute',
-      width: '80px',
-      height: '80px',
+      width: '60px',
+      height: '60px',
       bottom: '15%',
       left: '10%',
       fontSize: '0.9rem',
@@ -290,8 +290,8 @@ const Home = ({ darkMode }) => {
     className="floating-element el5"
     initial={{ y: 0, x: 0 }}
     animate={{ 
-      y: [0, -25, 15, -5, 0],
-      x: [0, 20, -15, 10, 0]
+      y: [0, 10, 10, 0, 0],
+      x: [0, 30, -25, 10, 0]
     }}
     transition={{ 
       duration: 20,
@@ -301,8 +301,8 @@ const Home = ({ darkMode }) => {
     }}
     style={{
       position: 'absolute',
-      width: '110px',
-      height: '110px',
+      width: '90px',
+      height: '90px',
       bottom: '5%',
       right: '20%',
       fontSize: '1rem',
