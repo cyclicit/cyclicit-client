@@ -65,13 +65,13 @@ const Services = ({ darkMode }) => {
         backgroundColor: darkMode ? '#121212' : '#f8f9fa',
         color: darkMode ? '#ffffff' : '#333333',
         minHeight: '100vh',
-        padding: '2rem 1rem'
+        padding: '1rem 0.5rem'
       }}
     >
       <div style={{
         maxWidth: '1400px',
         margin: '0 auto',
-        padding: '2rem 1rem'
+        padding: '1rem 0.5rem'
       }}>
         {/* Animated Header */}
         <motion.div 
@@ -80,8 +80,9 @@ const Services = ({ darkMode }) => {
           transition={{ duration: 0.6 }}
           style={{ 
             textAlign: 'center',
-            marginBottom: '4rem',
-            position: 'relative'
+            marginBottom: '2rem',
+            position: 'relative',
+            padding: '0 0.5rem'
           }}
         >
           <motion.div
@@ -92,17 +93,17 @@ const Services = ({ darkMode }) => {
               position: 'absolute',
               bottom: 0,
               left: 0,
-              height: '4px',
+              height: '3px',
               background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
               borderRadius: '2px'
             }}
           />
           
           <h2 style={{
-            fontSize: '1.1rem',
-            letterSpacing: '3px',
+            fontSize: '0.9rem',
+            letterSpacing: '2px',
             textTransform: 'uppercase',
-            marginBottom: '1.5rem',
+            marginBottom: '1rem',
             color: darkMode ? '#81c784' : '#2e7d32'
           }}>
             Our Premium Services
@@ -113,7 +114,7 @@ const Services = ({ darkMode }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
             style={{
-              fontSize: 'clamp(2.2rem, 6vw, 4rem)',
+              fontSize: 'clamp(1.8rem, 6vw, 3.5rem)',
               fontWeight: 800,
               lineHeight: 1.2,
               margin: '0.5rem 0',
@@ -131,10 +132,11 @@ const Services = ({ darkMode }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             style={{
-              fontSize: '1.2rem',
+              fontSize: 'clamp(1rem, 3vw, 1.2rem)',
               maxWidth: '700px',
-              margin: '1.5rem auto 0',
-              color: darkMode ? '#bdbdbd' : '#555555'
+              margin: '1rem auto 0',
+              color: darkMode ? '#bdbdbd' : '#555555',
+              padding: '0 0.5rem'
             }}
           >
             Powered by <span style={{ 
@@ -153,10 +155,11 @@ const Services = ({ darkMode }) => {
           animate="visible"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-            marginBottom: '4rem',
-            perspective: '1000px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '3rem',
+            perspective: '1000px',
+            padding: '0 0.5rem'
           }}
         >
           {services.map((service, index) => (
@@ -168,9 +171,9 @@ const Services = ({ darkMode }) => {
                 background: darkMode 
                   ? 'linear-gradient(145deg, #1a1a1a, #222)' 
                   : 'linear-gradient(145deg, #ffffff, #f5f5f5)',
-                borderRadius: '20px',
-                padding: '2.5rem',
-                minHeight: '350px',
+                borderRadius: '16px',
+                padding: '1.5rem',
+                minHeight: '280px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -178,8 +181,8 @@ const Services = ({ darkMode }) => {
                 textAlign: 'center',
                 color: darkMode ? '#ffffff' : '#333333',
                 boxShadow: darkMode 
-                  ? '0 10px 30px -15px rgba(0,0,0,0.3)' 
-                  : '0 10px 30px -15px rgba(0,0,0,0.1)',
+                  ? '0 8px 20px -10px rgba(0,0,0,0.3)' 
+                  : '0 8px 20px -10px rgba(0,0,0,0.1)',
                 border: `1px solid ${darkMode ? '#2e7d32' : '#e8f5e9'}`,
                 transformStyle: 'preserve-3d',
                 position: 'relative',
@@ -193,7 +196,7 @@ const Services = ({ darkMode }) => {
                 transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
                 style={{
                   position: 'absolute',
-                  fontSize: '10rem',
+                  fontSize: '8rem',
                   color: '#4caf50',
                   zIndex: 0,
                   userSelect: 'none'
@@ -205,8 +208,8 @@ const Services = ({ darkMode }) => {
               <motion.div
                 whileHover={{ scale: 1.2 }}
                 style={{
-                  fontSize: '3.5rem',
-                  marginBottom: '1.5rem',
+                  fontSize: '3rem',
+                  marginBottom: '1rem',
                   color: '#4caf50',
                   zIndex: 1,
                   textShadow: '0 4px 10px rgba(0,0,0,0.2)'
@@ -217,7 +220,7 @@ const Services = ({ darkMode }) => {
               
               <motion.h3 
                 style={{
-                  fontSize: '1.6rem',
+                  fontSize: '1.3rem',
                   fontWeight: 700,
                   margin: '0.5rem 0 1rem',
                   color: darkMode ? '#ffffff' : '#2e7d32',
@@ -229,10 +232,11 @@ const Services = ({ darkMode }) => {
               
               <motion.p 
                 style={{
-                  fontSize: '1.1rem',
-                  lineHeight: '1.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6',
                   color: darkMode ? '#cccccc' : '#555555',
-                  zIndex: 1
+                  zIndex: 1,
+                  padding: '0 0.5rem'
                 }}
               >
                 {service.desc}
@@ -244,8 +248,8 @@ const Services = ({ darkMode }) => {
                 whileHover={{ width: '80%' }}
                 style={{
                   position: 'absolute',
-                  bottom: '1.5rem',
-                  height: '3px',
+                  bottom: '1rem',
+                  height: '2px',
                   background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
                   borderRadius: '3px'
                 }}
@@ -261,23 +265,24 @@ const Services = ({ darkMode }) => {
           transition={{ delay: 0.8 }}
           style={{
             textAlign: 'center',
-            marginTop: '4rem',
-            padding: '2rem',
-            borderRadius: '20px',
+            marginTop: '3rem',
+            padding: '1.5rem',
+            borderRadius: '16px',
             background: darkMode 
               ? 'linear-gradient(145deg, #1a1a1a, #222)' 
               : 'linear-gradient(145deg, #ffffff, #f5f5f5)',
             boxShadow: darkMode 
-              ? '0 10px 30px -15px rgba(0,0,0,0.3)' 
-              : '0 10px 30px -15px rgba(0,0,0,0.1)',
-            border: `1px solid ${darkMode ? '#2e7d32' : '#e8f5e9'}`
+              ? '0 8px 20px -10px rgba(0,0,0,0.3)' 
+              : '0 8px 20px -10px rgba(0,0,0,0.1)',
+            border: `1px solid ${darkMode ? '#2e7d32' : '#e8f5e9'}`,
+            margin: '0 0.5rem'
           }}
         >
           <motion.h3 
             style={{
-              fontSize: '1.8rem',
+              fontSize: '1.5rem',
               fontWeight: 700,
-              marginBottom: '2rem',
+              marginBottom: '1.5rem',
               color: darkMode ? '#ffffff' : '#2e7d32'
             }}
           >
@@ -288,29 +293,27 @@ const Services = ({ darkMode }) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '1.5rem',
-            '@media (min-width: 768px)': {
-              flexDirection: 'row',
-              justifyContent: 'center'
-            }
+            gap: '1rem'
           }}>
             <motion.div
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              style={{ width: '100%', maxWidth: '300px' }}
             >
               <Link 
                 to="/funding" 
                 style={{
                   display: 'inline-block',
-                  padding: '1.2rem 3rem',
+                  width: '100%',
+                  padding: '1rem 1.5rem',
                   borderRadius: '50px',
                   background: 'linear-gradient(135deg, #1b5e20, #2e7d32)',
                   color: 'white',
                   textDecoration: 'none',
                   fontWeight: 600,
-                  fontSize: '1.1rem',
-                  boxShadow: '0 10px 20px rgba(27, 94, 32, 0.3)',
+                  fontSize: '1rem',
+                  boxShadow: '0 8px 15px rgba(27, 94, 32, 0.3)',
                   border: 'none',
                   cursor: 'pointer',
                   position: 'relative',
@@ -326,7 +329,7 @@ const Services = ({ darkMode }) => {
                   transition={{ delay: 0.3 }}
                   style={{
                     marginLeft: '0.5rem',
-                    fontSize: '1.2rem',
+                    fontSize: '1.1rem',
                     position: 'relative',
                     zIndex: 2
                   }}
@@ -340,8 +343,8 @@ const Services = ({ darkMode }) => {
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
-                    width: '10px',
-                    height: '10px',
+                    width: '8px',
+                    height: '8px',
                     background: 'rgba(255,255,255,0.2)',
                     borderRadius: '50%',
                     zIndex: 1
@@ -354,19 +357,21 @@ const Services = ({ darkMode }) => {
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              style={{ width: '100%', maxWidth: '300px' }}
             >
               <Link 
                 to="/contact" 
                 style={{
                   display: 'inline-block',
-                  padding: '1.2rem 3rem',
+                  width: '100%',
+                  padding: '1rem 1.5rem',
                   borderRadius: '50px',
                   background: darkMode ? '#333' : '#e8f5e9',
                   color: darkMode ? '#fff' : '#2e7d32',
                   textDecoration: 'none',
                   fontWeight: 600,
-                  fontSize: '1.1rem',
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+                  fontSize: '1rem',
+                  boxShadow: '0 5px 10px rgba(0,0,0,0.1)',
                   border: 'none',
                   cursor: 'pointer'
                 }}
@@ -379,20 +384,23 @@ const Services = ({ darkMode }) => {
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              style={{ width: '100%', maxWidth: '300px' }}
             >
               <Link 
                 to="/internship" 
                 style={{
                   display: 'inline-block',
-                  padding: '1.2rem 3rem',
+                  width: '100%',
+                  padding: '1rem 1.5rem',
                   borderRadius: '50px',
                   background: 'transparent',
                   color: darkMode ? '#4caf50' : '#2e7d32',
                   textDecoration: 'none',
                   fontWeight: 600,
-                  fontSize: '1.1rem',
-                  boxShadow: '0 0 0 2px inset',
-                  boxShadowColor: darkMode ? '#4caf50' : '#2e7d32',
+                  fontSize: '1rem',
+                  boxShadow: darkMode 
+                    ? '0 0 0 2px #4caf50 inset' 
+                    : '0 0 0 2px #2e7d32 inset',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease'
                 }}

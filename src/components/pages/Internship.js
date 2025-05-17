@@ -11,85 +11,80 @@ const Internship = ({ darkMode }) => {
   return (
     <div style={{
       backgroundColor: darkMode ? '#121212' : '#f8f9fa',
-      padding: '4rem 1rem',
+      padding: '2rem 1rem',
       color: darkMode ? '#ffffff' : '#333333'
     }}>
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 1rem'
+        padding: '0 0.5rem'
       }}>
         {/* Header Section */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <h2 style={{
-            fontSize: '1.2rem',
+            fontSize: '0.9rem',
             color: darkMode ? '#81c784' : primaryGreen,
             textTransform: 'uppercase',
-            letterSpacing: '2px',
-            marginBottom: '1rem'
+            letterSpacing: '1px',
+            marginBottom: '0.5rem'
           }}>Internship Program</h2>
           
           <h1 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontSize: 'clamp(1.5rem, 6vw, 2.5rem)',
             fontWeight: 700,
             margin: '0.5rem 0',
             background: `linear-gradient(90deg, ${darkGreen}, ${secondaryGreen})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            lineHeight: '1.3'
           }}>Launch Your Tech Career with Us</h1>
         </div>
 
         {/* Info Cards */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem',
-          marginBottom: '3rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '1.5rem',
+          marginBottom: '2rem'
         }}>
           {/* Contact Card */}
           <div 
             style={{
               background: darkMode ? '#1e1e1e' : '#ffffff',
-              padding: '2rem',
-              borderRadius: '12px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease',
-              ':hover': {
-                transform: 'translateY(-5px)'
-              }
+              padding: '1.5rem',
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s ease'
             }}
             data-aos="fade-right"
           >
             <h3 style={{
-              fontSize: '1.5rem',
+              fontSize: '1.2rem',
               fontWeight: 600,
               color: secondaryGreen,
-              margin: '0 0 1rem 0',
+              margin: '0 0 0.8rem 0',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
             }}>📞 Contact</h3>
             <p style={{
               color: darkMode ? '#cccccc' : '#666666',
-              margin: '0 0 1.5rem 0',
-              fontSize: '1.1rem'
+              margin: '0 0 1rem 0',
+              fontSize: '1rem'
             }}>+8801577148188</p>
             <Link 
               to="/contact" 
               style={{
                 display: 'inline-block',
-                padding: '0.8rem 1.5rem',
+                padding: '0.6rem 1.2rem',
                 borderRadius: '6px',
                 background: lightGreen,
                 color: primaryGreen,
                 textDecoration: 'none',
                 fontWeight: 600,
-                fontSize: '1rem',
-                transition: 'all 0.3s ease',
-                ':hover': {
-                  background: '#c8e6c9'
-                }
+                fontSize: '0.9rem',
+                transition: 'all 0.3s ease'
               }}
             >
               cyclicit@gmail.com
@@ -100,21 +95,18 @@ const Internship = ({ darkMode }) => {
           <div 
             style={{
               background: darkMode ? '#1e1e1e' : '#ffffff',
-              padding: '2rem',
-              borderRadius: '12px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease',
-              ':hover': {
-                transform: 'translateY(-5px)'
-              }
+              padding: '1.5rem',
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s ease'
             }}
             data-aos="fade-up"
           >
             <h3 style={{
-              fontSize: '1.5rem',
+              fontSize: '1.2rem',
               fontWeight: 600,
               color: secondaryGreen,
-              margin: '0 0 1rem 0',
+              margin: '0 0 0.8rem 0',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
@@ -130,11 +122,12 @@ const Internship = ({ darkMode }) => {
                 "Collaborative environment"
               ].map((item, index) => (
                 <li key={index} style={{
-                  padding: '0.5rem 0',
+                  padding: '0.4rem 0',
                   color: darkMode ? '#cccccc' : '#666666',
                   display: 'flex',
                   alignItems: 'flex-start',
-                  gap: '0.5rem'
+                  gap: '0.5rem',
+                  fontSize: '0.95rem'
                 }}>
                   <span style={{ color: secondaryGreen }}>✓</span> {item}
                 </li>
@@ -146,21 +139,18 @@ const Internship = ({ darkMode }) => {
           <div 
             style={{
               background: darkMode ? '#1e1e1e' : '#ffffff',
-              padding: '2rem',
-              borderRadius: '12px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease',
-              ':hover': {
-                transform: 'translateY(-5px)'
-              }
+              padding: '1.5rem',
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s ease'
             }}
             data-aos="fade-left"
           >
             <h3 style={{
-              fontSize: '1.5rem',
+              fontSize: '1.2rem',
               fontWeight: 600,
               color: secondaryGreen,
-              margin: '0 0 1rem 0',
+              margin: '0 0 0.8rem 0',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
@@ -176,11 +166,12 @@ const Internship = ({ darkMode }) => {
                 "Team growth strategies"
               ].map((item, index) => (
                 <li key={index} style={{
-                  padding: '0.5rem 0',
+                  padding: '0.4rem 0',
                   color: darkMode ? '#cccccc' : '#666666',
                   display: 'flex',
                   alignItems: 'flex-start',
-                  gap: '0.5rem'
+                  gap: '0.5rem',
+                  fontSize: '0.95rem'
                 }}>
                   <span style={{ color: secondaryGreen }}>✓</span> {item}
                 </li>
@@ -195,20 +186,15 @@ const Internship = ({ darkMode }) => {
             to="/contact" 
             style={{
               display: 'inline-block',
-              padding: '1rem 2.5rem',
+              padding: '0.8rem 2rem',
               borderRadius: '50px',
               background: `linear-gradient(90deg, ${darkGreen}, ${primaryGreen})`,
               color: 'white',
               textDecoration: 'none',
               fontWeight: 600,
-              fontSize: '1.1rem',
+              fontSize: '1rem',
               transition: 'all 0.3s ease',
-              boxShadow: '0 4px 15px rgba(46, 125, 50, 0.3)',
-              ':hover': {
-                transform: 'translateY(-3px)',
-                boxShadow: '0 6px 20px rgba(46, 125, 50, 0.4)',
-                background: `linear-gradient(90deg, ${primaryGreen}, ${secondaryGreen})`
-              }
+              boxShadow: '0 4px 12px rgba(46, 125, 50, 0.3)'
             }}
           >
             Apply Now

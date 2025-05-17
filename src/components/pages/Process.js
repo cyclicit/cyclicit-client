@@ -11,7 +11,7 @@ const Process = ({ darkMode }) => {
   return (
     <div style={{
       backgroundColor: darkMode ? '#121212' : '#f8f9fa',
-      padding: '4rem 1rem',
+      padding: '2rem 1rem',
       color: darkMode ? '#ffffff' : '#333333'
     }}>
       <div style={{
@@ -20,23 +20,24 @@ const Process = ({ darkMode }) => {
         padding: '0 1rem'
       }}>
         {/* Header Section */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <h2 style={{
-            fontSize: '1.2rem',
+            fontSize: '0.9rem',
             color: darkMode ? '#81c784' : primaryGreen,
             textTransform: 'uppercase',
-            letterSpacing: '2px',
-            marginBottom: '1rem'
+            letterSpacing: '1px',
+            marginBottom: '0.8rem'
           }}>Our Process</h2>
           
           <h1 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
             fontWeight: 700,
             margin: '0.5rem 0',
             background: `linear-gradient(90deg, ${darkGreen}, ${secondaryGreen})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            lineHeight: '1.3'
           }}>End-to-End Development Solutions</h1>
         </div>
 
@@ -44,8 +45,8 @@ const Process = ({ darkMode }) => {
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '2rem',
-          marginBottom: '3rem'
+          gap: '1.2rem',
+          marginBottom: '2rem'
         }}>
           {[
             { number: 1, title: "Discovery", desc: "Requirement analysis and planning" },
@@ -57,23 +58,20 @@ const Process = ({ darkMode }) => {
               key={index}
               style={{
                 display: 'flex',
-                gap: '1.5rem',
+                gap: '1rem',
                 alignItems: 'flex-start',
-                padding: '1.5rem',
-                borderRadius: '12px',
+                padding: '1.2rem',
+                borderRadius: '10px',
                 backgroundColor: darkMode ? '#1e1e1e' : '#ffffff',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                transition: 'transform 0.3s ease',
-                ':hover': {
-                  transform: 'translateY(-5px)'
-                }
+                boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                transition: 'transform 0.3s ease'
               }}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               <div style={{
-                width: '50px',
-                height: '50px',
+                width: '40px',
+                height: '40px',
                 borderRadius: '50%',
                 background: `linear-gradient(135deg, ${darkGreen}, ${secondaryGreen})`,
                 color: 'white',
@@ -81,22 +79,23 @@ const Process = ({ darkMode }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 'bold',
-                fontSize: '1.2rem',
+                fontSize: '1rem',
                 flexShrink: 0
               }}>
                 {step.number}
               </div>
               <div>
                 <h3 style={{
-                  fontSize: '1.3rem',
+                  fontSize: '1.1rem',
                   fontWeight: 600,
                   color: darkMode ? '#ffffff' : primaryGreen,
-                  margin: '0 0 0.5rem 0'
+                  margin: '0 0 0.3rem 0'
                 }}>{step.title}</h3>
                 <p style={{
                   color: darkMode ? '#cccccc' : '#666666',
                   margin: 0,
-                  lineHeight: 1.6
+                  lineHeight: 1.5,
+                  fontSize: '0.9rem'
                 }}>{step.desc}</p>
               </div>
             </div>
@@ -106,9 +105,9 @@ const Process = ({ darkMode }) => {
         {/* Features Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '1.5rem',
-          marginBottom: '3rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '1rem',
+          marginBottom: '2rem'
         }}>
           {[
             { icon: "🧩", title: "Modular Approach", desc: "Scalable component architecture" },
@@ -120,8 +119,8 @@ const Process = ({ darkMode }) => {
               style={{
                 background: `linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(76, 175, 80, 0.1))`,
                 border: `1px solid ${darkMode ? '#2d2d2d' : '#e0e0e0'}`,
-                borderRadius: '12px',
-                padding: '2rem',
+                borderRadius: '10px',
+                padding: '1.2rem',
                 textAlign: 'center',
                 transition: 'all 0.3s ease'
               }}
@@ -129,19 +128,20 @@ const Process = ({ darkMode }) => {
               data-aos-delay={index * 150 + 400}
             >
               <div style={{
-                fontSize: '2.5rem',
-                marginBottom: '1rem'
+                fontSize: '2rem',
+                marginBottom: '0.8rem'
               }}>{feature.icon}</div>
               <h4 style={{
-                fontSize: '1.3rem',
+                fontSize: '1.1rem',
                 fontWeight: 600,
                 color: darkMode ? '#ffffff' : primaryGreen,
-                margin: '0 0 0.5rem 0'
+                margin: '0 0 0.4rem 0'
               }}>{feature.title}</h4>
               <p style={{
                 color: darkMode ? '#cccccc' : '#666666',
                 margin: 0,
-                lineHeight: 1.6
+                lineHeight: 1.5,
+                fontSize: '0.85rem'
               }}>{feature.desc}</p>
             </div>
           ))}
@@ -153,20 +153,15 @@ const Process = ({ darkMode }) => {
             to="/contact" 
             style={{
               display: 'inline-block',
-              padding: '0.8rem 2.5rem',
+              padding: '0.7rem 2rem',
               borderRadius: '50px',
               background: `linear-gradient(90deg, ${darkGreen}, ${primaryGreen})`,
               color: 'white',
               textDecoration: 'none',
               fontWeight: 600,
-              fontSize: '1.1rem',
+              fontSize: '1rem',
               transition: 'all 0.3s ease',
-              boxShadow: '0 4px 15px rgba(46, 125, 50, 0.3)',
-              ':hover': {
-                transform: 'translateY(-3px)',
-                boxShadow: '0 6px 20px rgba(46, 125, 50, 0.4)',
-                background: `linear-gradient(90deg, ${primaryGreen}, ${secondaryGreen})`
-              }
+              boxShadow: '0 4px 10px rgba(46, 125, 50, 0.3)'
             }}
           >
             Start Your Project

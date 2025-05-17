@@ -84,7 +84,7 @@ const Home = ({ darkMode }) => {
           lineHeight: 1.2,
           maxWidth: '900px'
         }}>
-          Welcome to CycliciT
+          Welcome to Cyclic<span style={{ color: '#4caf50' }}>iT</span>
         </h1>
         
         <p style={{
@@ -95,7 +95,7 @@ const Home = ({ darkMode }) => {
           maxWidth: '600px',
           textShadow: '0 1px 5px rgba(0,0,0,0.2)'
         }}>
-          Where imagination meets execution
+          Where imagination meets execution 
         </p>
         
         <Link 

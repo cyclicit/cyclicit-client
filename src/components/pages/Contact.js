@@ -33,60 +33,61 @@ const Contact = ({ darkMode }) => {
   return (
     <div style={{
       backgroundColor: darkMode ? '#121212' : '#f8f9fa',
-      padding: '4rem 1rem',
+      padding: '2rem 1rem',
       color: darkMode ? '#ffffff' : '#333333'
     }}>
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 1rem'
+        padding: '0 0.5rem'
       }}>
         {/* Header Section */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <h2 style={{
-            fontSize: '1.2rem',
+            fontSize: '0.9rem',
             color: darkMode ? '#81c784' : primaryGreen,
             textTransform: 'uppercase',
-            letterSpacing: '2px',
-            marginBottom: '1rem'
+            letterSpacing: '1px',
+            marginBottom: '0.5rem'
           }}>Contact Us</h2>
           
           <h1 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
             fontWeight: 700,
             margin: '0.5rem 0',
             background: `linear-gradient(90deg, ${darkGreen}, ${secondaryGreen})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            lineHeight: '1.3'
           }}>Let's Build Something Amazing Together</h1>
         </div>
 
         {/* Contact Methods */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          marginBottom: '3rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '1.5rem',
+          marginBottom: '2rem'
         }}>
           <div style={{
             background: darkMode ? '#1e1e1e' : '#ffffff',
-            padding: '2rem',
-            borderRadius: '12px',
+            padding: '1.5rem',
+            borderRadius: '10px',
             textAlign: 'center',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             transition: 'transform 0.3s ease',
             ':hover': {
               transform: 'translateY(-5px)'
             }
           }} data-aos="fade-right">
             <div style={{
-              fontSize: '2.5rem',
-              marginBottom: '1rem',
+              fontSize: '2rem',
+              marginBottom: '0.8rem',
               color: secondaryGreen
             }}>📧</div>
             <h3 style={{
-              fontSize: '1.3rem',
+              fontSize: '1.1rem',
               fontWeight: 600,
               color: darkMode ? '#ffffff' : primaryGreen,
               margin: '0 0 0.5rem 0'
@@ -94,35 +95,37 @@ const Contact = ({ darkMode }) => {
             <p style={{
               color: darkMode ? '#cccccc' : '#666666',
               margin: 0,
-              wordBreak: 'break-word'
+              wordBreak: 'break-word',
+              fontSize: '0.9rem'
             }}>cyclicit@gmail.com</p>
           </div>
           
           <div style={{
             background: darkMode ? '#1e1e1e' : '#ffffff',
-            padding: '2rem',
-            borderRadius: '12px',
+            padding: '1.5rem',
+            borderRadius: '10px',
             textAlign: 'center',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             transition: 'transform 0.3s ease',
             ':hover': {
               transform: 'translateY(-5px)'
             }
           }} data-aos="fade-left">
             <div style={{
-              fontSize: '2.5rem',
-              marginBottom: '1rem',
+              fontSize: '2rem',
+              marginBottom: '0.8rem',
               color: secondaryGreen
             }}>📱</div>
             <h3 style={{
-              fontSize: '1.3rem',
+              fontSize: '1.1rem',
               fontWeight: 600,
               color: darkMode ? '#ffffff' : primaryGreen,
               margin: '0 0 0.5rem 0'
             }}>Phone</h3>
             <p style={{
               color: darkMode ? '#cccccc' : '#666666',
-              margin: 0
+              margin: 0,
+              fontSize: '0.9rem'
             }}>+8801577148188</p>
           </div>
         </div>
@@ -132,14 +135,14 @@ const Contact = ({ darkMode }) => {
           maxWidth: '600px',
           margin: '0 auto',
           background: darkMode ? '#1e1e1e' : '#ffffff',
-          padding: '2.5rem',
-          borderRadius: '16px',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.1)'
+          padding: '1.5rem',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
         }} data-aos="zoom-in">
           <form onSubmit={handleSubmit} style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '1.5rem'
+            gap: '1.2rem'
           }}>
             <div style={{ position: 'relative' }}>
               <input 
@@ -149,12 +152,12 @@ const Contact = ({ darkMode }) => {
                 required 
                 style={{
                   width: '100%',
-                  padding: '1rem 0 0.5rem 0',
+                  padding: '0.8rem 0 0.4rem 0',
                   border: 'none',
                   borderBottom: `2px solid ${darkMode ? '#333' : '#e0e0e0'}`,
                   background: 'transparent',
                   color: darkMode ? '#ffffff' : '#333333',
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   transition: 'all 0.3s ease',
                   ':focus': {
                     outline: 'none',
@@ -164,11 +167,12 @@ const Contact = ({ darkMode }) => {
               />
               <label htmlFor="name" style={{
                 position: 'absolute',
-                top: '1rem',
+                top: '0.8rem',
                 left: 0,
                 color: darkMode ? '#999' : '#666',
                 transition: 'all 0.3s ease',
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                fontSize: '0.9rem'
               }}>Full Name</label>
             </div>
             
@@ -180,12 +184,12 @@ const Contact = ({ darkMode }) => {
                 required 
                 style={{
                   width: '100%',
-                  padding: '1rem 0 0.5rem 0',
+                  padding: '0.8rem 0 0.4rem 0',
                   border: 'none',
                   borderBottom: `2px solid ${darkMode ? '#333' : '#e0e0e0'}`,
                   background: 'transparent',
                   color: darkMode ? '#ffffff' : '#333333',
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   transition: 'all 0.3s ease',
                   ':focus': {
                     outline: 'none',
@@ -195,11 +199,12 @@ const Contact = ({ darkMode }) => {
               />
               <label htmlFor="email" style={{
                 position: 'absolute',
-                top: '1rem',
+                top: '0.8rem',
                 left: 0,
                 color: darkMode ? '#999' : '#666',
                 transition: 'all 0.3s ease',
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                fontSize: '0.9rem'
               }}>Email Address</label>
             </div>
             
@@ -211,14 +216,14 @@ const Contact = ({ darkMode }) => {
                 rows="4"
                 style={{
                   width: '100%',
-                  padding: '1rem 0 0.5rem 0',
+                  padding: '0.8rem 0 0.4rem 0',
                   border: 'none',
                   borderBottom: `2px solid ${darkMode ? '#333' : '#e0e0e0'}`,
                   background: 'transparent',
                   color: darkMode ? '#ffffff' : '#333333',
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   resize: 'vertical',
-                  minHeight: '100px',
+                  minHeight: '80px',
                   transition: 'all 0.3s ease',
                   ':focus': {
                     outline: 'none',
@@ -228,11 +233,12 @@ const Contact = ({ darkMode }) => {
               ></textarea>
               <label htmlFor="message" style={{
                 position: 'absolute',
-                top: '1rem',
+                top: '0.8rem',
                 left: 0,
                 color: darkMode ? '#999' : '#666',
                 transition: 'all 0.3s ease',
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                fontSize: '0.9rem'
               }}>Your Message</label>
             </div>
             
@@ -241,16 +247,16 @@ const Contact = ({ darkMode }) => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.5rem',
-              padding: '1rem 2rem',
+              padding: '0.8rem 1.5rem',
               borderRadius: '50px',
               background: `linear-gradient(90deg, ${darkGreen}, ${primaryGreen})`,
               color: 'white',
               border: 'none',
               fontWeight: 600,
-              fontSize: '1rem',
+              fontSize: '0.95rem',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              marginTop: '1rem',
+              marginTop: '0.5rem',
               ':hover': {
                 background: `linear-gradient(90deg, ${primaryGreen}, ${secondaryGreen})`,
                 transform: 'translateY(-3px)',
@@ -259,8 +265,8 @@ const Contact = ({ darkMode }) => {
             }}>
               <span>Send Message</span>
               <div style={{
-                width: '20px',
-                height: '20px',
+                width: '18px',
+                height: '18px',
                 position: 'relative',
                 transition: 'transform 0.3s ease'
               }}>
@@ -268,7 +274,7 @@ const Contact = ({ darkMode }) => {
                   position: 'absolute',
                   top: '50%',
                   left: '50%',
-                  width: '10px',
+                  width: '8px',
                   height: '2px',
                   background: 'white',
                   transform: 'translate(-50%, -50%)'
@@ -277,8 +283,8 @@ const Contact = ({ darkMode }) => {
                   position: 'absolute',
                   top: '50%',
                   left: '50%',
-                  width: '6px',
-                  height: '6px',
+                  width: '5px',
+                  height: '5px',
                   borderRight: '2px solid white',
                   borderTop: '2px solid white',
                   transform: 'translate(-30%, -50%) rotate(45deg)'

@@ -39,7 +39,7 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
           display: 'flex',
           alignItems: 'center'
         }}>
-          Cyclici<span style={{ color: '#4caf50' }}>T</span>
+          Cyclic<span style={{ color: '#4caf50' }}>iT</span>
         </h1>
         <p style={{
           fontSize: '0.9rem',
@@ -47,7 +47,7 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
           margin: '0.5rem 0 0 0',
           fontStyle: 'italic'
         }}>
-          where imagination meets execution
+        Where  <span style={{ color: '#4caf50' }}>imagination</span> meets <span style={{ color: '#4caf50' }}>execution </span>
         </p>
       </div>
       
@@ -105,8 +105,8 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
         {[
           { path: '/', label: 'Home' },
           { path: '/services', label: 'Services' },
-          { path: '/solutions', label: 'Solutions' },
-          { path: '/process', label: 'Process' },
+          { path: '/solutions', label: 'Deals' },
+          { path: '/process', label: 'E2E' },
           { path: '/funding', label: 'Funding' },
           { path: '/internship', label: 'Internship' },
           { path: '/contact', label: 'Contact' }
