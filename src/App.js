@@ -25,7 +25,7 @@ function ScrollToTop() {
 function MouseEffects() {
   const canvasRef = useRef(null);
   const particles = useRef([]);
-  const mousePos = useRef({ x: -100, y: -100 }); // Start off-screen
+  const mousePos = useRef({ x: -100, y: -100 });
   const animationFrameId = useRef(null);
   const isTouchDevice = useRef(false);
 
@@ -48,46 +48,48 @@ function MouseEffects() {
     // Handle mouse movement
     const handleMouseMove = (e) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
-      createParticles(e.clientX, e.clientY);
+      // Create fewer particles on mouse move
+      if (Math.random() > 0.7) {
+        createParticles(e.clientX, e.clientY);
+      }
     };
 
-    // For touch devices, only create effects on touch start, not during movement
+    // For touch devices
     const handleTouchStart = (e) => {
       const touch = e.touches[0];
       mousePos.current = { x: touch.clientX, y: touch.clientY };
       createParticles(touch.clientX, touch.clientY);
     };
 
-    // Create particles at position
+    // Minimal particle creation
     const createParticles = (x, y) => {
-      for (let i = 0; i < 3; i++) {
-        particles.current.push({
-          x,
-          y,
-          size: Math.random() * 5 + 2,
-          color: `rgba(0, 255, 100, ${Math.random() * 0.5 + 0.3})`,
-          speedX: Math.random() * 4 - 2,
-          speedY: Math.random() * 4 - 2,
-          life: 100
-        });
-      }
+      // Create just 1 particle at a time
+      particles.current.push({
+        x,
+        y,
+        size: Math.random() * 3 + 1, // Smaller size
+        color: `rgba(100, 255, 150, ${Math.random() * 0.3 + 0.2})`, // More subtle color
+        speedX: Math.random() * 2 - 1, // Slower movement
+        speedY: Math.random() * 2 - 1,
+        life: 50 // Shorter lifespan
+      });
     };
 
-    // Animation loop
+    // Simplified animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Only show glow if not on touch device or if recently touched
-      if (!isTouchDevice.current || particles.current.length > 0) {
+      // Very subtle glow only on desktop
+      if (!isTouchDevice.current) {
         const gradient = ctx.createRadialGradient(
           mousePos.current.x, mousePos.current.y, 0,
-          mousePos.current.x, mousePos.current.y, 50
+          mousePos.current.x, mousePos.current.y, 30
         );
-        gradient.addColorStop(0, 'rgba(0, 255, 100, 0.3)');
-        gradient.addColorStop(1, 'rgba(0, 255, 100, 0)');
+        gradient.addColorStop(0, 'rgba(100, 255, 150, 0.1)');
+        gradient.addColorStop(1, 'rgba(100, 255, 150, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(mousePos.current.x, mousePos.current.y, 50, 0, Math.PI * 2);
+        ctx.arc(mousePos.current.x, mousePos.current.y, 30, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -100,17 +102,15 @@ function MouseEffects() {
 
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * (p.life / 100), 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size * (p.life / 50), 0, Math.PI * 2);
         ctx.fill();
 
-        // Remove dead particles
         if (p.life <= 0) {
           particles.current.splice(i, 1);
           i--;
         }
       }
 
-      // Reset mouse position if it's a touch device (to hide the glow while scrolling)
       if (isTouchDevice.current && particles.current.length === 0) {
         mousePos.current = { x: -100, y: -100 };
       }
@@ -118,11 +118,12 @@ function MouseEffects() {
       animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    // Start animation
     animate();
 
     // Event listeners
-    window.addEventListener('mousemove', handleMouseMove);
+    if (!isTouchDevice.current) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
     window.addEventListener('touchstart', handleTouchStart);
 
     return () => {
