@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -22,6 +22,122 @@ function ScrollToTop() {
   return null;
 }
 
+function MouseEffects() {
+  const canvasRef = useRef(null);
+  const particles = useRef([]);
+  const mousePos = useRef({ x: 0, y: 0 });
+  const animationFrameId = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Handle mouse movement
+    const handleMouseMove = (e) => {
+      mousePos.current = { x: e.clientX, y: e.clientY };
+      createParticles(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      mousePos.current = { x: touch.clientX, y: touch.clientY };
+      createParticles(touch.clientX, touch.clientY);
+    };
+
+    // Create particles at mouse position
+    const createParticles = (x, y) => {
+      for (let i = 0; i < 3; i++) {
+        particles.current.push({
+          x,
+          y,
+          size: Math.random() * 5 + 2,
+          color: `rgba(0, 255, 100, ${Math.random() * 0.5 + 0.3})`,
+          speedX: Math.random() * 4 - 2,
+          speedY: Math.random() * 4 - 2,
+          life: 100
+        });
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw a subtle glow at mouse position
+      const gradient = ctx.createRadialGradient(
+        mousePos.current.x, mousePos.current.y, 0,
+        mousePos.current.x, mousePos.current.y, 50
+      );
+      gradient.addColorStop(0, 'rgba(0, 255, 100, 0.3)');
+      gradient.addColorStop(1, 'rgba(0, 255, 100, 0)');
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(mousePos.current.x, mousePos.current.y, 50, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Update and draw particles
+      for (let i = 0; i < particles.current.length; i++) {
+        const p = particles.current[i];
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.life--;
+
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * (p.life / 100), 0, Math.PI * 2);
+        ctx.fill();
+
+        // Remove dead particles
+        if (p.life <= 0) {
+          particles.current.splice(i, 1);
+          i--;
+        }
+      }
+
+      animationFrameId.current = requestAnimationFrame(animate);
+    };
+
+    // Start animation
+    animate();
+
+    // Event listeners
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId.current);
+    };
+  }, []);
+
+  return (
+    <canvas 
+      ref={canvasRef} 
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        zIndex: 9999
+      }}
+    />
+  );
+}
+
 function App() {
   // Set darkMode to true by default
   const [darkMode, setDarkMode] = useState(true);
@@ -32,17 +148,10 @@ function App() {
       once: false,
       mirror: true
     });
-    
-    // Override system preference and always start with dark mode
-    // (commented out the system preference check)
-    // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    //   setDarkMode(true);
-    // }
   }, []);
 
   useEffect(() => {
     document.body.className = darkMode ? 'dark-mode' : 'light-mode';
-    // Optionally store the preference in localStorage
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
@@ -53,6 +162,9 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {/* Add the MouseEffects component */}
+        <MouseEffects />
+        
         <AppLayout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
           <ScrollToTop />
           <Routes>

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import backgroundVideo from '../../assets/3209829-uhd_3840_2160_25fps.mp4';
-import posterImage from '../../assets/Screenshot 2025-05-17 024832.png';
+import backgroundVideo from '../../assets/6169096-uhd_3840_2160_25fps.mp4';
+import posterImage from '../../assets/Screenshot 2025-05-17 235935.png';
 import { motion } from 'framer-motion';
 const Home = ({ darkMode }) => {
   const videoRef = useRef(null);
