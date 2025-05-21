@@ -15,6 +15,10 @@
   --border-radius: 8px;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+
+  max-width: 2560px; /* or your preferred maximum */
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Dark Mode Variables */
@@ -1026,9 +1030,10 @@ body {
 }
 
 /* Desktop styles */
-@media (min-width: 769px) {
+@media (min-width: 1600px) {
   .main-content {
     margin-left: 250px !important;
+     padding: 0 10%;
   }
 }
 
