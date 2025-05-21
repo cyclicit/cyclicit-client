@@ -12,6 +12,13 @@ const Services = ({ darkMode }) => {
     { icon: '🖥️', title: 'Hosting Options', desc: 'Flexible VPS solutions for all needs' }
   ];
 
+  const serviceTypes = [
+    { icon: '🌐', title: 'Web Applications', desc: 'Interactive, database-driven applications accessible through browsers' },
+    { icon: '🖥️', title: 'Websites', desc: 'Beautiful, responsive websites that represent your brand / e-commerce' },
+    { icon: '📱', title: 'Mobile Apps', desc: 'iOS and Android apps built with native or cross-platform technologies' },
+    { icon: '💻', title: 'Custom Software', desc: 'Tailored solutions for your specific business needs' }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -58,9 +65,6 @@ const Services = ({ darkMode }) => {
   };
 
   return (
-
-    
-    
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -71,15 +75,14 @@ const Services = ({ darkMode }) => {
         padding: '1rem 0.5rem'
       }}
     >
-      
-
-
       <div style={{
         maxWidth: '1400px',
         margin: '0 auto',
         padding: '1rem 0.5rem'
       }}>
-        {/* Animated Header */}
+        
+
+        {/* Existing Animated Header */}
         <motion.div 
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -105,15 +108,7 @@ const Services = ({ darkMode }) => {
             }}
           />
           
-          <h2 style={{
-            fontSize: '0.9rem',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            marginBottom: '1rem',
-            color: darkMode ? '#81c784' : '#2e7d32'
-          }}>
-            Our Premium Services
-          </h2>
+         
           
           <motion.h1
             initial={{ opacity: 0 }}
@@ -150,11 +145,138 @@ const Services = ({ darkMode }) => {
               fontWeight: 600,
               textDecoration: 'underline',
               textUnderlineOffset: '4px'
-            }}>CycliciT Innovation</span>
+            }}>CycliciT</span>
           </motion.p>
         </motion.div>
 
-        {/* Floating 3D Grid */}
+
+        {/* New Service Types Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          style={{ marginBottom: '3rem' }}
+        >
+          <motion.h2 
+            style={{
+              textAlign: 'center',
+              fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
+              fontWeight: 700,
+              marginBottom: '1.5rem',
+              color: darkMode ? '#81c784' : '#2e7d32',
+              padding: '0 0.5rem'
+            }}
+          >
+            Our Core Development Services
+          </motion.h2>
+          
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1.5rem',
+              perspective: '1000px',
+              padding: '0 0.5rem'
+            }}
+          >
+            {serviceTypes.map((service, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover="hover"
+                style={{
+                  background: darkMode 
+                    ? 'linear-gradient(145deg, #1a1a1a, #222)' 
+                    : 'linear-gradient(145deg, #ffffff, #f5f5f5)',
+                  borderRadius: '12px',
+                  padding: '1.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  color: darkMode ? '#ffffff' : '#333333',
+                  boxShadow: darkMode 
+                    ? '0 8px 20px -10px rgba(0,0,0,0.3)' 
+                    : '0 8px 20px -10px rgba(0,0,0,0.1)',
+                  border: `1px solid ${darkMode ? '#2e7d32' : '#e8f5e9'}`,
+                  transformStyle: 'preserve-3d',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  minHeight: '180px'
+                }}
+              >
+                <motion.div
+                  style={{
+                    fontSize: '2.5rem',
+                    marginBottom: '1rem',
+                    color: '#4caf50'
+                  }}
+                >
+                  {service.icon}
+                </motion.div>
+                
+                <motion.h3 
+                  style={{
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    marginBottom: '0.5rem',
+                    color: darkMode ? '#ffffff' : '#2e7d32'
+                  }}
+                >
+                  {service.title}
+                </motion.h3>
+                
+                <motion.p 
+                  style={{
+                    fontSize: '0.95rem',
+                    lineHeight: '1.5',
+                    color: darkMode ? '#cccccc' : '#555555'
+                  }}
+                >
+                  {service.desc}
+                </motion.p>
+
+                {/* Floating icon background */}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0.1 }}
+                animate={{ scale: 1, opacity: 0.05 }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
+                style={{
+                  position: 'absolute',
+                  fontSize: '8rem',
+                  color: '#4caf50',
+                  zIndex: 0,
+                  userSelect: 'none'
+                }}
+              >
+                {service.icon}
+              </motion.div>
+
+                
+
+
+
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+<h2 style={{
+            fontSize: '0.9rem',
+            textAlign: 'center',
+            letterSpacing: '2px',
+            textTransform: 'uppercase',
+            marginBottom: '1rem',
+            color: darkMode ? '#81c784' : '#2e7d32'
+          }}>
+            Our Premium Services
+          </h2>
+
+
+       
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -167,7 +289,13 @@ const Services = ({ darkMode }) => {
             perspective: '1000px',
             padding: '0 0.5rem'
           }}
-        >
+
+          
+        >  
+         
+
+
+
           {services.map((service, index) => (
             <motion.div
               key={index}
