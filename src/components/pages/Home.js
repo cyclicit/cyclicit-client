@@ -105,27 +105,19 @@ const Home = ({ darkMode }) => {
           
         </p>
 
-        <h2 style={{
-  whiteSpace: 'nowrap',
-  overflowX: 'auto',
-  fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-  fontWeight: 400,
-  margin: '0 0 1rem',
-  color: 'rgba(255,255,255,0.9)',
-  textShadow: '0 2px 5px rgba(0,0,0,0.2)',
-  maxWidth: '100%',
-  paddingBottom: '5px', // Space for scrollbar if needed
-  scrollbarWidth: 'none', // Hide scrollbar in Firefox
-  msOverflowStyle: 'none', // Hide scrollbar in IE
-  '&::-webkit-scrollbar': { // Hide scrollbar in WebKit
-    display: 'none'
-  }
-}}>
- 
-  <span style={{ marginRight: '0.5rem' }}>🌐Websites</span>
-  <span style={{ marginRight: '1rem' }}>📱Mobile App</span>
-  <span>💻Custom Software</span>
-</h2>
+       
+
+<p style={{
+          fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+          color: 'rgba(255,255,255,0.9)',
+          margin: '0 0 3rem',
+          fontWeight: 300,
+          maxWidth: '600px',
+          textShadow: '0 1px 5px rgba(0,0,0,0.2)'
+        }}>
+         
+          🌐Websites 📱Mobile App 💻Custom Software
+        </p>
 
 
  
