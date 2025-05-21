@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import backgroundVideo from '../../assets/6169096-uhd_3840_2160_25fps.mp4';
-import posterImage from '../../assets/Screenshot 2025-05-17 235935.png';
+import posterImage from '../../assets/Screenshot 2025-05-22 025742.png';
 import { motion } from 'framer-motion';
 const Home = ({ darkMode }) => {
   const videoRef = useRef(null);
@@ -88,6 +88,8 @@ const Home = ({ darkMode }) => {
         }}>
           Welcome to Cyclic<span style={{ color: '#4caf50' }}>iT</span>
         </h1>
+
+       
        
 
         
@@ -102,7 +104,33 @@ const Home = ({ darkMode }) => {
           Where imagination meets execution 
           
         </p>
-          
+
+        <h2 style={{
+  whiteSpace: 'nowrap',
+  overflowX: 'auto',
+  fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+  fontWeight: 400,
+  margin: '0 0 1rem',
+  color: 'rgba(255,255,255,0.9)',
+  textShadow: '0 2px 5px rgba(0,0,0,0.2)',
+  maxWidth: '100%',
+  paddingBottom: '5px', // Space for scrollbar if needed
+  scrollbarWidth: 'none', // Hide scrollbar in Firefox
+  msOverflowStyle: 'none', // Hide scrollbar in IE
+  '&::-webkit-scrollbar': { // Hide scrollbar in WebKit
+    display: 'none'
+  }
+}}>
+ 
+  <span style={{ marginRight: '0.5rem' }}>🌐Websites</span>
+  <span style={{ marginRight: '1rem' }}>📱Mobile App</span>
+  <span>💻Custom Software</span>
+</h2>
+
+
+ 
+
+        
            <Link 
           to="/services" 
           style={{
