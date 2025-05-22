@@ -59,13 +59,23 @@ const AppLayout = ({ children, darkMode, toggleDarkMode }) => {
         width: '100%'
       }}>
         {/* Sidebar Navigation */}
-        <Sidebar 
+       <div className='sidebar-container' style={{
+         
+          width: menuOpen && isMobile ? '50px' : '0',
+          height: '100vh',
+          overflowX: 'hidden',
+          transition: 'width 0.3s ease',
+          zIndex: 1000,
+          backgroundColor: darkMode ? '#121212' : '#f8f9fa'
+          }}>
+         <Sidebar 
           menuOpen={menuOpen} 
           darkMode={darkMode} 
           toggleDarkMode={toggleDarkMode}
           setMenuOpen={setMenuOpen}
           isMobile={isMobile}
         />
+       </div>
         
         {/* Main Content Area */}
 <div 
