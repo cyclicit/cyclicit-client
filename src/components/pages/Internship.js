@@ -40,23 +40,7 @@ const Internship = ({ darkMode }) => {
     }
   ];
 
-  // Testimonials
-  const testimonials = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      role: "Former Intern, now Frontend Developer",
-      quote: "The internship gave me real-world experience that was invaluable for my career. I worked on production code from day one!",
-      avatar: "👩‍💻"
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      role: "Former Intern, now Software Engineer",
-      quote: "The mentorship I received helped me grow faster than I thought possible. I still use the skills I learned daily.",
-      avatar: "👨‍💻"
-    }
-  ];
+  
 
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
@@ -205,6 +189,125 @@ const Internship = ({ darkMode }) => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+
+        {/* Program Details */}
+        <div style={{
+          background: darkMode ? '#1e1e1e' : '#ffffff',
+          borderRadius: '10px',
+          padding: '2rem',
+          marginBottom: '3rem',
+          boxShadow: '0 4px 8px rgba(0,0,0,0.08)'
+        }}>
+          <h2 style={{
+            fontSize: '1.5rem',
+            fontWeight: 600,
+            color: darkMode ? '#ffffff' : '#333333',
+            marginBottom: '1.5rem',
+            textAlign: 'center'
+          }}>
+            Program Details
+          </h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '2rem'
+          }}>
+            <div>
+              <h3 style={{
+                color: secondaryGreen,
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}>
+                <span>📅</span> Duration & Structure
+              </h3>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                color: darkMode ? '#cccccc' : '#555555'
+              }}>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Duration:</strong> 3-6 months
+                </li>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Hours:</strong> 20-40 hours/week
+                </li>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Format:</strong> Remote or Hybrid
+                </li>
+                <li style={{ padding: '0.5rem 0' }}>
+                  <strong>Start Dates:</strong> Quarterly intakes
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style={{
+                color: secondaryGreen,
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}>
+                <span>🎯</span> What We Look For
+              </h3>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                color: darkMode ? '#cccccc' : '#555555'
+              }}>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Basic programming knowledge</strong> in your track
+                </li>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Eagerness to learn</strong> and grow
+                </li>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Problem-solving mindset</strong>
+                </li>
+                <li style={{ padding: '0.5rem 0' }}>
+                  <strong>Team collaboration</strong> skills
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style={{
+                color: secondaryGreen,
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}>
+                <span>🏆</span> Benefits
+              </h3>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                color: darkMode ? '#cccccc' : '#555555'
+              }}>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Certificate</strong> upon completion
+                </li>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Letter of recommendation</strong> for top performers
+                </li>
+                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
+                  <strong>Potential job offer</strong> for exceptional interns
+                </li>
+                <li style={{ padding: '0.5rem 0' }}>
+                  <strong>Networking</strong> with industry professionals
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -378,123 +481,7 @@ const Internship = ({ darkMode }) => {
 
        
 
-        {/* Program Details */}
-        <div style={{
-          background: darkMode ? '#1e1e1e' : '#ffffff',
-          borderRadius: '10px',
-          padding: '2rem',
-          marginBottom: '3rem',
-          boxShadow: '0 4px 8px rgba(0,0,0,0.08)'
-        }}>
-          <h2 style={{
-            fontSize: '1.5rem',
-            fontWeight: 600,
-            color: darkMode ? '#ffffff' : '#333333',
-            marginBottom: '1.5rem',
-            textAlign: 'center'
-          }}>
-            Program Details
-          </h2>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem'
-          }}>
-            <div>
-              <h3 style={{
-                color: secondaryGreen,
-                marginBottom: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                <span>📅</span> Duration & Structure
-              </h3>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                color: darkMode ? '#cccccc' : '#555555'
-              }}>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Duration:</strong> 3-6 months
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Hours:</strong> 20-40 hours/week
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Format:</strong> Remote or Hybrid
-                </li>
-                <li style={{ padding: '0.5rem 0' }}>
-                  <strong>Start Dates:</strong> Quarterly intakes
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 style={{
-                color: secondaryGreen,
-                marginBottom: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                <span>🎯</span> What We Look For
-              </h3>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                color: darkMode ? '#cccccc' : '#555555'
-              }}>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Basic programming knowledge</strong> in your track
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Eagerness to learn</strong> and grow
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Problem-solving mindset</strong>
-                </li>
-                <li style={{ padding: '0.5rem 0' }}>
-                  <strong>Team collaboration</strong> skills
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 style={{
-                color: secondaryGreen,
-                marginBottom: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                <span>🏆</span> Benefits
-              </h3>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                color: darkMode ? '#cccccc' : '#555555'
-              }}>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Certificate</strong> upon completion
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Letter of recommendation</strong> for top performers
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Potential job offer</strong> for exceptional interns
-                </li>
-                <li style={{ padding: '0.5rem 0' }}>
-                  <strong>Networking</strong> with industry professionals
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
 
         {/* CTA Section */}
         <div style={{

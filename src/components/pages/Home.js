@@ -77,129 +77,8 @@ const Home = ({ darkMode }) => {
         padding: '2rem',
         boxSizing: 'border-box'
       }}>
-        <h1 style={{
-          fontSize: 'clamp(2.5rem, 7vw, 5rem)',
-          fontWeight: 800,
-          margin: '0 0 1rem',
-          color: 'white',
-          textShadow: '0 2px 10px rgba(0,0,0,0.3)',
-          lineHeight: 1.2,
-          maxWidth: '900px'
-        }}>
-          Welcome to Cyclic<span style={{ color: '#4caf50' }}>iT</span>
-        </h1>
 
-       
-       
-
-        
-        <p style={{
-          fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-          color: 'rgba(255,255,255,0.9)',
-          margin: '0 0 3rem',
-          fontWeight: 300,
-          maxWidth: '600px',
-          textShadow: '0 1px 5px rgba(0,0,0,0.2)'
-        }}>
-          Where imagination meets execution 
-          
-        </p>
-
-       
-
-<p style={{
-  fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-  color: 'rgba(255,255,255,0.9)',
-  margin: '0 0 3rem',
-  fontWeight: 300,
-  maxWidth: '800px',
-  textShadow: '0 1px 5px rgba(0,0,0,0.2)'
-}}>
-  <span style={{whiteSpace: 'nowrap'}}>🌐Websites</span>{' '}
-  <span style={{whiteSpace: 'nowrap'}}>📱Mobile App</span>{' '}
-  <span style={{whiteSpace: 'nowrap'}}>💻Custom Software</span>
-</p>
-
-
-
-<div style={{
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '1.5rem',
-  padding: '1rem',
-  maxWidth: '500px',
-  margin: '0 auto'
-}}>
-  <Link 
-    to="/services" 
-    style={{
-      display: 'inline-block',
-      padding: '1rem 3rem',
-      borderRadius: '50px',
-      background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
-      color: 'white',
-      textDecoration: 'none',
-      fontWeight: 600,
-      fontSize: '1.1rem',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 4px 20px rgba(46, 125, 50, 0.5)',
-      border: 'none',
-      cursor: 'pointer',
-      textAlign: 'center',
-      width: '100%',
-      ':hover': {
-        transform: 'translateY(-3px)',
-        boxShadow: '0 6px 25px rgba(46, 125, 50, 0.7)',
-        background: 'linear-gradient(90deg, #1b5e20, #2e7d32)'
-      },
-      '@media (max-width: 768px)': {
-        padding: '0.8rem 2rem',
-        fontSize: '1rem'
-      }
-    }}
-  >
-    Explore Our Services
-  </Link>
-  
-  <Link 
-    to="/funding" 
-    style={{
-      display: 'inline-block',
-      padding: '1rem 3rem',
-      borderRadius: '50px',
-      background: 'linear-gradient(90deg, #1565c0, #1976d2)',
-      color: 'white',
-      textDecoration: 'none',
-      fontWeight: 600,
-      fontSize: '1.1rem',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 4px 20px rgba(21, 101, 192, 0.5)',
-      border: 'none',
-      cursor: 'pointer',
-      textAlign: 'center',
-      width: '100%',
-      ':hover': {
-        transform: 'translateY(-3px)',
-        boxShadow: '0 6px 25px rgba(21, 101, 192, 0.7)',
-        background: 'linear-gradient(90deg, #0d47a1, #1565c0)'
-      },
-      '@media (max-width: 768px)': {
-        padding: '0.8rem 2rem',
-        fontSize: '1rem'
-      }
-    }}
-  >
-    Get Funding
-  </Link>
-</div>
- 
-
-        
-          
-
-        {/* Floating Tech Elements */}
-<motion.div 
+        <motion.div 
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ delay: 0.5 }}
@@ -207,7 +86,7 @@ const Home = ({ darkMode }) => {
   style={{
     position: 'relative',
     width: '100%',
-    height: '300px',
+    height: '100%',
     margin: '3rem auto',
     overflow: ''
   }}
@@ -217,8 +96,8 @@ const Home = ({ darkMode }) => {
     className="floating-element el1"
     initial={{ y: 0, x: 0 }}
     animate={{ 
-      y: [0, -15, 0, -10, 0],
-      x: [0, 10, -5, 5, 0]
+      y: [0, -35, 0, -20, 0],
+      x: [0, 20, -10, 10, 0]
     }}
     transition={{ 
       duration: 12,
@@ -229,8 +108,8 @@ const Home = ({ darkMode }) => {
       position: 'absolute',
       width: '120px',
       height: '120px',
-      top: '10%',
-      left: '5%',
+      top: '60%',
+      left: '45%',
       fontSize: '1.1rem',
       background: darkMode ? 'rgba(76, 175, 80, 0.15)' : 'rgba(46, 125, 50, 0.15)',
       color: darkMode ? '#81c784' : '#2e7d32',
@@ -396,6 +275,134 @@ const Home = ({ darkMode }) => {
 
 
 </motion.div>
+
+
+
+
+        <h1 style={{
+          fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+          fontWeight: 800,
+          margin: '0 0 1rem',
+          color: 'white',
+          textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+          lineHeight: 1.2,
+          maxWidth: '900px'
+        }}>
+          Welcome to Cyclic<span style={{ color: '#4caf50' }}>iT</span>
+        </h1>
+
+       
+       
+
+        
+        <p style={{
+          fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+          color: 'rgba(255,255,255,0.9)',
+          margin: '0 0 3rem',
+          fontWeight: 300,
+          maxWidth: '600px',
+          textShadow: '0 1px 5px rgba(0,0,0,0.2)'
+        }}>
+          Where imagination meets execution 
+          
+        </p>
+
+       
+
+<p style={{
+  fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+  color: 'rgba(255,255,255,0.9)',
+  margin: '0 0 3rem',
+  fontWeight: 300,
+  maxWidth: '800px',
+  textShadow: '0 1px 5px rgba(0,0,0,0.2)'
+}}>
+  <span style={{whiteSpace: 'nowrap'}}>🌐Websites</span>{' '}
+  <span style={{whiteSpace: 'nowrap'}}>📱Mobile App</span>{' '}
+  <span style={{whiteSpace: 'nowrap'}}>💻Custom Software</span>
+</p>
+
+
+
+
+
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '1.5rem',
+  padding: '1rem',
+  maxWidth: '500px',
+  margin: '0 auto'
+}}>
+  <Link 
+    to="/services" 
+    style={{
+      display: 'inline-block',
+      padding: '1rem 3rem',
+      borderRadius: '50px',
+      background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
+      color: 'white',
+      textDecoration: 'none',
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 20px rgba(46, 125, 50, 0.5)',
+      border: 'none',
+      cursor: 'pointer',
+      textAlign: 'center',
+      width: '100%',
+      ':hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: '0 6px 25px rgba(46, 125, 50, 0.7)',
+        background: 'linear-gradient(90deg, #1b5e20, #2e7d32)'
+      },
+      '@media (max-width: 768px)': {
+        padding: '0.8rem 2rem',
+        fontSize: '1rem'
+      }
+    }}
+  >
+    Explore Our Services
+  </Link>
+  
+  <Link 
+    to="/funding" 
+    style={{
+      display: 'inline-block',
+      padding: '1rem 3rem',
+      borderRadius: '50px',
+      background: 'linear-gradient(90deg, #1565c0, #1976d2)',
+      color: 'white',
+      textDecoration: 'none',
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 20px rgba(21, 101, 192, 0.5)',
+      border: 'none',
+      cursor: 'pointer',
+      textAlign: 'center',
+      width: '100%',
+      ':hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: '0 6px 25px rgba(21, 101, 192, 0.7)',
+        background: 'linear-gradient(90deg, #0d47a1, #1565c0)'
+      },
+      '@media (max-width: 768px)': {
+        padding: '0.8rem 2rem',
+        fontSize: '1rem'
+      }
+    }}
+  >
+    Get Funding
+  </Link>
+</div>
+ 
+
+        
+          
+
 
 
         
