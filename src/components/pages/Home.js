@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import backgroundVideo from '../../assets/6169096-uhd_3840_2160_25fps.mp4';
-import posterImage from '../../assets/Screenshot 2025-05-22 025742.png';
+import backgroundVideo from '../../assets/Hv.mp4';
+import posterImage from '../../assets/Screenshot 2025-05-23 233759.png';
 import { motion } from 'framer-motion';
 const Home = ({ darkMode }) => {
   const videoRef = useRef(null);
@@ -108,16 +108,17 @@ const Home = ({ darkMode }) => {
        
 
 <p style={{
-          fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-          color: 'rgba(255,255,255,0.9)',
-          margin: '0 0 3rem',
-          fontWeight: 300,
-          maxWidth: '600px',
-          textShadow: '0 1px 5px rgba(0,0,0,0.2)'
-        }}>
-         
-          🌐Websites 📱Mobile App 💻Custom Software
-        </p>
+  fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+  color: 'rgba(255,255,255,0.9)',
+  margin: '0 0 3rem',
+  fontWeight: 300,
+  maxWidth: '800px',
+  textShadow: '0 1px 5px rgba(0,0,0,0.2)'
+}}>
+  <span style={{whiteSpace: 'nowrap'}}>🌐Websites</span>{' '}
+  <span style={{whiteSpace: 'nowrap'}}>📱Mobile App</span>{' '}
+  <span style={{whiteSpace: 'nowrap'}}>💻Custom Software</span>
+</p>
 
 
  
@@ -157,9 +158,9 @@ const Home = ({ darkMode }) => {
   style={{
     position: 'relative',
     width: '100%',
-    height: '200px',
+    height: '300px',
     margin: '3rem auto',
-    overflow: 'hidden'
+    overflow: ''
   }}
 >
   {/* Floating elements with improved animations and spacing */}
