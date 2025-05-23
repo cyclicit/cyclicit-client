@@ -121,33 +121,82 @@ const Home = ({ darkMode }) => {
 </p>
 
 
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '1.5rem',
+  padding: '1rem',
+  maxWidth: '500px',
+  margin: '0 auto'
+}}>
+  <Link 
+    to="/services" 
+    style={{
+      display: 'inline-block',
+      padding: '1rem 3rem',
+      borderRadius: '50px',
+      background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
+      color: 'white',
+      textDecoration: 'none',
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 20px rgba(46, 125, 50, 0.5)',
+      border: 'none',
+      cursor: 'pointer',
+      textAlign: 'center',
+      width: '100%',
+      ':hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: '0 6px 25px rgba(46, 125, 50, 0.7)',
+        background: 'linear-gradient(90deg, #1b5e20, #2e7d32)'
+      },
+      '@media (max-width: 768px)': {
+        padding: '0.8rem 2rem',
+        fontSize: '1rem'
+      }
+    }}
+  >
+    Explore Our Services
+  </Link>
+  
+  <Link 
+    to="/funding" 
+    style={{
+      display: 'inline-block',
+      padding: '1rem 3rem',
+      borderRadius: '50px',
+      background: 'linear-gradient(90deg, #1565c0, #1976d2)',
+      color: 'white',
+      textDecoration: 'none',
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 20px rgba(21, 101, 192, 0.5)',
+      border: 'none',
+      cursor: 'pointer',
+      textAlign: 'center',
+      width: '100%',
+      ':hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: '0 6px 25px rgba(21, 101, 192, 0.7)',
+        background: 'linear-gradient(90deg, #0d47a1, #1565c0)'
+      },
+      '@media (max-width: 768px)': {
+        padding: '0.8rem 2rem',
+        fontSize: '1rem'
+      }
+    }}
+  >
+    Get Funding
+  </Link>
+</div>
  
 
         
-           <Link 
-          to="/services" 
-          style={{
-            display: 'inline-block',
-            padding: '1rem 3rem',
-            borderRadius: '50px',
-            background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
-            color: 'white',
-            textDecoration: 'none',
-            fontWeight: 600,
-            fontSize: '1.1rem',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 4px 20px rgba(46, 125, 50, 0.5)',
-            border: 'none',
-            cursor: 'pointer',
-            ':hover': {
-              transform: 'translateY(-3px)',
-              boxShadow: '0 6px 25px rgba(46, 125, 50, 0.7)',
-              background: 'linear-gradient(90deg, #1b5e20, #2e7d32)'
-            }
-          }}
-        >
-          Explore Our Services
-        </Link>
+          
 
         {/* Floating Tech Elements */}
 <motion.div 

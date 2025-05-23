@@ -12,7 +12,9 @@ const Contact = ({ darkMode }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    phone: '',
+    topic:''
   });
 
   const handleChange = (e) => {
@@ -34,7 +36,7 @@ const Contact = ({ darkMode }) => {
       if (response.ok) {
         alert('Message sent successfully!');
         e.target.reset();
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '',phone:"",topic:'' });
       } else {
         throw new Error('Failed to send message');
       }
@@ -268,6 +270,62 @@ const Contact = ({ darkMode }) => {
                 Full Name
               </label>
             </div>
+
+
+           
+            {/* phone Field */}
+<div style={{ position: 'relative' }}>
+  <input 
+    type="tel" 
+    id="phone" 
+    name="phone" 
+    required 
+    value={formData.phone}
+    onChange={handleChange}
+    pattern="[0-9]*"
+    inputMode="numeric"
+    onKeyPress={(e) => {
+      if (!/[0-9]/.test(e.key)) {
+        e.preventDefault();
+      }
+    }}
+    style={{
+      width: '100%',
+      padding: '0.8rem 0 0.4rem 0',
+      border: 'none',
+      borderBottom: `2px solid ${darkMode ? '#333' : '#e0e0e0'}`,
+      background: 'transparent',
+      color: darkMode ? '#ffffff' : '#333333',
+      fontSize: '0.95rem',
+      transition: 'all 0.3s ease',
+      ':focus': {
+        outline: 'none',
+        borderBottomColor: secondaryGreen
+      }
+    }}
+  />
+  <label 
+    htmlFor="phone" 
+    style={{
+      position: 'absolute',
+      top: formData.phone ? '-10px' : '0.8rem',
+      left: 0,
+      color: formData.phone ? secondaryGreen : (darkMode ? '#999' : '#666'),
+      fontSize: formData.phone ? '0.75rem' : '0.95rem',
+      transition: 'all 0.3s ease',
+      pointerEvents: 'none',
+      background: darkMode ? '#1e1e1e' : '#ffffff',
+      padding: formData.phone ? '0 5px' : '0',
+      zIndex: 1,
+      fontWeight: formData.phone ? '600' : '400'
+    }}
+  >
+    Phone Number
+  </label>
+</div>
+
+
+
             
             {/* Email Field */}
             <div style={{ position: 'relative' }}>
@@ -312,6 +370,55 @@ const Contact = ({ darkMode }) => {
                 Email Address
               </label>
             </div>
+
+
+             {/* Topic Field */}
+            <div style={{ position: 'relative' }}>
+              <input 
+                type="text" 
+                id="topic" 
+                name="topic" 
+                required 
+                value={formData.topic}
+                onChange={handleChange}
+                style={{
+                  width: '100%',
+                  padding: '0.8rem 0 0.4rem 0',
+                  border: 'none',
+                  borderBottom: `2px solid ${darkMode ? '#333' : '#e0e0e0'}`,
+                  background: 'transparent',
+                  color: darkMode ? '#ffffff' : '#333333',
+                  fontSize: '0.95rem',
+                  transition: 'all 0.3s ease',
+                  ':focus': {
+                    outline: 'none',
+                    borderBottomColor: secondaryGreen
+                  }
+                }}
+              />
+              <label 
+                htmlFor="topic" 
+                style={{
+                  position: 'absolute',
+                  top: formData.topic ? '-10px' : '0.8rem',
+                  left: 0,
+                  color: formData.topic ? secondaryGreen : (darkMode ? '#999' : '#666'),
+                  fontSize: formData.topic ? '0.75rem' : '0.95rem',
+                  transition: 'all 0.3s ease',
+                  pointerEvents: 'none',
+                  background: darkMode ? '#1e1e1e' : '#ffffff',
+                  padding: formData.topic ? '0 5px' : '0',
+                  zIndex: 1,
+                  fontWeight: formData.topic ? '600' : '400'
+                }}
+              >
+                Topic
+              </label>
+            </div>
+
+
+
+
             
             {/* Message Field */}
             <div style={{ position: 'relative' }}>
