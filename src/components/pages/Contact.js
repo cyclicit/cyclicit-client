@@ -730,75 +730,7 @@ const Contact = ({ darkMode }) => {
           </motion.div>
         )}
 
-        {/* FAQ Section */}
-        <motion.div
-          variants={itemVariants}
-          style={{
-            marginTop: '3rem',
-            background: darkMode ? '#1e1e1e' : '#ffffff',
-            borderRadius: '12px',
-            padding: '1.5rem',
-            boxShadow: '0 8px 20px rgba(0,0,0,0.1)'
-          }}
-        >
-          <h3 style={{
-            fontSize: '1.3rem',
-            fontWeight: 600,
-            color: darkMode ? '#ffffff' : primaryGreen,
-            margin: '0 0 1.5rem 0',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
-          }}>
-            <span style={{ fontSize: '1.5rem' }}>❓</span> Frequently Asked Questions
-          </h3>
-          
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-          }}>
-            {[
-              {
-                question: "How long does it take to get a response?",
-                answer: "We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call our phone number."
-              },
-              {
-                question: "Do you offer support for your products?",
-                answer: "Yes, we provide comprehensive support for all our products. Contact us via email or phone for assistance."
-              },
-              {
-                question: "What are your business hours?",
-                answer: "Our team is available Monday to Friday from 9AM to 5PM (GMT+6). Limited support is available on Saturdays."
-              },
-              {
-                question: "Can I visit your office?",
-                answer: "Currently, we operate remotely but we're happy to arrange meetings when necessary. Contact us to schedule an appointment."
-              }
-            ].map((faq, index) => (
-              <motion.div 
-                key={index}
-                whileHover={{ x: 5 }}
-                style={{
-                  borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}`,
-                  paddingBottom: '1rem'
-                }}
-              >
-                <h4 style={{
-                  color: darkMode ? '#ffffff' : '#333333',
-                  margin: '0 0 0.5rem 0',
-                  fontSize: '1rem'
-                }}>{faq.question}</h4>
-                <p style={{
-                  color: darkMode ? '#aaaaaa' : '#666666',
-                  margin: 0,
-                  fontSize: '0.9rem',
-                  lineHeight: '1.5'
-                }}>{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        
       </div>
     </motion.div>
   );
