@@ -10,6 +10,7 @@ import Process from './components/pages/Process';
 import Funding from './components/pages/Funding';
 import Internship from './components/pages/Internship';
 import Contact from './components/pages/Contact';
+import Buy from './components/pages/Buy';
 import './App.css';
 
 function ScrollToTop() {
@@ -188,6 +189,7 @@ function App() {
             <Route path="/funding" element={<Funding darkMode={darkMode} />} />
             <Route path="/internship" element={<Internship darkMode={darkMode} />} />
             <Route path="/contact" element={<Contact darkMode={darkMode} />} />
+            <Route path="/buy" element={<Buy darkMode={darkMode} />} />
 
             {/* Redirect to home if route doesn't exist */}
             <Route path="*" element={<Navigate to="/" />} />

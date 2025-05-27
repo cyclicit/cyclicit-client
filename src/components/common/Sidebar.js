@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../../finalcylick.svg'; // Adjust the path as necessary
 
 const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
   const navigate = useNavigate();
@@ -109,7 +110,9 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
           { path: '/process', label: 'E2E' },
           { path: '/funding', label: 'Funding' },
           { path: '/internship', label: 'Internship' },
+          {path: '/buy', label: 'Buy Site' },
           { path: '/contact', label: 'Contact' }
+          
         ].map((item, index) => (
           <NavLink
             key={index}
