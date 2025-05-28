@@ -399,7 +399,7 @@ const Solutions = ({ darkMode }) => {
                 
                 {/* Button */}
                 <Link 
-                  to="/contact" 
+                  to="/buy" 
                   style={{
                     display: 'block',
                     textAlign: 'center',
@@ -476,7 +476,7 @@ const Solutions = ({ darkMode }) => {
             budget, timeline, and specific requirements.
           </p>
           <Link 
-            to="/contact" 
+            to="/buy" 
             style={{
               display: 'inline-block',
               background: darkMode ? '#2e7d32' : '#4caf50',

@@ -2,38 +2,45 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 
-import farmer from "../../assets/Screenshot 2025-05-05 105451.png"
-
 const Buy = ({ darkMode }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedCard, setExpandedCard] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
 
   const websiteTemplates = [
     {
-      id: 'ecommerce-pro',
-      title: "E-Commerce Pro",
+      id: 'Farmermers-ecommerce',
+      title: "Farmers E-Commerce",
       category: "ecommerce",
-      price: 2499,
-      image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      description: "Complete online store with product management, cart, and secure checkout",
+      price: 1599,
+      image: "https://i.ibb.co/xqZjj0CK/Screenshot-2025-05-05-105451.png",
+      description: "Appetizing restaurant website with menu, reservations, and gallery",
       features: [
-        "Product catalog",
-        "Shopping cart",
-        "Secure payments",
-        "Inventory management",
-        "Customer accounts"
+        "Menu display",
+        "Online reservations",
+        "Food gallery",
+        "Location map",
+        "Reviews section"
       ],
-      liveDemo: "https://themewagon.github.io/stylish/",
-      rating: 4.8,
-      sales: 142,
-      color: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)"
+      liveDemo: "https://bengalharvestglobal.netlify.app/",
+      rating: 4.9,
+      sales: 78,
+      color: "linear-gradient(135deg, #f46b45 0%, #eea849 100%)"
     },
     {
       id: 'portfolio-premium',
       title: "Portfolio Premium",
       category: "portfolio",
       price: 1299,
-      image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://i.ibb.co/fVv70dxj/Screenshot-2025-05-28-213536.png",
       description: "Elegant portfolio to showcase your work with gallery and contact form",
       features: [
         "Responsive gallery",
@@ -46,6 +53,25 @@ const Buy = ({ darkMode }) => {
       rating: 4.6,
       sales: 87,
       color: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+    },
+    {
+      id: 'Pet-ecommerce',
+      title: "Pet e-commerce",
+      category: "ecommerce",
+      price: 699,
+      image: "https://i.ibb.co/whH2D9K0/Screenshot-2025-05-05-105046.png",
+      description: "High-converting landing page for products or services",
+      features: [
+        "Lead capture form",
+        "Feature highlights",
+        "Testimonials",
+        "Call-to-action",
+        "Mobile optimized"
+      ],
+      liveDemo: "https://petandvet.netlify.app/",
+      rating: 4.4,
+      sales: 203,
+      color: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
     },
     {
       id: 'business-elite',
@@ -86,43 +112,24 @@ const Buy = ({ darkMode }) => {
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
-      id: 'Farmermers-ecommerce',
-      title: "Farmers E-Commerce",
-      category: "Agriculture",
-      price: 1599,
-      image:    "https://i.ibb.co/xqZjj0CK/Screenshot-2025-05-05-105451.png",
-      description: "Appetizing restaurant website with menu, reservations, and gallery",
+      id: 'marketing',
+      title: "Elite Events House",
+      category: "marketing",
+      price: 2499,
+      image: "https://i.ibb.co/tMg8bmqZ/Screenshot-2025-05-25-234847.png",
+      description: "Complete online store with product management, cart, and secure checkout",
       features: [
-        "Menu display",
-        "Online reservations",
-        "Food gallery",
-        "Location map",
-        "Reviews section"
+        "Product catalog",
+        "Shopping cart",
+        "Secure payments",
+        "Inventory management",
+        "Customer accounts"
       ],
-      liveDemo: "https://bengalharvestglobal.netlify.app/",
-      rating: 4.9,
-      sales: 78,
-      color: "linear-gradient(135deg, #f46b45 0%, #eea849 100%)"
+      liveDemo: "https://eliteeventshouse.netlify.app/",
+      rating: 4.8,
+      sales: 142,
+      color: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)"
     },
-    {
-      id: 'landing-modern',
-      title: "Landing Modern",
-      category: "landing",
-      price: 699,
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      description: "High-converting landing page for products or services",
-      features: [
-        "Lead capture form",
-        "Feature highlights",
-        "Testimonials",
-        "Call-to-action",
-        "Mobile optimized"
-      ],
-      liveDemo: "https://landing-demo.example.com",
-      rating: 4.4,
-      sales: 203,
-      color: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
-    }
   ];
 
   const categories = [
@@ -131,8 +138,7 @@ const Buy = ({ darkMode }) => {
     { id: 'portfolio', name: 'Portfolio' },
     { id: 'business', name: 'Business' },
     { id: 'blog', name: 'Blog' },
-    { id: 'restaurant', name: 'Restaurant' },
-    { id: 'landing', name: 'Landing Page' }
+    { id: 'marketing', name: 'marketing' },
   ];
 
   const filteredTemplates = selectedCategory === 'all' 
@@ -141,6 +147,55 @@ const Buy = ({ darkMode }) => {
 
   const toggleExpand = (id) => {
     setExpandedCard(expandedCard === id ? null : id);
+  };
+
+  const handleBookClick = (template) => {
+    setSelectedTemplate(template);
+    setShowBookingForm(true);
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleBookSite = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xjkwnapo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          templateId: selectedTemplate.id,
+          templateName: selectedTemplate.title,
+          price: selectedTemplate.price,
+          customerName: formData.name,
+          customerEmail: formData.email,
+          customerPhone: formData.phone,
+          message: `I would like to book the ${selectedTemplate.title} template for $${selectedTemplate.price}.`
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '' });
+        setShowBookingForm(false);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -303,7 +358,7 @@ const Buy = ({ darkMode }) => {
                       color: darkMode ? '#81c784' : '#2e7d32',
                       fontWeight: 600,
                       fontSize: '0.9rem'
-                    }}>${template.price}</span>
+                    }}>${template.price}/negotiable</span>
                   </div>
                 </div>
                 
@@ -395,8 +450,11 @@ const Buy = ({ darkMode }) => {
                     Live Demo
                   </a>
                   
-                  <Link 
-                    to={`/checkout/${template.id}`}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleBookClick(template);
+                    }}
                     style={{
                       flex: 1,
                       textAlign: 'center',
@@ -408,19 +466,185 @@ const Buy = ({ darkMode }) => {
                       fontWeight: 600,
                       fontSize: '0.85rem',
                       transition: 'all 0.3s ease',
+                      border: 'none',
+                      cursor: 'pointer',
                       ':hover': {
                         background: darkMode ? '#1b5e20' : '#388e3c',
                         transform: 'translateY(-2px)'
                       }
                     }}
-                    onClick={(e) => e.stopPropagation()}
                   >
-                    Book Site                  </Link>
+                    Book Site
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Booking Form Modal */}
+        {showBookingForm && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000
+          }}>
+            <div style={{
+              background: darkMode ? '#1e1e1e' : 'white',
+              borderRadius: '12px',
+              padding: '2rem',
+              maxWidth: '500px',
+              width: '90%',
+              boxShadow: '0 5px 15px rgba(0,0,0,0.3)'
+            }}>
+              <h3 style={{
+                fontSize: '1.3rem',
+                marginBottom: '1.5rem',
+                color: darkMode ? 'white' : '#333'
+              }}>
+                Book {selectedTemplate.title}
+              </h3>
+              
+              <form onSubmit={handleBookSite}>
+                <div style={{ marginBottom: '1rem' }}>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '0.5rem',
+                    color: darkMode ? 'rgba(255,255,255,0.8)' : '#555',
+                    fontSize: '0.9rem'
+                  }}>
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem',
+                      borderRadius: '6px',
+                      border: `1px solid ${darkMode ? '#333' : '#ddd'}`,
+                      background: darkMode ? '#2a2a2a' : 'white',
+                      color: darkMode ? 'white' : '#333',
+                      fontSize: '0.9rem'
+                    }}
+                  />
+                </div>
+                
+                <div style={{ marginBottom: '1rem' }}>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '0.5rem',
+                    color: darkMode ? 'rgba(255,255,255,0.8)' : '#555',
+                    fontSize: '0.9rem'
+                  }}>
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem',
+                      borderRadius: '6px',
+                      border: `1px solid ${darkMode ? '#333' : '#ddd'}`,
+                      background: darkMode ? '#2a2a2a' : 'white',
+                      color: darkMode ? 'white' : '#333',
+                      fontSize: '0.9rem'
+                    }}
+                  />
+                </div>
+                
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <label style={{
+                    display: 'block',
+                    marginBottom: '0.5rem',
+                    color: darkMode ? 'rgba(255,255,255,0.8)' : '#555',
+                    fontSize: '0.9rem'
+                  }}>
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleFormChange}
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '0.8rem',
+                      borderRadius: '6px',
+                      border: `1px solid ${darkMode ? '#333' : '#ddd'}`,
+                      background: darkMode ? '#2a2a2a' : 'white',
+                      color: darkMode ? 'white' : '#333',
+                      fontSize: '0.9rem'
+                    }}
+                  />
+                </div>
+                
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  gap: '1rem'
+                }}>
+                  <button
+                    type="button"
+                    onClick={() => setShowBookingForm(false)}
+                    style={{
+                      flex: 1,
+                      background: 'transparent',
+                      color: darkMode ? '#ddd' : '#555',
+                      padding: '0.8rem',
+                      borderRadius: '6px',
+                      border: `1px solid ${darkMode ? '#444' : '#ddd'}`,
+                      cursor: 'pointer',
+                      fontWeight: 600,
+                      fontSize: '0.9rem',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    style={{
+                      flex: 1,
+                      background: darkMode ? '#2e7d32' : '#4caf50',
+                      color: 'white',
+                      padding: '0.8rem',
+                      borderRadius: '6px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontWeight: 600,
+                      fontSize: '0.9rem',
+                      transition: 'all 0.3s ease',
+                      ':disabled': {
+                        opacity: 0.7,
+                        cursor: 'not-allowed'
+                      }
+                    }}
+                  >
+                    {isSubmitting ? 'Processing...' : 'Confirm Booking'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
 
         {/* Additional Info Section */}
         <div style={{
@@ -468,6 +692,47 @@ const Buy = ({ darkMode }) => {
             Request Custom Design
           </Link>
         </div>
+
+        {/* Submission Status Message */}
+        {submitStatus === 'success' && (
+          <div style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            background: '#4caf50',
+            color: 'white',
+            padding: '1rem',
+            borderRadius: '8px',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span>✓</span>
+            <span>Your request has been submitted successfully!</span>
+          </div>
+        )}
+
+        {submitStatus === 'error' && (
+          <div style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            background: '#f44336',
+            color: 'white',
+            padding: '1rem',
+            borderRadius: '8px',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span>✗</span>
+            <span>Failed to submit your request. Please try again.</span>
+          </div>
+        )}
       </div>
     </div>
   );
