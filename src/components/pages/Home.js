@@ -308,7 +308,7 @@ const Home = ({ darkMode }) => {
           </Link>
           
           <Link 
-            to="/funding" 
+            to="/buy" 
             style={{
               display: 'inline-block',
               padding: '1rem 3rem',
@@ -331,7 +331,7 @@ const Home = ({ darkMode }) => {
               }
             }}
           >
-            Get Funding
+            Browse Templates
           </Link>
         </div>
 
