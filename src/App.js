@@ -13,6 +13,7 @@ import Contact from './components/pages/Contact';
 import Buy from './components/pages/Buy';
 import './App.css';
 
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -190,6 +191,7 @@ function App() {
             <Route path="/internship" element={<Internship darkMode={darkMode} />} />
             <Route path="/contact" element={<Contact darkMode={darkMode} />} />
             <Route path="/buy" element={<Buy darkMode={darkMode} />} />
+          
 
             {/* Redirect to home if route doesn't exist */}
             <Route path="*" element={<Navigate to="/" />} />
