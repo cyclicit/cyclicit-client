@@ -151,6 +151,7 @@ const Internship = ({ darkMode }) => {
                       fontWeight: 600
                     }}>{track.title}</h3>
                     <p style={{ margin: '0.3rem 0 0', opacity: 0.9 }}>{track.duration}</p>
+                  <p >  Details ↓ </p>
                   </div>
                 </div>
                 <div style={{

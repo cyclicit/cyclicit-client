@@ -59,15 +59,17 @@ const AppLayout = ({ children, darkMode, toggleDarkMode }) => {
         width: '100%'
       }}>
         {/* Sidebar Navigation */}
-       <div className='sidebar-container' style={{
+       <div className='sidebar-container' 
+      //  style={{
          
-          width: menuOpen && isMobile ? '50px' : '0',
-          height: '100vh',
-          overflowX: 'hidden',
-          transition: 'width 0.3s ease',
-          zIndex: 1000,
-          backgroundColor: darkMode ? '#121212' : '#f8f9fa'
-          }}>
+      //     width: menuOpen && isMobile ? '50px' : '0',
+      //     height: '100vh',
+      //     overflowX: 'hidden',
+      //     transition: 'width 0.3s ease',
+      //     zIndex: 1000,
+      //     backgroundColor: darkMode ? '#121212' : '#f8f9fa'
+      //     }}
+          >
          <Sidebar 
           menuOpen={menuOpen} 
           darkMode={darkMode} 
@@ -83,7 +85,7 @@ const AppLayout = ({ children, darkMode, toggleDarkMode }) => {
   onClick={closeMenu}
   style={{
     flex: 1,
-    padding: '1rem',
+    
     
     width: '100%',
    height: isMobile ? 'calc(100vh - 64px)' : '100vh',

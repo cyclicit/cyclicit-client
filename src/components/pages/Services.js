@@ -164,7 +164,12 @@ const Services = ({ darkMode }) => {
   };
 
   return (
-    <motion.div 
+    <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 0.5rem'
+      }}>
+      <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       style={{
@@ -241,7 +246,7 @@ const Services = ({ darkMode }) => {
               fontWeight: 600,
               textDecoration: 'underline',
               textUnderlineOffset: '4px'
-            }}>CycliciT</span> - Trusted by 150+ clients worldwide
+            }}>CycliciT</span> - Trusted by Real Institutions 
           </motion.p>
         </motion.div>
 
@@ -526,20 +531,19 @@ const Services = ({ darkMode }) => {
             }}
           >
             {benefits.map((benefit, index) => (
-              <motion.div
+               <motion.div
                 key={index}
                 variants={cardVariants}
                 whileHover="hover"
+                onClick={() => toggleExpand(index)}
                 style={{
                   background: darkMode 
                     ? 'linear-gradient(145deg, #1a1a1a, #222)' 
                     : 'linear-gradient(145deg, #ffffff, #f5f5f5)',
-                  borderRadius: '16px',
+                  borderRadius: '12px',
                   padding: '1.5rem',
-                  minHeight: '280px',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'center',
                   alignItems: 'center',
                   textAlign: 'center',
                   color: darkMode ? '#ffffff' : '#333333',
@@ -549,7 +553,10 @@ const Services = ({ darkMode }) => {
                   border: `1px solid ${darkMode ? '#2e7d32' : '#e8f5e9'}`,
                   transformStyle: 'preserve-3d',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  minHeight: expandedService === index ? '400px' : '220px',
+                  cursor: 'pointer',
+                  transition: 'min-height 0.3s ease'
                 }}
               >
                 <motion.div
@@ -604,6 +611,7 @@ const Services = ({ darkMode }) => {
                 >
                   {benefit.details}
                 </motion.div>
+               
                 
                 {/* Hover effect line */}
                 <motion.div
@@ -617,6 +625,21 @@ const Services = ({ darkMode }) => {
                     borderRadius: '3px'
                   }}
                 />
+                 <motion.div
+                  initial={{ scale: 0.8, opacity: 0.1 }}
+                  animate={{ scale: 1, opacity: 0.05 }}
+                  transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
+                  style={{
+                    position: 'absolute',
+                    fontSize: '8rem',
+                    color: '#4caf50',
+                    zIndex: 0,
+                    userSelect: 'none'
+                  }}
+                >
+                  {benefit.icon}
+                </motion.div>
+                
               </motion.div>
             ))}
           </motion.div>
@@ -830,6 +853,7 @@ const Services = ({ darkMode }) => {
         </motion.div>
       </div>
     </motion.div>
+    </div>
   );
 };
 
