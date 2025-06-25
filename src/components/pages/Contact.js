@@ -8,6 +8,9 @@ const Contact = ({ darkMode }) => {
   const darkGreen = '#1b5e20';
   const lightGreen = '#e8f5e9';
 
+  // Language state
+  const [language, setLanguage] = useState('bn'); // 'en' or 'bn'
+
   // Form state
   const [formData, setFormData] = useState({
     name: '',
@@ -23,11 +26,81 @@ const Contact = ({ darkMode }) => {
   const [typingText, setTypingText] = useState('');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   
-  const words = ["Let's collaborate!", "Ready to help!", "Ideas welcome!", "Contact us today!"];
-  
+  // English and Bengali content
+  const content = {
+    en: {
+      words: ["Let's collaborate!", "Ready to help!", "Ideas welcome!", "Contact us today!"],
+      getInTouch: "Get In Touch",
+      formTitle: "Contact Form",
+      infoTitle: "Our Information",
+      formLabels: {
+        name: "Full Name",
+        phone: "Phone Number",
+        email: "Email Address",
+        topic: "Topic",
+        message: "Your Message"
+      },
+      submitButton: "Send Message",
+      successMessage: {
+        title: "Message Sent!",
+        text: "Thank you for reaching out. We'll get back to you within 24 hours."
+      },
+      contactMethods: {
+        email: {
+          title: "📧 Email",
+          value: "cyclicit@gmail.com",
+          description: "For general inquiries, partnerships, or any questions you might have. We typically respond within 24 hours."
+        },
+        phone: {
+          title: "📱 Phone",
+          value: "+8801577148188",
+          description: "Available , For urgent matters, please call or text this number."
+        },
+        social: {
+          title: "🌐 Social Media",
+          description: "Connect with us on social media for the latest updates, news, and community discussions."
+        }
+      }
+    },
+    bn: {
+      words: ["চলুন একসাথে কাজ করি!", "সাহায্য করতে প্রস্তুত!", "আপনার ধারণা স্বাগতম!", "আজই যোগাযোগ করুন!"],
+      getInTouch: "যোগাযোগ করুন",
+      formTitle: "যোগাযোগ ফর্ম",
+      infoTitle: "আমাদের তথ্য",
+      formLabels: {
+        name: "পুরো নাম",
+        phone: "ফোন নম্বর",
+        email: "ইমেইল ঠিকানা",
+        topic: "বিষয়",
+        message: "আপনার বার্তা"
+      },
+      submitButton: "বার্তা পাঠান",
+      successMessage: {
+        title: "বার্তা পাঠানো হয়েছে!",
+        text: "যোগাযোগ করার জন্য ধন্যবাদ। আমরা ২৪ ঘন্টার মধ্যে আপনার সাথে যোগাযোগ করব।"
+      },
+      contactMethods: {
+        email: {
+          title: "📧 ইমেইল",
+          value: "cyclicit@gmail.com",
+          description: "সাধারণ জিজ্ঞাসা, অংশীদারিত্ব বা যে কোনো প্রশ্নের জন্য। আমরা সাধারণত ২৪ ঘন্টার মধ্যে উত্তর দেই।"
+        },
+        phone: {
+          title: "📱 ফোন",
+          value: "+8801577148188",
+          description: "জরুরি বিষয়ের জন্য এই নম্বরে কল বা মেসেজ করুন।"
+        },
+        social: {
+          title: "🌐 সোশ্যাল মিডিয়া",
+          description: "সর্বশেষ আপডেট, খবর এবং কমিউনিটি আলোচনার জন্য আমাদের সাথে সোশ্যাল মিডিয়ায় যুক্ত হোন।"
+        }
+      }
+    }
+  };
+
   useEffect(() => {
     const typeWriter = () => {
-      const currentWord = words[currentWordIndex];
+      const currentWord = content[language].words[currentWordIndex];
       if (typingText.length < currentWord.length) {
         setTimeout(() => {
           setTypingText(currentWord.substring(0, typingText.length + 1));
@@ -35,14 +108,14 @@ const Contact = ({ darkMode }) => {
       } else {
         setTimeout(() => {
           setTypingText('');
-          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+          setCurrentWordIndex((prev) => (prev + 1) % content[language].words.length);
         }, 2000);
       }
     };
     
     const timer = setTimeout(typeWriter, 150);
     return () => clearTimeout(timer);
-  }, [typingText, currentWordIndex]);
+  }, [typingText, currentWordIndex, language]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +143,9 @@ const Contact = ({ darkMode }) => {
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('There was an error sending your message. Please try again.');
+      alert(language === 'en' 
+        ? 'There was an error sending your message. Please try again.'
+        : 'আপনার বার্তা পাঠানোর সময় একটি ত্রুটি হয়েছে। অনুগ্রহপূর্বক আবার চেষ্টা করুন।');
     }
   };
 
@@ -102,13 +177,41 @@ const Contact = ({ darkMode }) => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      style={{
-        backgroundColor: darkMode ? '#121212' : '#f8f9fa',
-        padding: '2rem 1rem',
-        color: darkMode ? '#ffffff' : '#333333',
-        minHeight: '100vh'
-      }}
+     style={{
+  background: darkMode 
+    ? 'linear-gradient(135deg,rgba(67, 2, 102, 0.4) 0%,rgba(87, 2, 147, 0.4) 100%)' 
+    : '#f8f9fa',
+  color: darkMode ? '#ffffff' : '#333333',
+  padding: '2rem 1rem',
+  minHeight: '100vh',
+  position: 'relative'
+}}
     >
+      {/* Language Toggle */}
+      <motion.button
+        onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        style={{
+          position: 'absolute',
+          top: '1.5rem',
+          right: '1.5rem',
+          padding: '0.5rem 1rem',
+          borderRadius: '50px',
+          background: darkMode ? '#2a2a2a' : '#e0e0e0',
+          color: darkMode ? '#ffffff' : '#333333',
+          border: 'none',
+          fontWeight: 600,
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          zIndex: 10
+        }}
+      >
+        {language === 'en' ? 'বাংলা' : 'English'}
+      </motion.button>
+
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -132,7 +235,7 @@ const Contact = ({ darkMode }) => {
               marginBottom: '0.8rem'
             }}
           >
-            Get In Touch
+            {content[language].getInTouch}
           </motion.h2>
           
           <motion.h1
@@ -148,7 +251,7 @@ const Contact = ({ darkMode }) => {
               minHeight: '60px'
             }}
           >
-            {typingText || <span style={{ opacity: 0 }}>Let's Connect</span>}
+            {typingText || <span style={{ opacity: 0 }}>{language === 'en' ? "Let's Connect" : "চলুন যুক্ত হই"}</span>}
           </motion.h1>
           
           <motion.div
@@ -194,7 +297,7 @@ const Contact = ({ darkMode }) => {
               boxShadow: activeTab === 'form' ? '0 4px 12px rgba(46, 125, 50, 0.3)' : 'none'
             }}
           >
-            Contact Form
+            {content[language].formTitle}
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -214,7 +317,7 @@ const Contact = ({ darkMode }) => {
               boxShadow: activeTab === 'info' ? '0 4px 12px rgba(46, 125, 50, 0.3)' : 'none'
             }}
           >
-            Our Information
+            {content[language].infoTitle}
           </motion.button>
         </motion.div>
 
@@ -237,9 +340,9 @@ const Contact = ({ darkMode }) => {
           >
             <div style={{ fontSize: '1.5rem' }}>✓</div>
             <div>
-              <h3 style={{ margin: '0 0 0.2rem 0' }}>Message Sent!</h3>
+              <h3 style={{ margin: '0 0 0.2rem 0' }}>{content[language].successMessage.title}</h3>
               <p style={{ margin: 0, fontSize: '0.9rem' }}>
-                Thank you for reaching out. We'll get back to you within 24 hours.
+                {content[language].successMessage.text}
               </p>
             </div>
           </motion.div>
@@ -305,7 +408,7 @@ const Contact = ({ darkMode }) => {
                     fontWeight: formData.name ? '600' : '400'
                   }}
                 >
-                  Full Name
+                  {content[language].formLabels.name}
                 </label>
               </div>
 
@@ -356,7 +459,7 @@ const Contact = ({ darkMode }) => {
                     fontWeight: formData.phone ? '600' : '400'
                   }}
                 >
-                  Phone Number
+                  {content[language].formLabels.phone}
                 </label>
               </div>
               
@@ -400,7 +503,7 @@ const Contact = ({ darkMode }) => {
                     fontWeight: formData.email ? '600' : '400'
                   }}
                 >
-                  Email Address
+                  {content[language].formLabels.email}
                 </label>
               </div>
 
@@ -444,7 +547,7 @@ const Contact = ({ darkMode }) => {
                     fontWeight: formData.topic ? '600' : '400'
                   }}
                 >
-                  Topic
+                  {content[language].formLabels.topic}
                 </label>
               </div>
               
@@ -490,7 +593,7 @@ const Contact = ({ darkMode }) => {
                     fontWeight: formData.message ? '600' : '400'
                   }}
                 >
-                  Your Message
+                  {content[language].formLabels.message}
                 </label>
               </div>
               
@@ -517,7 +620,7 @@ const Contact = ({ darkMode }) => {
                   transition: 'all 0.3s ease'
                 }}
               >
-                <span>Send Message</span>
+                <span>{content[language].submitButton}</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -588,20 +691,20 @@ const Contact = ({ darkMode }) => {
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
-                <span style={{ fontSize: '1.5rem' }}>📧</span> Email
+                {content[language].contactMethods.email.title}
               </h3>
               <p style={{
                 color: darkMode ? '#cccccc' : '#666666',
                 margin: '0 0 1rem 0',
                 wordBreak: 'break-word',
                 fontSize: '0.95rem'
-              }}>cyclicit@gmail.com</p>
+              }}>{content[language].contactMethods.email.value}</p>
               <p style={{
                 color: darkMode ? '#aaaaaa' : '#888888',
                 fontSize: '0.85rem',
                 lineHeight: '1.5'
               }}>
-                For general inquiries, partnerships, or any questions you might have. We typically respond within 24 hours.
+                {content[language].contactMethods.email.description}
               </p>
             </motion.div>
             
@@ -628,23 +731,21 @@ const Contact = ({ darkMode }) => {
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
-                <span style={{ fontSize: '1.5rem' }}>📱</span> Phone
+                {content[language].contactMethods.phone.title}
               </h3>
               <p style={{
                 color: darkMode ? '#cccccc' : '#666666',
                 margin: '0 0 1rem 0',
                 fontSize: '0.95rem'
-              }}>+8801577148188</p>
+              }}>{content[language].contactMethods.phone.value}</p>
               <p style={{
                 color: darkMode ? '#aaaaaa' : '#888888',
                 fontSize: '0.85rem',
                 lineHeight: '1.5'
               }}>
-                Available , For urgent matters, please call or text this number.
+                {content[language].contactMethods.phone.description}
               </p>
             </motion.div>
-
-            
 
             {/* Social Media */}
             <motion.div
@@ -670,7 +771,7 @@ const Contact = ({ darkMode }) => {
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
-                <span style={{ fontSize: '1.5rem' }}>🌐</span> Social Media
+                {content[language].contactMethods.social.title}
               </h3>
               <div style={{
                 display: 'flex',
@@ -724,13 +825,11 @@ const Contact = ({ darkMode }) => {
                 fontSize: '0.85rem',
                 lineHeight: '1.5'
               }}>
-                Connect with us on social media for the latest updates, news, and community discussions.
+                {content[language].contactMethods.social.description}
               </p>
             </motion.div>
           </motion.div>
         )}
-
-        
       </div>
     </motion.div>
   );

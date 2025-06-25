@@ -11,9 +11,9 @@ const Home = ({ darkMode }) => {
   const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
 
   // English phrases
-  const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems"];
+  const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems","Mobile Apps", "AI Solutions"];
   // Bengali phrases
-  const bnPhrases = ["ওয়েবসাইট", "মোবাইল অ্যাপ", "এআই সমাধান", "ক্লাউড সার্ভিস", "আইওটি সিস্টেম"];
+  const bnPhrases = ["ওয়েবসাইট", "মোবাইল অ্যাপ", "এআই সমাধান", "ক্লাউড সার্ভিস", "আইওটি সিস্টেম","মোবাইল অ্যাপ", "এআই সমাধান"];
 
   const phrases = language === 'en' ? enPhrases : bnPhrases;
 
@@ -387,14 +387,12 @@ const Home = ({ darkMode }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1, delay: 0.3 }}
             style={styles.typewriterText}
           >
             {typedText}
             <motion.span
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ repeat: Infinity, duration: 1 }}
-              style={styles.cursor}
+              
             />
           </motion.div>
         </div>
@@ -431,6 +429,21 @@ const Home = ({ darkMode }) => {
               {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
             </Link>
           </motion.div>
+
+          <motion.div 
+            style={styles.buttonWrapper}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Link 
+              to="/contact" 
+              style={styles.primaryButton}
+            >
+              {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'}
+            </Link>
+          </motion.div>
+
+
         </div>
       </div>
 
