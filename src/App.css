@@ -67,13 +67,17 @@ body {
 .sidebar {
   width: 280px;
   background-color: var(--surface);
-  padding: 2rem 1.5rem;
+ padding-bottom: 3rem;
+ padding-top: 3rem;
+ padding-left: 1.5rem;
+ padding-right: 1.5rem;
   display: flex;
   flex-direction: column;
   transition: var(--transition);
   position: fixed;
   height: 100vh;
   z-index: 100;
+  
   
 }
 
