@@ -55,8 +55,8 @@ const Home = ({ darkMode }) => {
       id: 'mobile',
       label: language === 'en' ? 'Mobile' : 'মোবাইল',
       size: 70,
-      top: '50%',
-      left: '5%',
+      bottom: '5%',
+      left: '40%',
       fontSize: '1rem',
       borderRadius: '24px',
       info: language === 'en' 
@@ -143,7 +143,7 @@ const Home = ({ darkMode }) => {
       width: '100%',
       height: '100%',
       background: darkMode 
-        ? 'radial-gradient(circle at 75% 30%, #1a2e1a 0%, #121212 60%)' 
+        ? 'radial-gradient(circle at 75% 30%,rgb(46, 89, 46) 0%,rgb(29, 48, 29) 60%)' 
         : 'radial-gradient(circle at 75% 30%, #e8f5e9 0%, #f8f9fa 60%)',
       zIndex: 0
     },
@@ -434,24 +434,7 @@ const Home = ({ darkMode }) => {
         </div>
       </div>
 
-      {/* Info Card */}
-      {showInfoCard && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          style={styles.infoCard}
-        >
-          <button 
-            style={styles.closeButton}
-            onClick={() => setShowInfoCard(false)}
-          >
-            ×
-          </button>
-          <h3>{activeElement?.label}</h3>
-          <p>{activeElement?.info}</p>
-        </motion.div>
-      )}
+      
     </div>
   );
 };
