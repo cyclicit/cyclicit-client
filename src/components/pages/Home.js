@@ -8,7 +8,7 @@ const Home = ({ darkMode }) => {
   const [typedText, setTypedText] = useState('');
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [typingForward, setTypingForward] = useState(true);
-  const [language, setLanguage] = useState('en'); // 'en' for English, 'bn' for Bengali
+  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
 
   // English phrases
   const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems"];
@@ -43,7 +43,7 @@ const Home = ({ darkMode }) => {
       id: 'web',
       label: language === 'en' ? 'Web' : 'ওয়েব',
       size: 60,
-      top: '5%',
+      top: '10%',
       left: '10%',
       fontSize: '1.1rem',
       borderRadius: '24px',
@@ -58,7 +58,7 @@ const Home = ({ darkMode }) => {
       top: '50%',
       left: '5%',
       fontSize: '1rem',
-      borderRadius: '20px',
+      borderRadius: '24px',
       info: language === 'en' 
         ? 'Cross-platform mobile apps using React Native and Flutter for iOS and Android.'
         : 'ক্রস-প্ল্যাটফর্ম মোবাইল অ্যাপ রিয়েক্ট নেটিভ এবং ফ্লাটার ব্যবহার করে আইওএস এবং অ্যান্ড্রয়েডের জন্য।'
@@ -66,11 +66,11 @@ const Home = ({ darkMode }) => {
     {
       id: 'E-commerce',
       label: language === 'en' ? 'E-commerce' : 'ই-কমার্স',
-      size: 100,
-      top: '5%',
+      size: 70,
+      top: '10%',
       right: '10%',
-      fontSize: '1rem',
-      borderRadius: '20px',
+      fontSize: '0.7rem',
+      borderRadius: '30px',
       info: language === 'en' 
         ? 'Complete e-commerce solutions with secure payment gateways and inventory management.'
         : 'সুরক্ষিত পেমেন্ট গেটওয়ে এবং ইনভেন্টরি ম্যানেজমেন্ট সহ সম্পূর্ণ ই-কমার্স সমাধান।'
@@ -91,7 +91,7 @@ const Home = ({ darkMode }) => {
       id: 'cloud',
       label: language === 'en' ? 'Cloud' : 'ক্লাউড',
       size: 60,
-      bottom: '5%',
+      bottom: '10%',
       left: '10%',
       fontSize: '0.9rem',
       borderRadius: '16px',
@@ -103,7 +103,7 @@ const Home = ({ darkMode }) => {
       id: 'iot',
       label: language === 'en' ? 'iot' : 'আইওটি',
       size: 60,
-      bottom: '5%',
+      bottom: '10%',
       right: '20%',
       fontSize: '1rem',
       borderRadius: '22px',
