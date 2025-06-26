@@ -8,17 +8,7 @@ const Services = ({ darkMode }) => {
 
   const serviceCategories = {
     development: [
-      { icon: '🌐', title: 'Web Applications', 
-        desc: 'Interactive, database-driven applications accessible through browsers',
-        details: [
-          'Custom CRM/ERP solutions',
-          'Real-time collaboration tools',
-          'API integrations',
-          'Progressive Web Apps (PWAs)',
-          'Single Page Applications (SPAs)'
-        ],
-        technologies: ['React', 'Node.js', 'MongoDB', 'Firebase', 'GraphQL']
-      },
+      
       { icon: '🖥️', title: 'Websites', 
         desc: 'Beautiful, responsive websites that represent your brand / e-commerce',
         details: [

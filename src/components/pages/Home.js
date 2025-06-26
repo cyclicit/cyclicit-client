@@ -55,7 +55,7 @@ const Home = ({ darkMode }) => {
       id: 'mobile',
       label: language === 'en' ? 'Mobile' : 'মোবাইল',
       size: 70,
-      bottom: '5%',
+      top: '5%',
       left: '40%',
       fontSize: '1rem',
       borderRadius: '24px',
@@ -91,25 +91,13 @@ const Home = ({ darkMode }) => {
       id: 'cloud',
       label: language === 'en' ? 'Cloud' : 'ক্লাউড',
       size: 60,
-      bottom: '10%',
+      bottom: '50%',
       left: '10%',
       fontSize: '0.9rem',
       borderRadius: '16px',
       info: language === 'en' 
         ? 'Cloud architecture, deployment, and management on AWS, Azure, and Google Cloud Platform.'
         : 'AWS, Azure এবং Google Cloud Platform এ ক্লাউড আর্কিটেকচার, ডেপ্লয়মেন্ট এবং ম্যানেজমেন্ট।'
-    },
-    {
-      id: 'iot',
-      label: language === 'en' ? 'iot' : 'আইওটি',
-      size: 60,
-      bottom: '10%',
-      right: '20%',
-      fontSize: '1rem',
-      borderRadius: '22px',
-      info: language === 'en' 
-        ? 'Internet of Things solutions connecting devices and creating smart ecosystems.'
-        : 'ডিভাইস সংযোগ এবং স্মার্ট ইকোসিস্টেম তৈরি করার জন্য ইন্টারনেট অফ থিংস সমাধান।'
     }
   ];
 
