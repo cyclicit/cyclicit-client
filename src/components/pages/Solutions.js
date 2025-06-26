@@ -237,10 +237,11 @@ const Solutions = ({ darkMode }) => {
             </h3>
             
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '1.5rem',
-              marginBottom: '2rem'
+               marginTop: '2rem',
+              padding: '1rem',
+              background: darkMode ? 'rgba(46, 125, 50, 0.1)' : 'rgba(76, 175, 80, 0.1)',
+              borderRadius: '8px',
+              borderLeft: `4px solid ${darkMode ? '#81c784' : '#4caf50'}`
             }}>
               {deals.map(deal => (
                 <div key={deal.id} style={{
