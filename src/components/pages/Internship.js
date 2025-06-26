@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Internship = ({ darkMode }) => {
+  // State for language
+  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
+
+  // Toggle language
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'bn' : 'en');
+  };
+
   // Green theme colors
   const primaryGreen = '#2e7d32';
   const secondaryGreen = '#4caf50';
@@ -12,35 +20,204 @@ const Internship = ({ darkMode }) => {
   const [openAccordion, setOpenAccordion] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Internship tracks data
-  const tracks = [
-    {
-      id: 1,
-      title: "Frontend Development",
-      icon: "💻",
-      description: "Build responsive UIs with React, Next.js, and modern CSS frameworks",
-      skills: ["React", "JavaScript", "CSS", "UI/UX"],
-      duration: "3-6 months"
+  // English content
+  const enContent = {
+    header: {
+      subtitle: "Internship Program",
+      title: "Launch Your Tech Career with Us"
     },
-    {
-      id: 2,
-      title: "Backend Development",
-      icon: "⚙️",
-      description: "Develop scalable server-side applications with Node.js and databases",
-      skills: ["Node.js", "Express", "MongoDB", "API Design"],
-      duration: "3-6 months"
+    tracks: {
+      title: "Available Tracks",
+      frontend: {
+        title: "Frontend Development",
+        icon: "💻",
+        description: "Build responsive UIs with React, Next.js, and modern CSS frameworks",
+        skills: ["React", "JavaScript", "CSS", "UI/UX"],
+        duration: "3-6 months"
+      },
+      backend: {
+        title: "Backend Development",
+        icon: "⚙️",
+        description: "Develop scalable server-side applications with Node.js and databases",
+        skills: ["Node.js", "Express", "MongoDB", "API Design"],
+        duration: "3-6 months"
+      },
+      fullstack: {
+        title: "Full Stack Development",
+        icon: "🔗",
+        description: "End-to-end application development from frontend to backend",
+        skills: ["MERN Stack", "Authentication", "Deployment", "Testing"],
+        duration: "6 months"
+      }
     },
-    {
-      id: 3,
-      title: "Full Stack Development",
-      icon: "🔗",
-      description: "End-to-end application development from frontend to backend",
-      skills: ["MERN Stack", "Authentication", "Deployment", "Testing"],
-      duration: "6 months"
+    details: {
+      title: "Program Details",
+      duration: {
+        title: "📅 Duration & Structure",
+        items: [
+          "Duration: 3-6 months",
+          "Hours: 20-40 hours/week",
+          "Format: Remote or Hybrid",
+          "Start Dates: Quarterly intakes"
+        ]
+      },
+      requirements: {
+        title: "🎯 What We Look For",
+        items: [
+          "Basic programming knowledge in your track",
+          "Eagerness to learn and grow",
+          "Problem-solving mindset",
+          "Team collaboration skills"
+        ]
+      },
+      benefits: {
+        title: "🏆 Benefits",
+        items: [
+          "Certificate upon completion",
+          "Letter of recommendation for top performers",
+          "Potential job offer for exceptional interns",
+          "Networking with industry professionals"
+        ]
+      }
+    },
+    cards: {
+      contact: {
+        title: "📞 Contact",
+        description: "Have questions? Reach out to our team:",
+        phone: "+8801577148188",
+        email: "cyclicit@gmail.com"
+      },
+      learning: {
+        title: "🎓 Learning Outcomes",
+        items: [
+          "Hands-on project experience",
+          "Skill development programs",
+          "Collaborative environment",
+          "Code review process",
+          "Agile methodologies"
+        ]
+      },
+      growth: {
+        title: "🚀 Career Growth",
+        items: [
+          "Production best practices",
+          "Performance optimization",
+          "Team growth strategies",
+          "Networking opportunities",
+          "Portfolio projects"
+        ]
+      }
+    },
+    cta: {
+      title: "Ready to Launch Your Career?",
+      description: "Applications are open for our next cohort. Limited spots available!",
+      button: "Apply Now"
     }
-  ];
+  };
 
-  
+  // Bengali content
+  const bnContent = {
+    header: {
+      subtitle: "ইন্টার্নশিপ প্রোগ্রাম",
+      title: "আমাদের সাথে আপনার টেক ক্যারিয়ার শুরু করুন"
+    },
+    tracks: {
+      title: "উপলব্ধ ট্র্যাকসমূহ",
+      frontend: {
+        title: "ফ্রন্টএন্ড ডেভেলপমেন্ট",
+        icon: "💻",
+        description: "React, Next.js এবং আধুনিক CSS ফ্রেমওয়ার্ক দিয়ে রেস্পন্সিভ UI তৈরি করুন",
+        skills: ["React", "JavaScript", "CSS", "UI/UX"],
+        duration: "৩-৬ মাস"
+      },
+      backend: {
+        title: "ব্যাকএন্ড ডেভেলপমেন্ট",
+        icon: "⚙️",
+        description: "Node.js এবং ডাটাবেস দিয়ে স্কেলেবল সার্ভার-সাইড অ্যাপ্লিকেশন ডেভেলপ করুন",
+        skills: ["Node.js", "Express", "MongoDB", "API Design"],
+        duration: "৩-৬ মাস"
+      },
+      fullstack: {
+        title: "ফুল স্ট্যাক ডেভেলপমেন্ট",
+        icon: "🔗",
+        description: "ফ্রন্টএন্ড থেকে ব্যাকএন্ড পর্যন্ত এন্ড-টু-এন্ড অ্যাপ্লিকেশন ডেভেলপমেন্ট",
+        skills: ["MERN Stack", "Authentication", "Deployment", "Testing"],
+        duration: "৬ মাস"
+      }
+    },
+    details: {
+      title: "প্রোগ্রামের বিবরণ",
+      duration: {
+        title: "📅 সময়কাল ও কাঠামো",
+        items: [
+          "সময়কাল: ৩-৬ মাস",
+          "ঘণ্টা: সপ্তাহে ২০-৪০ ঘণ্টা",
+          "ফরম্যাট: রিমোট বা হাইব্রিড",
+          "শুরুর তারিখ: ত্রৈমাসিক ইনটেক"
+        ]
+      },
+      requirements: {
+        title: "🎯 আমরা যা খুঁজি",
+        items: [
+          "আপনার ট্র্যাকের প্রোগ্রামিংয়ের প্রাথমিক জ্ঞান",
+          "শেখার এবং বৃদ্ধির আগ্রহ",
+          "সমস্যা সমাধানের মানসিকতা",
+          "দলগত সহযোগিতার দক্ষতা"
+        ]
+      },
+      benefits: {
+        title: "🏆 সুবিধাসমূহ",
+        items: [
+          "সমাপ্তির পর সার্টিফিকেট",
+          "শীর্ষ পারফর্মারদের জন্য সুপারিশপত্র",
+          "অসাধারণ ইন্টার্নদের জন্য চাকরির প্রস্তাব",
+          "শিল্প পেশাদারদের সাথে নেটওয়ার্কিং"
+        ]
+      }
+    },
+    cards: {
+      contact: {
+        title: "📞 যোগাযোগ",
+        description: "প্রশ্ন আছে? আমাদের দলের সাথে যোগাযোগ করুন:",
+        phone: "+৮৮০১৫৭৭১৪৮১৮৮",
+        email: "cyclicit@gmail.com"
+      },
+      learning: {
+        title: "🎓 শেখার ফলাফল",
+        items: [
+          "হাতেকলমে প্রকল্পের অভিজ্ঞতা",
+          "দক্ষতা উন্নয়ন প্রোগ্রাম",
+          "সহযোগিতামূলক পরিবেশ",
+          "কোড রিভিউ প্রক্রিয়া",
+          "এজাইল পদ্ধতি"
+        ]
+      },
+      growth: {
+        title: "🚀 ক্যারিয়ার বৃদ্ধি",
+        items: [
+          "প্রোডাকশনের সেরা অনুশীলন",
+          "পারফরম্যান্স অপ্টিমাইজেশন",
+          "দল বৃদ্ধির কৌশল",
+          "নেটওয়ার্কিং সুযোগ",
+          "পোর্টফোলিও প্রকল্প"
+        ]
+      }
+    },
+    cta: {
+      title: "আপনার ক্যারিয়ার শুরু করতে প্রস্তুত?",
+      description: "আমাদের পরবর্তী কোহোর্টের জন্য আবেদন খোলা আছে। সীমিত সংখ্যক স্থান উপলব্ধ!",
+      button: "এখনই আবেদন করুন"
+    }
+  };
+
+  // Select content based on language
+  const content = language === 'en' ? enContent : bnContent;
+
+  const tracks = [
+    content.tracks.frontend,
+    content.tracks.backend,
+    content.tracks.fullstack
+  ];
 
   const toggleAccordion = (id) => {
     setOpenAccordion(openAccordion === id ? null : id);
@@ -50,8 +227,31 @@ const Internship = ({ darkMode }) => {
     <div style={{
       backgroundColor: darkMode ? '#121212' : '#f8f9fa',
       padding: '2rem 1rem',
-      color: darkMode ? '#ffffff' : '#333333'
+      color: darkMode ? '#ffffff' : '#333333',
+      position: 'relative'
     }}>
+      {/* Language Toggle Button */}
+      <button 
+        onClick={toggleLanguage}
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          padding: '0.5rem 1rem',
+          background: darkMode ? '#2e7d32' : '#fff',
+          color: darkMode ? '#fff' : '#2e7d32',
+          border: 'none',
+          borderRadius: '20px',
+          cursor: 'pointer',
+         
+          
+          
+          zIndex: 100
+        }}
+      >
+        {language === 'en' ? 'বাংলা' : 'English'}
+      </button>
+
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -65,7 +265,7 @@ const Internship = ({ darkMode }) => {
             textTransform: 'uppercase',
             letterSpacing: '1px',
             marginBottom: '0.5rem'
-          }}>Internship Program</h2>
+          }}>{content.header.subtitle}</h2>
           
           <h1 style={{
             fontSize: 'clamp(1.5rem, 6vw, 2.5rem)',
@@ -76,11 +276,8 @@ const Internship = ({ darkMode }) => {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             lineHeight: '1.3'
-          }}>Launch Your Tech Career with Us</h1>
-
-          
+          }}>{content.header.title}</h1>
         </div>
-
 
         {/* Internship Tracks */}
         <div style={{ marginBottom: '3rem' }}>
@@ -101,7 +298,7 @@ const Internship = ({ darkMode }) => {
               position: 'relative',
               zIndex: 2
             }}>
-              Available Tracks
+              {content.tracks.title}
             </span>
             <span style={{
               position: 'absolute',
@@ -121,7 +318,7 @@ const Internship = ({ darkMode }) => {
           }}>
             {tracks.map(track => (
               <div 
-                key={track.id}
+                key={track.title}
                 style={{
                   background: darkMode ? '#1e1e1e' : '#ffffff',
                   borderRadius: '10px',
@@ -141,7 +338,7 @@ const Internship = ({ darkMode }) => {
                     gap: '1rem',
                     cursor: 'pointer'
                   }}
-                  onClick={() => toggleAccordion(track.id)}
+                  onClick={() => toggleAccordion(track.title)}
                 >
                   <span style={{ fontSize: '2rem' }}>{track.icon}</span>
                   <div>
@@ -151,15 +348,15 @@ const Internship = ({ darkMode }) => {
                       fontWeight: 600
                     }}>{track.title}</h3>
                     <p style={{ margin: '0.3rem 0 0', opacity: 0.9 }}>{track.duration}</p>
-                  <p >  Details ↓ </p>
+                    <p>{language === 'en' ? 'Details ↓' : 'বিস্তারিত ↓'}</p>
                   </div>
                 </div>
                 <div style={{
-                  padding: openAccordion === track.id ? '1.5rem' : '0',
-                  height: openAccordion === track.id ? 'auto' : '0',
+                  padding: openAccordion === track.title ? '1.5rem' : '0',
+                  height: openAccordion === track.title ? 'auto' : '0',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
-                  borderTop: openAccordion === track.id ? `1px solid ${darkMode ? '#333' : '#eee'}` : 'none'
+                  borderTop: openAccordion === track.title ? `1px solid ${darkMode ? '#333' : '#eee'}` : 'none'
                 }}>
                   <p style={{ marginTop: 0 }}>{track.description}</p>
                   <div>
@@ -167,7 +364,9 @@ const Internship = ({ darkMode }) => {
                       margin: '1rem 0 0.5rem',
                       fontSize: '1rem',
                       color: secondaryGreen
-                    }}>Skills You'll Learn:</h4>
+                    }}>
+                      {language === 'en' ? "Skills You'll Learn:" : "আপনি যে দক্ষতাগুলি শিখবেন:"}
+                    </h4>
                     <div style={{
                       display: 'flex',
                       flexWrap: 'wrap',
@@ -193,7 +392,6 @@ const Internship = ({ darkMode }) => {
           </div>
         </div>
 
-
         {/* Program Details */}
         <div style={{
           background: darkMode ? '#1e1e1e' : '#ffffff',
@@ -209,7 +407,7 @@ const Internship = ({ darkMode }) => {
             marginBottom: '1.5rem',
             textAlign: 'center'
           }}>
-            Program Details
+            {content.details.title}
           </h2>
 
           <div style={{
@@ -225,7 +423,7 @@ const Internship = ({ darkMode }) => {
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
-                <span>📅</span> Duration & Structure
+                {content.details.duration.title}
               </h3>
               <ul style={{
                 listStyle: 'none',
@@ -233,18 +431,14 @@ const Internship = ({ darkMode }) => {
                 margin: 0,
                 color: darkMode ? '#cccccc' : '#555555'
               }}>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Duration:</strong> 3-6 months
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Hours:</strong> 20-40 hours/week
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Format:</strong> Remote or Hybrid
-                </li>
-                <li style={{ padding: '0.5rem 0' }}>
-                  <strong>Start Dates:</strong> Quarterly intakes
-                </li>
+                {content.details.duration.items.map((item, index) => (
+                  <li key={index} style={{ 
+                    padding: '0.5rem 0', 
+                    borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` 
+                  }}>
+                    <strong>{item.split(':')[0]}:</strong> {item.split(':')[1]}
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -256,7 +450,7 @@ const Internship = ({ darkMode }) => {
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
-                <span>🎯</span> What We Look For
+                {content.details.requirements.title}
               </h3>
               <ul style={{
                 listStyle: 'none',
@@ -264,18 +458,15 @@ const Internship = ({ darkMode }) => {
                 margin: 0,
                 color: darkMode ? '#cccccc' : '#555555'
               }}>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Basic programming knowledge</strong> in your track
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Eagerness to learn</strong> and grow
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Problem-solving mindset</strong>
-                </li>
-                <li style={{ padding: '0.5rem 0' }}>
-                  <strong>Team collaboration</strong> skills
-                </li>
+                {content.details.requirements.items.map((item, index) => (
+                  <li key={index} style={{ 
+                    padding: '0.5rem 0', 
+                    borderBottom: index < content.details.requirements.items.length - 1 ? 
+                      `1px solid ${darkMode ? '#333' : '#eee'}` : 'none' 
+                  }}>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -287,7 +478,7 @@ const Internship = ({ darkMode }) => {
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
-                <span>🏆</span> Benefits
+                {content.details.benefits.title}
               </h3>
               <ul style={{
                 listStyle: 'none',
@@ -295,27 +486,19 @@ const Internship = ({ darkMode }) => {
                 margin: 0,
                 color: darkMode ? '#cccccc' : '#555555'
               }}>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Certificate</strong> upon completion
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Letter of recommendation</strong> for top performers
-                </li>
-                <li style={{ padding: '0.5rem 0', borderBottom: `1px solid ${darkMode ? '#333' : '#eee'}` }}>
-                  <strong>Potential job offer</strong> for exceptional interns
-                </li>
-                <li style={{ padding: '0.5rem 0' }}>
-                  <strong>Networking</strong> with industry professionals
-                </li>
+                {content.details.benefits.items.map((item, index) => (
+                  <li key={index} style={{ 
+                    padding: '0.5rem 0', 
+                    borderBottom: index < content.details.benefits.items.length - 1 ? 
+                      `1px solid ${darkMode ? '#333' : '#eee'}` : 'none' 
+                  }}>
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
-
-
-
-
-
 
         {/* Program Highlights */}
         <div style={{
@@ -347,17 +530,17 @@ const Internship = ({ darkMode }) => {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
-            }}>📞 Contact</h3>
+            }}>{content.cards.contact.title}</h3>
             <p style={{
               color: darkMode ? '#cccccc' : '#666666',
               margin: '0 0 1rem 0',
               fontSize: '1rem'
-            }}>Have questions? Reach out to our team:</p>
+            }}>{content.cards.contact.description}</p>
             <p style={{
               color: darkMode ? '#ffffff' : '#333333',
               fontWeight: 500,
               margin: '0.5rem 0'
-            }}>+8801577148188</p>
+            }}>{content.cards.contact.phone}</p>
             <Link 
               to="/contact" 
               style={{
@@ -373,7 +556,7 @@ const Internship = ({ darkMode }) => {
                 marginTop: '1rem'
               }}
             >
-              cyclicit@gmail.com
+              {content.cards.contact.email}
             </Link>
           </div>
           
@@ -400,19 +583,13 @@ const Internship = ({ darkMode }) => {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
-            }}>🎓 Learning Outcomes</h3>
+            }}>{content.cards.learning.title}</h3>
             <ul style={{
               listStyle: 'none',
               padding: 0,
               margin: 0
             }}>
-              {[
-                "Hands-on project experience",
-                "Skill development programs",
-                "Collaborative environment",
-                "Code review process",
-                "Agile methodologies"
-              ].map((item, index) => (
+              {content.cards.learning.items.map((item, index) => (
                 <li key={index} style={{
                   padding: '0.4rem 0',
                   color: darkMode ? '#cccccc' : '#666666',
@@ -450,19 +627,13 @@ const Internship = ({ darkMode }) => {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
-            }}>🚀 Career Growth</h3>
+            }}>{content.cards.growth.title}</h3>
             <ul style={{
               listStyle: 'none',
               padding: 0,
               margin: 0
             }}>
-              {[
-                "Production best practices",
-                "Performance optimization",
-                "Team growth strategies",
-                "Networking opportunities",
-                "Portfolio projects"
-              ].map((item, index) => (
+              {content.cards.growth.items.map((item, index) => (
                 <li key={index} style={{
                   padding: '0.4rem 0',
                   color: darkMode ? '#cccccc' : '#666666',
@@ -478,12 +649,6 @@ const Internship = ({ darkMode }) => {
           </div>
         </div>
 
-        
-
-       
-
-        
-
         {/* CTA Section */}
         <div style={{
           textAlign: 'center',
@@ -497,7 +662,7 @@ const Internship = ({ darkMode }) => {
             fontWeight: 700,
             marginBottom: '1rem'
           }}>
-            Ready to Launch Your Career?
+            {content.cta.title}
           </h2>
           <p style={{
             maxWidth: '700px',
@@ -506,7 +671,7 @@ const Internship = ({ darkMode }) => {
             lineHeight: '1.6',
             opacity: 0.9
           }}>
-            Applications are open for our next cohort. Limited spots available!
+            {content.cta.description}
           </p>
           <Link 
             to="/contact" 
@@ -523,7 +688,7 @@ const Internship = ({ darkMode }) => {
               boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
             }}
           >
-            Apply Now
+            {content.cta.button}
           </Link>
         </div>
       </div>

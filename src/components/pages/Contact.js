@@ -193,18 +193,15 @@ const Contact = ({ darkMode }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         style={{
-          position: 'absolute',
+          position: 'fixed',
           top: '1.5rem',
           right: '1.5rem',
           padding: '0.5rem 1rem',
-          borderRadius: '50px',
-          background: darkMode ? '#2a2a2a' : '#e0e0e0',
-          color: darkMode ? '#ffffff' : '#333333',
+          background: darkMode ? '#2e7d32' : '#fff',
+          color: darkMode ? '#fff' : '#2e7d32',
           border: 'none',
-          fontWeight: 600,
+          borderRadius: '20px',
           cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
           gap: '0.5rem',
           zIndex: 10
         }}

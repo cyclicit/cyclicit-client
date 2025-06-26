@@ -42,7 +42,7 @@ const Home = ({ darkMode }) => {
     {
       id: 'web',
       label: language === 'en' ? 'Web' : 'ওয়েব',
-      size: 60,
+      size: 50,
       top: '10%',
       left: '10%',
       fontSize: '1.1rem',
@@ -53,8 +53,8 @@ const Home = ({ darkMode }) => {
     },
     {
       id: 'mobile',
-      label: language === 'en' ? 'Mobile' : 'মোবাইল',
-      size: 70,
+      label: language === 'en' ? 'App' : 'অ্যাপ',
+      size: 50,
       top: '5%',
       left: '40%',
       fontSize: '1rem',
@@ -79,9 +79,9 @@ const Home = ({ darkMode }) => {
       id: 'ai',
       label: language === 'en' ? 'ai' : 'এআই',
       size: 60,
-      top: '50%',
-      right: '5%',
-      fontSize: '1.3rem',
+      top: '30%',
+      right: '10%',
+      fontSize: '1rem',
       borderRadius: '30px',
       info: language === 'en' 
         ? 'AI-powered solutions including machine learning models, chatbots, and computer vision applications.'
@@ -90,8 +90,8 @@ const Home = ({ darkMode }) => {
     {
       id: 'cloud',
       label: language === 'en' ? 'Cloud' : 'ক্লাউড',
-      size: 60,
-      bottom: '50%',
+      size: 50,
+      bottom: '60%',
       left: '10%',
       fontSize: '0.9rem',
       borderRadius: '16px',
@@ -132,7 +132,7 @@ const Home = ({ darkMode }) => {
       height: '100%',
       background: darkMode 
         ? 'radial-gradient(circle at 75% 30%,rgb(46, 89, 46) 0%,rgb(29, 48, 29) 60%)' 
-        : 'radial-gradient(circle at 75% 30%, #e8f5e9 0%, #f8f9fa 60%)',
+        : 'radial-gradient(circle at 75% 30%,rgb(179, 230, 184) 0%,rgb(199, 234, 200) 60%)',
       zIndex: 0
     },
     floatingContainer: {
@@ -211,7 +211,7 @@ const Home = ({ darkMode }) => {
       display: 'inline-block',
       padding: '0.8rem 1.5rem',
       borderRadius: '50px',
-      background: 'linear-gradient(90deg, #2e7d32, #4caf50)',
+      background: 'linear-gradient(90deg,rgb(99, 92, 0),rgb(107, 100, 0))',
       color: 'white',
       textDecoration: 'none',
       fontWeight: 600,
@@ -230,7 +230,7 @@ const Home = ({ darkMode }) => {
       display: 'inline-block',
       padding: '0.8rem 1.5rem',
       borderRadius: '50px',
-      background: 'linear-gradient(90deg, #1565c0, #1976d2)',
+      background: 'linear-gradient(90deg,rgb(103, 65, 0),rgb(84, 70, 0))',
       color: 'white',
       textDecoration: 'none',
       fontWeight: 600,
@@ -271,15 +271,15 @@ const Home = ({ darkMode }) => {
       cursor: 'pointer'
     },
     languageToggle: {
-      position: 'absolute',
+      position: 'fixed',
       top: '1rem',
       right: '1rem',
       padding: '0.5rem 1rem',
-      borderRadius: '20px',
-      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
-      color: darkMode ? 'white' : '#333',
-      border: `1px solid ${darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)'}`,
-      cursor: 'pointer',
+      background: darkMode ? '#2e7d32' : '#fff',
+          color: darkMode ? '#fff' : '#2e7d32',
+          border: 'none',
+          borderRadius: '20px',
+          cursor: 'pointer',
       zIndex: 100,
       display: 'flex',
       alignItems: 'center',
@@ -392,6 +392,11 @@ const Home = ({ darkMode }) => {
         </p>
 
         <div style={styles.buttonsContainer}>
+
+           
+
+
+
           <motion.div 
             style={styles.buttonWrapper}
             whileHover={{ scale: 1.03 }}
@@ -431,8 +436,22 @@ const Home = ({ darkMode }) => {
             </Link>
           </motion.div>
 
+          <motion.div 
+            style={styles.buttonWrapper}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Link 
+              to="/funding" 
+              style={styles.secondaryButton}
+            >
+              {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
+            </Link>
+          </motion.div>
+
 
         </div>
+        
       </div>
 
       

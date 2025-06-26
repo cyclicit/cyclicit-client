@@ -14,22 +14,89 @@ const Buy = ({ darkMode }) => {
     email: '',
     phone: ''
   });
+  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
+
+  // Translations
+  const translations = {
+    en: {
+      headerSubtitle: "Website Templates",
+      headerTitle: "Premium Templates for Every Business",
+      headerDescription: "Browse our collection of professionally designed templates. Each comes with full customization options and dedicated support to make your website stand out.",
+      allTemplates: "All Templates",
+      liveDemo: "Live Demo",
+      bookSite: "Book Site",
+      bookTemplate: "Book {template}",
+      fullName: "Full Name",
+      emailAddress: "Email Address",
+      phoneNumber: "Phone Number",
+      cancel: "Cancel",
+      confirmBooking: "Confirm Booking",
+      customSolutionTitle: "Need a Custom Website Solution?",
+      customSolutionText: "Our team can create a completely custom website tailored to your specific business needs.",
+      requestCustomDesign: "Request Custom Design",
+      submissionSuccess: "Your request has been submitted successfully!",
+      submissionError: "Failed to submit your request. Please try again.",
+      processing: "Processing...",
+      features: "Features",
+      rating: "Rating",
+      sales: "sales",
+      categories: {
+        all: "All Templates",
+        ecommerce: "E-Commerce",
+        portfolio: "Portfolio",
+        business: "Business",
+        blog: "Blog",
+        marketing: "Marketing"
+      }
+    },
+    bn: {
+      headerSubtitle: "ওয়েবসাইট টেমপ্লেট",
+      headerTitle: "প্রতিটি ব্যবসার জন্য প্রিমিয়াম টেমপ্লেট",
+      headerDescription: "পেশাদারভাবে ডিজাইন করা আমাদের টেমপ্লেট সংগ্রহ ব্রাউজ করুন। প্রতিটি টেমপ্লেট সম্পূর্ণ কাস্টমাইজেশন অপশন এবং ডেডিকেটেড সাপোর্ট সহ আসে যাতে আপনার ওয়েবসাইট সবার থেকে আলাদা হয়।",
+      allTemplates: "সমস্ত টেমপ্লেট",
+      liveDemo: "লাইভ ডেমো",
+      bookSite: "সাইট বুক করুন",
+      bookTemplate: "{template} বুক করুন",
+      fullName: "পুরো নাম",
+      emailAddress: "ইমেইল ঠিকানা",
+      phoneNumber: "ফোন নম্বর",
+      cancel: "বাতিল",
+      confirmBooking: "বুকিং নিশ্চিত করুন",
+      customSolutionTitle: "কাস্টম ওয়েবসাইট সমাধান প্রয়োজন?",
+      customSolutionText: "আমাদের টিম আপনার ব্যবসার প্রয়োজনে সম্পূর্ণ কাস্টম ওয়েবসাইট তৈরি করতে পারে।",
+      requestCustomDesign: "কাস্টম ডিজাইন অনুরোধ করুন",
+      submissionSuccess: "আপনার অনুরোধ সফলভাবে জমা হয়েছে!",
+      submissionError: "আপনার অনুরোধ জমা করতে ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+      processing: "প্রক্রিয়াকরণ...",
+      features: "বৈশিষ্ট্য",
+      rating: "রেটিং",
+      sales: "বিক্রয়",
+      categories: {
+        all: "সমস্ত টেমপ্লেট",
+        ecommerce: "ই-কমার্স",
+        portfolio: "পোর্টফোলিও",
+        business: "ব্যবসা",
+        blog: "ব্লগ",
+        marketing: "মার্কেটিং"
+      }
+    }
+  };
+
+  const t = translations[language];
 
   const websiteTemplates = [
     {
       id: 'Farmermers-ecommerce',
-      title: "Farmers E-Commerce",
+      title: language === 'en' ? "Farmers E-Commerce" : "কৃষক ই-কমার্স",
       category: "ecommerce",
       price: 1599,
       image: "https://i.ibb.co/xqZjj0CK/Screenshot-2025-05-05-105451.png",
-      description: "Appetizing restaurant website with menu, reservations, and gallery",
-      features: [
-        "Menu display",
-        "Online reservations",
-        "Food gallery",
-        "Location map",
-        "Reviews section"
-      ],
+      description: language === 'en' 
+        ? "Appetizing restaurant website with menu, reservations, and gallery" 
+        : "মেনু, রিজার্ভেশন এবং গ্যালারি সহ রেস্তোরাঁ ওয়েবসাইট",
+      features: language === 'en' 
+        ? ["Menu display", "Online reservations", "Food gallery", "Location map", "Reviews section"]
+        : ["মেনু প্রদর্শন", "অনলাইন রিজার্ভেশন", "খাবারের গ্যালারি", "লোকেশন ম্যাপ", "রিভিউ সেকশন"],
       liveDemo: "https://bengalharvestglobal.netlify.app/",
       rating: 4.9,
       sales: 78,
@@ -37,18 +104,16 @@ const Buy = ({ darkMode }) => {
     },
     {
       id: 'portfolio-premium',
-      title: "Portfolio Premium",
+      title: language === 'en' ? "Portfolio Premium" : "প্রিমিয়াম পোর্টফোলিও",
       category: "portfolio",
       price: 1299,
       image: "https://i.ibb.co/fVv70dxj/Screenshot-2025-05-28-213536.png",
-      description: "Elegant portfolio to showcase your work with gallery and contact form",
-      features: [
-        "Responsive gallery",
-        "Project showcase",
-        "Blog section",
-        "Contact form",
-        "SEO optimized"
-      ],
+      description: language === 'en' 
+        ? "Elegant portfolio to showcase your work with gallery and contact form" 
+        : "গ্যালারি এবং কন্টাক্ট ফর্ম সহ আপনার কাজ প্রদর্শনের জন্য মার্জিত পোর্টফোলিও",
+      features: language === 'en' 
+        ? ["Responsive gallery", "Project showcase", "Blog section", "Contact form", "SEO optimized"]
+        : ["রেস্পন্সিভ গ্যালারি", "প্রজেক্ট প্রদর্শনী", "ব্লগ সেকশন", "যোগাযোগ ফর্ম", "এসইও অপ্টিমাইজড"],
       liveDemo: "https://safinsyam.netlify.app/",
       rating: 4.6,
       sales: 87,
@@ -56,89 +121,81 @@ const Buy = ({ darkMode }) => {
     },
     {
       id: 'Pet-ecommerce',
-      title: "Pet e-commerce",
+      title: language === 'en' ? "Pet e-commerce" : "পোষা প্রাণী ই-কমার্স",
       category: "ecommerce",
       price: 699,
       image: "https://i.ibb.co/whH2D9K0/Screenshot-2025-05-05-105046.png",
-      description: "High-converting landing page for products or services",
-      features: [
-        "Lead capture form",
-        "Feature highlights",
-        "Testimonials",
-        "Call-to-action",
-        "Mobile optimized"
-      ],
+      description: language === 'en' 
+        ? "High-converting landing page for products or services" 
+        : "পণ্য বা সেবার জন্য উচ্চ রূপান্তর সহ ল্যান্ডিং পেজ",
+      features: language === 'en' 
+        ? ["Lead capture form", "Feature highlights", "Testimonials", "Call-to-action", "Mobile optimized"]
+        : ["লিড ক্যাপচার ফর্ম", "বৈশিষ্ট্য হাইলাইট", "সাক্ষ্য", "কল-টু-অ্যাকশন", "মোবাইল অপ্টিমাইজড"],
       liveDemo: "https://petandvet.netlify.app/",
-      rating: 4.4,
+      rating: 4.8,
       sales: 203,
       color: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)"
     },
     {
       id: 'business-elite',
-      title: "Business Elite",
+      title: language === 'en' ? "Business Elite" : "বিজনেস এলিট",
       category: "business",
       price: 1899,
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      description: "Professional corporate website with services, team, and testimonials",
-      features: [
-        "Service pages",
-        "Team section",
-        "Testimonials",
-        "Pricing tables",
-        "FAQ section"
-      ],
+      description: language === 'en' 
+        ? "Professional corporate website with services, team, and testimonials" 
+        : "সেবা, টিম এবং সাক্ষ্য সহ পেশাদার কর্পোরেট ওয়েবসাইট",
+      features: language === 'en' 
+        ? ["Service pages", "Team section", "Testimonials", "Pricing tables", "FAQ section"]
+        : ["সেবা পৃষ্ঠা", "টিম সেকশন", "সাক্ষ্য", "মূল্য তালিকা", "প্রশ্নোত্তর সেকশন"],
       liveDemo: "https://fireflythemes.com/preview/?demo=elite-business-dark-free",
-      rating: 4.7,
+      rating: 4.0,
       sales: 112,
       color: "linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%)"
     },
     {
       id: 'blog-standard',
-      title: "Blog Standard",
+      title: language === 'en' ? "Blog Standard" : "স্ট্যান্ডার্ড ব্লগ",
       category: "blog",
       price: 899,
       image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      description: "Modern blog template with article layouts and newsletter integration",
-      features: [
-        "Article layouts",
-        "Categories",
-        "Author profiles",
-        "Newsletter signup",
-        "Social sharing"
-      ],
+      description: language === 'en' 
+        ? "Modern blog template with article layouts and newsletter integration" 
+        : "আর্টিকেল লেআউট এবং নিউজলেটার ইন্টিগ্রেশন সহ আধুনিক ব্লগ টেমপ্লেট",
+      features: language === 'en' 
+        ? ["Article layouts", "Categories", "Author profiles", "Newsletter signup", "Social sharing"]
+        : ["আর্টিকেল লেআউট", "বিভাগ", "লেখক প্রোফাইল", "নিউজলেটার সাইনআপ", "সোশ্যাল শেয়ারিং"],
       liveDemo: "https://eris-templateify.blogspot.com/",
-      rating: 4.5,
+      rating: 4.0,
       sales: 156,
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
       id: 'marketing',
-      title: "Elite Events House",
+      title: language === 'en' ? "Elite Events House" : "এলিট ইভেন্টস হাউস",
       category: "marketing",
       price: 2499,
       image: "https://i.ibb.co/tMg8bmqZ/Screenshot-2025-05-25-234847.png",
-      description: "Complete online store with product management, cart, and secure checkout",
-      features: [
-        "Product catalog",
-        "Shopping cart",
-        "Secure payments",
-        "Inventory management",
-        "Customer accounts"
-      ],
+      description: language === 'en' 
+        ? "Complete online store with product management, cart, and secure checkout" 
+        : "পণ্য ব্যবস্থাপনা, কার্ট এবং সুরক্ষিত চেকআউট সহ সম্পূর্ণ অনলাইন স্টোর",
+      features: language === 'en' 
+        ? ["Product catalog", "Shopping cart", "Secure payments", "Inventory management", "Customer accounts"]
+        : ["পণ্য ক্যাটালগ", "শপিং কার্ট", "সুরক্ষিত পেমেন্ট", "ইনভেন্টরি ব্যবস্থাপনা", "গ্রাহক অ্যাকাউন্ট"],
       liveDemo: "https://eliteeventshouse.netlify.app/",
-      rating: 4.8,
+      rating: 4.9,
       sales: 142,
       color: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)"
     },
   ];
 
   const categories = [
-    { id: 'all', name: 'All Templates' },
-    { id: 'ecommerce', name: 'E-Commerce' },
-    { id: 'portfolio', name: 'Portfolio' },
-    { id: 'business', name: 'Business' },
-    { id: 'blog', name: 'Blog' },
-    { id: 'marketing', name: 'marketing' },
+    { id: 'all', name: t.categories.all },
+    { id: 'ecommerce', name: t.categories.ecommerce },
+    { id: 'portfolio', name: t.categories.portfolio },
+    { id: 'business', name: t.categories.business },
+    { id: 'blog', name: t.categories.blog },
+    { id: 'marketing', name: t.categories.marketing },
   ];
 
   const filteredTemplates = selectedCategory === 'all' 
@@ -180,7 +237,9 @@ const Buy = ({ darkMode }) => {
           customerName: formData.name,
           customerEmail: formData.email,
           customerPhone: formData.phone,
-          message: `I would like to book the ${selectedTemplate.title} template for $${selectedTemplate.price}.`
+          message: language === 'en' 
+            ? `I would like to book the ${selectedTemplate.title} template for $${selectedTemplate.price}.` 
+            : `আমি ${selectedTemplate.title} টেমপ্লেটটি $${selectedTemplate.price} এর জন্য বুক করতে চাই।`
         }),
       });
 
@@ -205,6 +264,36 @@ const Buy = ({ darkMode }) => {
       color: darkMode ? '#ffffff' : '#333333',
       minHeight: '100vh'
     }}>
+      {/* Language Toggle Button */}
+      <div style={{
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        zIndex: 1000
+      }}>
+        <button
+          onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
+          style={{
+            position: 'fixed',
+      top: '1rem',
+      right: '1rem',
+      padding: '0.5rem 1rem',
+      background: darkMode ? '#2e7d32' : '#fff',
+          color: darkMode ? '#fff' : '#2e7d32',
+          border: 'none',
+          borderRadius: '20px',
+          cursor: 'pointer',
+      zIndex: 100,
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      fontSize: '0.9rem'
+          }}
+        >
+          {language === 'en' ? 'বাংলা' : 'English'}
+        </button>
+      </div>
+
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -218,13 +307,17 @@ const Buy = ({ darkMode }) => {
             textTransform: 'uppercase',
             letterSpacing: '1px',
             marginBottom: '0.5rem'
-          }}>Website Templates</h2>
+          }}>
+            {t.headerSubtitle}
+          </h2>
           
           <h1 style={{
             fontSize: '1.8rem',
             margin: '0.5rem 0 1rem',
             lineHeight: '1.3'
-          }}>Premium Templates for Every Business</h1>
+          }}>
+            {t.headerTitle}
+          </h1>
           
           <p style={{
             maxWidth: '700px',
@@ -232,8 +325,7 @@ const Buy = ({ darkMode }) => {
             opacity: 0.8,
             lineHeight: '1.6'
           }}>
-            Browse our collection of professionally designed templates. Each comes with full customization 
-            options and dedicated support to make your website stand out.
+            {t.headerDescription}
           </p>
         </div>
 
@@ -243,9 +335,9 @@ const Buy = ({ darkMode }) => {
           overflowX: 'auto',
           padding: '0.5rem 0',
           marginBottom: '2rem',
-          scrollbarWidth: 'none', // For Firefox
+          scrollbarWidth: 'none',
           '::-webkit-scrollbar': {
-            display: 'none' // For Chrome/Safari
+            display: 'none'
           }
         }}>
           <div style={{
@@ -346,20 +438,6 @@ const Buy = ({ darkMode }) => {
                     margin: 0,
                     color: darkMode ? 'white' : '#333'
                   }}>{template.title}</h3>
-                  
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
-                    padding: '0.2rem 0.5rem',
-                    borderRadius: '4px'
-                  }}>
-                    <span style={{
-                      color: darkMode ? '#81c784' : '#2e7d32',
-                      fontWeight: 600,
-                      fontSize: '0.9rem'
-                    }}>${template.price}/negotiable</span>
-                  </div>
                 </div>
                 
                 {/* Rating and Sales */}
@@ -375,7 +453,7 @@ const Buy = ({ darkMode }) => {
                     marginRight: '0.3rem'
                   }}>★</span>
                   <span style={{ marginRight: '0.8rem' }}>{template.rating}</span>
-                  <span>{template.sales} sales</span>
+                 
                 </div>
                 
                 {/* Description (shown when expanded) */}
@@ -392,6 +470,14 @@ const Buy = ({ darkMode }) => {
                 
                 {/* Features List */}
                 <div style={{ margin: '0.5rem 0', flex: 1 }}>
+                  <div style={{
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    marginBottom: '0.5rem',
+                    color: darkMode ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)'
+                  }}>
+                    {t.features}:
+                  </div>
                   <ul style={{
                     listStyle: 'none',
                     padding: 0,
@@ -447,7 +533,7 @@ const Buy = ({ darkMode }) => {
                     }}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    Live Demo
+                    {t.liveDemo}
                   </a>
                   
                   <button
@@ -474,7 +560,7 @@ const Buy = ({ darkMode }) => {
                       }
                     }}
                   >
-                    Book Site
+                    {t.bookSite}
                   </button>
                 </div>
               </div>
@@ -509,7 +595,7 @@ const Buy = ({ darkMode }) => {
                 marginBottom: '1.5rem',
                 color: darkMode ? 'white' : '#333'
               }}>
-                Book {selectedTemplate.title}
+                {t.bookTemplate.replace('{template}', selectedTemplate.title)}
               </h3>
               
               <form onSubmit={handleBookSite}>
@@ -520,7 +606,7 @@ const Buy = ({ darkMode }) => {
                     color: darkMode ? 'rgba(255,255,255,0.8)' : '#555',
                     fontSize: '0.9rem'
                   }}>
-                    Full Name
+                    {t.fullName}
                   </label>
                   <input
                     type="text"
@@ -547,7 +633,7 @@ const Buy = ({ darkMode }) => {
                     color: darkMode ? 'rgba(255,255,255,0.8)' : '#555',
                     fontSize: '0.9rem'
                   }}>
-                    Email Address
+                    {t.emailAddress}
                   </label>
                   <input
                     type="email"
@@ -574,7 +660,7 @@ const Buy = ({ darkMode }) => {
                     color: darkMode ? 'rgba(255,255,255,0.8)' : '#555',
                     fontSize: '0.9rem'
                   }}>
-                    Phone Number
+                    {t.phoneNumber}
                   </label>
                   <input
                     type="tel"
@@ -615,7 +701,7 @@ const Buy = ({ darkMode }) => {
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    Cancel
+                    {t.cancel}
                   </button>
                   
                   <button
@@ -638,7 +724,7 @@ const Buy = ({ darkMode }) => {
                       }
                     }}
                   >
-                    {isSubmitting ? 'Processing...' : 'Confirm Booking'}
+                    {isSubmitting ? t.processing : t.confirmBooking}
                   </button>
                 </div>
               </form>
@@ -659,7 +745,7 @@ const Buy = ({ darkMode }) => {
             marginBottom: '1rem',
             color: darkMode ? 'white' : '#333'
           }}>
-            Need a Custom Website Solution?
+            {t.customSolutionTitle}
           </h3>
           <p style={{
             maxWidth: '600px',
@@ -668,7 +754,7 @@ const Buy = ({ darkMode }) => {
             opacity: 0.8,
             color: darkMode ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.7)'
           }}>
-            Our team can create a completely custom website tailored to your specific business needs.
+            {t.customSolutionText}
           </p>
           <Link 
             to="/contact" 
@@ -689,7 +775,7 @@ const Buy = ({ darkMode }) => {
               }
             }}
           >
-            Request Custom Design
+            {t.requestCustomDesign}
           </Link>
         </div>
 
@@ -710,7 +796,7 @@ const Buy = ({ darkMode }) => {
             gap: '0.5rem'
           }}>
             <span>✓</span>
-            <span>Your request has been submitted successfully!</span>
+            <span>{t.submissionSuccess}</span>
           </div>
         )}
 
@@ -730,7 +816,7 @@ const Buy = ({ darkMode }) => {
             gap: '0.5rem'
           }}>
             <span>✗</span>
-            <span>Failed to submit your request. Please try again.</span>
+            <span>{t.submissionError}</span>
           </div>
         )}
       </div>

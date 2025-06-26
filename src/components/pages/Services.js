@@ -5,13 +5,27 @@ import { motion } from 'framer-motion';
 const Services = ({ darkMode }) => {
   const [expandedService, setExpandedService] = useState(null);
   const [activeTab, setActiveTab] = useState('development');
+  const [isBengali, setIsBengali] = useState(true);
+
+  const toggleLanguage = () => {
+    setIsBengali(!isBengali);
+  };
 
   const serviceCategories = {
     development: [
-      
-      { icon: '🖥️', title: 'Websites', 
-        desc: 'Beautiful, responsive websites that represent your brand / e-commerce',
-        details: [
+      { 
+        icon: '🖥️', 
+        title: isBengali ? 'ওয়েবসাইট' : 'Websites', 
+        desc: isBengali ? 
+          'আপনার ব্র্যান্ড/ই-কমার্সের জন্য সুন্দর, প্রতিক্রিয়াশীল ওয়েবসাইট' : 
+          'Beautiful, responsive websites that represent your brand / e-commerce',
+        details: isBengali ? [
+          'এসইও-অপ্টিমাইজড ল্যান্ডিং পেজ',
+          'পেমেন্ট গেটওয়ে সহ ই-কমার্স',
+          'কন্টেন্ট ম্যানেজমেন্ট সিস্টেম',
+          'পোর্টফোলিও ও ব্রোশার সাইট',
+          'বহুভাষিক সমর্থন'
+        ] : [
           'SEO-optimized landing pages',
           'E-commerce with payment gateways',
           'Content Management Systems',
@@ -20,9 +34,19 @@ const Services = ({ darkMode }) => {
         ],
         technologies: ['Next.js', 'WordPress', 'Shopify', 'Tailwind CSS', 'Webflow']
       },
-      { icon: '📱', title: 'Mobile Apps', 
-        desc: 'iOS and Android apps built with native or cross-platform technologies',
-        details: [
+      { 
+        icon: '📱', 
+        title: isBengali ? 'মোবাইল অ্যাপস' : 'Mobile Apps', 
+        desc: isBengali ? 
+          'নেটিভ বা ক্রস-প্ল্যাটফর্ম প্রযুক্তি দিয়ে নির্মিত iOS এবং Android অ্যাপস' : 
+          'iOS and Android apps built with native or cross-platform technologies',
+        details: isBengali ? [
+          'নেটিভ iOS (Swift) ডেভেলপমেন্ট',
+          'নেটিভ Android (Kotlin) ডেভেলপমেন্ট',
+          'ক্রস-প্ল্যাটফর্ম (React Native/Flutter)',
+          'অ্যাপ স্টোর অপ্টিমাইজেশন',
+          'পুশ নোটিফিকেশন সিস্টেম'
+        ] : [
           'Native iOS (Swift) development',
           'Native Android (Kotlin) development',
           'Cross-platform (React Native/Flutter)',
@@ -31,9 +55,19 @@ const Services = ({ darkMode }) => {
         ],
         technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase']
       },
-      { icon: '💻', title: 'Custom Software', 
-        desc: 'Tailored solutions for your specific business needs',
-        details: [
+      { 
+        icon: '💻', 
+        title: isBengali ? 'কাস্টম সফ্টওয়্যার' : 'Custom Software', 
+        desc: isBengali ? 
+          'আপনার নির্দিষ্ট ব্যবসায়িক প্রয়োজন অনুযায়ী সমাধান' : 
+          'Tailored solutions for your specific business needs',
+        details: isBengali ? [
+          'ইনভেন্টরি ম্যানেজমেন্ট সিস্টেম',
+          'স্বয়ংক্রিয় ওয়ার্কফ্লো সমাধান',
+          'ডেটা অ্যানালিটিক্স ড্যাশবোর্ড',
+          'AI/ML ইন্টিগ্রেশন',
+          'ডেস্কটপ অ্যাপ্লিকেশন'
+        ] : [
           'Inventory management systems',
           'Automated workflow solutions',
           'Data analytics dashboards',
@@ -44,9 +78,19 @@ const Services = ({ darkMode }) => {
       }
     ],
     consulting: [
-      { icon: '📊', title: 'Tech Strategy', 
-        desc: 'Roadmap planning for digital transformation',
-        details: [
+      { 
+        icon: '📊', 
+        title: isBengali ? 'টেক স্ট্র্যাটেজি' : 'Tech Strategy', 
+        desc: isBengali ? 
+          'ডিজিটাল রূপান্তরের জন্য রোডম্যাপ পরিকল্পনা' : 
+          'Roadmap planning for digital transformation',
+        details: isBengali ? [
+          'প্রযুক্তি স্ট্যাক মূল্যায়ন',
+          'ডিজিটাল পরিপক্কতা মূল্যায়ন',
+          'নতুনত্ব কর্মশালা',
+          'প্রতিযোগী বিশ্লেষণ',
+          '৫-বছর পরিকল্পনা'
+        ] : [
           'Technology stack evaluation',
           'Digital maturity assessment',
           'Innovation workshops',
@@ -54,9 +98,19 @@ const Services = ({ darkMode }) => {
           '5-year planning'
         ]
       },
-      { icon: '🔒', title: 'Security Audit', 
-        desc: 'Comprehensive security assessment for your systems',
-        details: [
+      { 
+        icon: '🔒', 
+        title: isBengali ? 'সিকিউরিটি অডিট' : 'Security Audit', 
+        desc: isBengali ? 
+          'আপনার সিস্টেমের জন্য ব্যাপক নিরাপত্তা মূল্যায়ন' : 
+          'Comprehensive security assessment for your systems',
+        details: isBengali ? [
+          'পেনিট্রেশন টেস্টিং',
+          'কমপ্লায়েন্স চেক (GDPR, HIPAA)',
+          'দুর্বলতা স্ক্যানিং',
+          'নিরাপত্তা প্রশিক্ষণ',
+          'ঘটনা প্রতিক্রিয়া পরিকল্পনা'
+        ] : [
           'Penetration testing',
           'Compliance checks (GDPR, HIPAA)',
           'Vulnerability scanning',
@@ -64,9 +118,19 @@ const Services = ({ darkMode }) => {
           'Incident response planning'
         ]
       },
-      { icon: '📈', title: 'Performance Optimization', 
-        desc: 'Speed and efficiency improvements for existing systems',
-        details: [
+      { 
+        icon: '📈', 
+        title: isBengali ? 'পারফরম্যান্স অপ্টিমাইজেশন' : 'Performance Optimization', 
+        desc: isBengali ? 
+          'বিদ্যমান সিস্টেমের জন্য গতি এবং দক্ষতা উন্নতি' : 
+          'Speed and efficiency improvements for existing systems',
+        details: isBengali ? [
+          'ডাটাবেস অপ্টিমাইজেশন',
+          'কোড রিফ্যাক্টরিং',
+          'লোড টেস্টিং',
+          'ক্যাশিং কৌশল',
+          'CDN বাস্তবায়ন'
+        ] : [
           'Database optimization',
           'Code refactoring',
           'Load testing',
@@ -78,29 +142,65 @@ const Services = ({ darkMode }) => {
   };
 
   const benefits = [
-    { icon: '⚡', title: 'Fast Project Delivery', 
-      desc: 'Rapid implementation with agile methodologies',
-      details: '2-week sprints with continuous deployment, daily standups, and bi-weekly demos ensure we deliver features quickly while maintaining quality.'
+    { 
+      icon: '⚡', 
+      title: isBengali ? 'দ্রুত প্রকল্প বিতরণ' : 'Fast Project Delivery', 
+      desc: isBengali ? 
+        'চটপট বাস্তবায়ন সহ নমনীয় পদ্ধতি' : 
+        'Rapid implementation with agile methodologies',
+      details: isBengali ? 
+        '২-সপ্তাহের স্প্রিন্টের সাথে অবিচ্ছিন্ন স্থাপনা, দৈনিক স্ট্যান্ডআপ এবং দ্বি-সাপ্তাহিক ডেমো নিশ্চিত করে যে আমরা গুণমান বজায় রেখে দ্রুত বৈশিষ্ট্যগুলি সরবরাহ করি।' : 
+        '2-week sprints with continuous deployment, daily standups, and bi-weekly demos ensure we deliver features quickly while maintaining quality.'
     },
-    { icon: '📚', title: 'Custom Code Library', 
-      desc: 'Reusable components for efficient development',
-      details: 'Our proprietary library of 500+ components reduces development time by 40% while ensuring consistency and best practices.'
+    { 
+      icon: '📚', 
+      title: isBengali ? 'কাস্টম কোড লাইব্রেরি' : 'Custom Code Library', 
+      desc: isBengali ? 
+        'দক্ষ উন্নয়নের জন্য পুনরায় ব্যবহারযোগ্য উপাদান' : 
+        'Reusable components for efficient development',
+      details: isBengali ? 
+        '৫০০+ উপাদানের আমাদের মালিকানাধীন লাইব্রেরি উন্নয়নের সময় ৪০% কমিয়ে দেয় যখন সামঞ্জস্য এবং সেরা অনুশীলন নিশ্চিত করে।' : 
+        'Our proprietary library of 500+ components reduces development time by 40% while ensuring consistency and best practices.'
     },
-    { icon: '💰', title: 'Affordable Pricing', 
-      desc: 'Premium quality at competitive rates',
-      details: 'Flexible engagement models (hourly, project-based, retainer) with transparent pricing and no hidden costs.'
+    { 
+      icon: '💰', 
+      title: isBengali ? 'সাশ্রয়ী মূল্য' : 'Affordable Pricing', 
+      desc: isBengali ? 
+        'প্রতিযোগিতামূলক মূল্যে প্রিমিয়াম মানের' : 
+        'Premium quality at competitive rates',
+      details: isBengali ? 
+        'নমনীয় জড়িত মডেল (ঘন্টাভিত্তিক, প্রকল্প-ভিত্তিক, ধারক) স্বচ্ছ মূল্য এবং কোন গোপন খরচ নেই।' : 
+        'Flexible engagement models (hourly, project-based, retainer) with transparent pricing and no hidden costs.'
     },
-    { icon: '👨‍💻', title: 'Experienced Team', 
-      desc: 'Experts across multiple industries',
-      details: '10+ years average experience across our team, with specialists in healthcare, finance, e-commerce, and education sectors.'
+    { 
+      icon: '👨‍💻', 
+      title: isBengali ? 'অভিজ্ঞ দল' : 'Experienced Team', 
+      desc: isBengali ? 
+        'বিভিন্ন শিল্প জুড়ে বিশেষজ্ঞ' : 
+        'Experts across multiple industries',
+      details: isBengali ? 
+        'স্বাস্থ্যসেবা, অর্থ, ই-কমার্স এবং শিক্ষা খাতে বিশেষজ্ঞদের সাথে আমাদের দলের গড় অভিজ্ঞতা ১০+ বছর।' : 
+        '10+ years average experience across our team, with specialists in healthcare, finance, e-commerce, and education sectors.'
     },
-    { icon: '🔄', title: 'End-to-End Solutions', 
-      desc: 'From concept to deployment and beyond',
-      details: 'Full product lifecycle support including discovery, design, development, testing, deployment, and maintenance.'
+    { 
+      icon: '🔄', 
+      title: isBengali ? 'এন্ড-টু-এন্ড সমাধান' : 'End-to-End Solutions', 
+      desc: isBengali ? 
+        'ধারণা থেকে স্থাপনা এবং তার পরেও' : 
+        'From concept to deployment and beyond',
+      details: isBengali ? 
+        'আবিষ্কার, নকশা, উন্নয়ন, পরীক্ষা, স্থাপনা এবং রক্ষণাবেক্ষণ সহ সম্পূর্ণ পণ্য জীবনচক্র সমর্থন।' : 
+        'Full product lifecycle support including discovery, design, development, testing, deployment, and maintenance.'
     },
-    { icon: '🖥️', title: 'Hosting Options', 
-      desc: 'Flexible VPS solutions for all needs',
-      details: 'Managed hosting solutions with 99.9% uptime, automatic backups, and 24/7 monitoring starting at just $29/month.'
+    { 
+      icon: '🖥️', 
+      title: isBengali ? 'হোস্টিং বিকল্প' : 'Hosting Options', 
+      desc: isBengali ? 
+        'সব প্রয়োজন জন্য নমনীয় VPS সমাধান' : 
+        'Flexible VPS solutions for all needs',
+      details: isBengali ? 
+        '৯৯.৯% আপটাইম সহ পরিচালিত হোস্টিং সমাধান, স্বয়ংক্রিয় ব্যাকআপ এবং ২৪/৭ মনিটরিং মাত্র $২৯/মাস থেকে শুরু।' : 
+        'Managed hosting solutions with 99.9% uptime, automatic backups, and 24/7 monitoring starting at just $29/month.'
     }
   ];
 
@@ -159,6 +259,44 @@ const Services = ({ darkMode }) => {
         margin: '0 auto',
         padding: '0 0.5rem'
       }}>
+      {/* Language Toggle Button */}
+      <motion.button
+        onClick={toggleLanguage}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          zIndex: 1000,
+          padding: '0.5rem 1rem',
+          borderRadius: '50px',
+          background: isBengali ? 
+            'linear-gradient(135deg, #2e7d32, #4caf50)' : 
+            darkMode ? ' #2e7d32' : '#e8f5e9',
+          color: isBengali ? 'white' : (darkMode ? '#ddd' : '#2e7d32'),
+          border: 'none',
+          fontWeight: 600,
+          cursor: 'pointer',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem'
+        }}
+      >
+        {isBengali ? (
+          <>
+            <span>English</span>
+            
+          </>
+        ) : (
+          <>
+            <span>বাংলা</span>
+           
+          </>
+        )}
+      </motion.button>
+
       <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -216,7 +354,7 @@ const Services = ({ darkMode }) => {
               backgroundClip: 'text'
             }}
           >
-            Digital Solutions That Grow With You
+            {isBengali ? 'আপনার অগ্রযাত্রার ডিজিটাল সঙ্গী' : 'Digital Solutions That Grow With You'}
           </motion.h1>
           
           <motion.p
@@ -231,12 +369,24 @@ const Services = ({ darkMode }) => {
               padding: '0 0.5rem'
             }}
           >
-            Powered by <span style={{ 
-              color: '#4caf50',
-              fontWeight: 600,
-              textDecoration: 'underline',
-              textUnderlineOffset: '4px'
-            }}>CycliciT</span> - Trusted by Real Institutions 
+            {isBengali ? (
+              <>
+                <span style={{ 
+                  color: '#4caf50',
+                  fontWeight: 600,
+                  
+                  
+                }}>CycliciT</span> প্রযুক্তি খাতে আস্থার প্রতীক
+              </>
+            ) : (
+              <>
+                <span style={{ 
+                  color: '#4caf50',
+                  fontWeight: 600,
+                 
+                }}>CycliciT</span> - Trusted by Real Institutions 
+              </>
+            )}
           </motion.p>
         </motion.div>
 
@@ -276,7 +426,9 @@ const Services = ({ darkMode }) => {
                 textTransform: 'capitalize'
               }}
             >
-              {category.replace('-', ' ')}
+              {isBengali ? 
+                (category === 'development' ? 'উন্নয়ন' : 'পরামর্শ') : 
+                category.replace('-', ' ')}
             </motion.button>
           ))}
         </motion.div>
@@ -298,7 +450,9 @@ const Services = ({ darkMode }) => {
               padding: '0 0.5rem'
             }}
           >
-            Our {activeTab === 'development' ? 'Development' : 'Consulting'} Services
+            {isBengali ? 'আমাদের' : 'Our'} {activeTab === 'development' ? 
+              (isBengali ? 'উন্নয়ন সেবা' : 'Development') : 
+              (isBengali ? 'পরামর্শ সেবা' : 'Consulting')} {isBengali ? '' : 'Services'}
           </motion.h2>
           
           <motion.div 
@@ -393,7 +547,7 @@ const Services = ({ darkMode }) => {
                       color: '#4caf50',
                       margin: '0.5rem 0'
                     }}>
-                      What We Offer:
+                      {isBengali ? 'আমরা যা অফার করি:' : 'What We Offer:'}
                     </h4>
                     <ul style={{
                       paddingLeft: '1.2rem',
@@ -419,7 +573,7 @@ const Services = ({ darkMode }) => {
                           color: '#4caf50',
                           margin: '0.5rem 0'
                         }}>
-                          Technologies:
+                          {isBengali ? 'প্রযুক্তি:' : 'Technologies:'}
                         </h4>
                         <div style={{
                           display: 'flex',
@@ -492,7 +646,7 @@ const Services = ({ darkMode }) => {
             marginBottom: '1rem',
             color: darkMode ? '#81c784' : '#2e7d32'
           }}>
-            Why Choose Us
+            {isBengali ? 'আমাদের কেন বেছে নেবেন' : 'Why Choose Us'}
           </h2>
           
           <motion.h2 
@@ -505,7 +659,7 @@ const Services = ({ darkMode }) => {
               padding: '0 0.5rem'
             }}
           >
-            Our Competitive Advantages
+            {isBengali ? 'আমাদের প্রতিযোগিতামূলক সুবিধা' : 'Our Competitive Advantages'}
           </motion.h2>
 
           <motion.div 
@@ -635,8 +789,6 @@ const Services = ({ darkMode }) => {
           </motion.div>
         </motion.div>
 
-       
-
         {/* Animated CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -701,7 +853,7 @@ const Services = ({ darkMode }) => {
               zIndex: 1
             }}
           >
-            Ready to Transform Your Business?
+            {isBengali ? 'আপনার ব্যবসা রূপান্তর করতে প্রস্তুত?' : 'Ready to Transform Your Business?'}
           </motion.h3>
           
           <motion.p
@@ -715,7 +867,9 @@ const Services = ({ darkMode }) => {
               zIndex: 1
             }}
           >
-            Whether you need a complete digital transformation or specific technical expertise, our team is ready to help you achieve your goals with custom solutions tailored to your needs.
+            {isBengali ? 
+              'আপনার একটি সম্পূর্ণ ডিজিটাল রূপান্তর বা নির্দিষ্ট প্রযুক্তিগত দক্ষতা প্রয়োজন হোক না কেন, আমাদের দল আপনার প্রয়োজন অনুযায়ী কাস্টম সমাধান দিয়ে আপনার লক্ষ্য অর্জনে আপনাকে সাহায্য করতে প্রস্তুত।' : 
+              'Whether you need a complete digital transformation or specific technical expertise, our team is ready to help you achieve your goals with custom solutions tailored to your needs.'}
           </motion.p>
           
           <div style={{
@@ -752,7 +906,7 @@ const Services = ({ darkMode }) => {
                 }}
               >
                 <span style={{ position: 'relative', zIndex: 2 }}>
-                  Request Tech-Funding
+                  {isBengali ? 'টেক-ফান্ডিং অনুরোধ করুন' : 'Request Tech-Funding'}
                 </span>
                 <motion.span
                   initial={{ x: -20, opacity: 0 }}
@@ -807,38 +961,11 @@ const Services = ({ darkMode }) => {
                   cursor: 'pointer'
                 }}
               >
-                Get Started Today
+                {isBengali ? 'আজই শুরু করুন' : 'Get Started Today'}
               </Link>
             </motion.div>
             
-            <motion.div
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              style={{ width: '100%', maxWidth: '300px' }}
-            >
-              <Link 
-                to="/internship" 
-                style={{
-                  display: 'inline-block',
-                  width: '100%',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '50px',
-                  background: 'transparent',
-                  color: darkMode ? '#4caf50' : '#2e7d32',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  fontSize: '1rem',
-                  boxShadow: darkMode 
-                    ? '0 0 0 2px #4caf50 inset' 
-                    : '0 0 0 2px #2e7d32 inset',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                Apply for Internship
-              </Link>
-            </motion.div>
+            
           </div>
         </motion.div>
       </div>
