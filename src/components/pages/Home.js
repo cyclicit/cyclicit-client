@@ -217,7 +217,7 @@ const Home = ({ darkMode }) => {
       fontWeight: 600,
       fontSize: 'clamp(1rem, 3vw, 1.1rem)',
       transition: 'all 0.3s ease',
-      boxShadow: '0 4px 15px rgba(46, 125, 50, 0.4)',
+     
       border: 'none',
       cursor: 'pointer',
       textAlign: 'center',
@@ -236,7 +236,7 @@ const Home = ({ darkMode }) => {
       fontWeight: 600,
       fontSize: 'clamp(1rem, 3vw, 1.1rem)',
       transition: 'all 0.3s ease',
-      boxShadow: '0 4px 15px rgba(21, 101, 192, 0.4)',
+      
       border: 'none',
       cursor: 'pointer',
       textAlign: 'center',

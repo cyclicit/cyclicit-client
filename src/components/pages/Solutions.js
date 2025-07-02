@@ -239,16 +239,15 @@ const Solutions = ({ darkMode }) => {
             <div style={{
                marginTop: '2rem',
               padding: '1rem',
-              background: darkMode ? 'rgba(46, 125, 50, 0.1)' : 'rgba(76, 175, 80, 0.1)',
-              borderRadius: '8px',
-              borderLeft: `4px solid ${darkMode ? '#81c784' : '#4caf50'}`
+              background: darkMode ? 'rgba(46, 125, 50, 0.1)' : 'rgba(76, 175, 80, 0.1)'`
+`
             }}>
               {deals.map(deal => (
                 <div key={deal.id} style={{
-                  background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.03)',
-                  borderRadius: '8px',
-                  padding: '1rem',
-                  borderLeft: `4px solid ${darkMode ? '#81c784' : '#4caf50'}`
+                  marginTop: '2rem',
+              padding: '1rem',
+              background: darkMode ? 'rgba(46, 125, 50, 0.1)' : 'rgba(76, 175, 80, 0.1)'`
+              `
                 }}>
                   <h4 style={{ 
                     marginTop: 0,
@@ -264,7 +263,7 @@ const Solutions = ({ darkMode }) => {
                     marginBottom: '0.5rem',
                     opacity: 0.9
                   }}>
-                    <strong>{language === 'en' ? 'Best for:' : 'সেরা জন্য:'}</strong> {deal.bestFor}
+                    <strong>{language === 'en' ? 'Best for:' : ' জন্য:'}</strong> {deal.bestFor}
                   </p>
                   <div style={{ 
                     display: 'flex',
@@ -321,7 +320,7 @@ const Solutions = ({ darkMode }) => {
             }}>
               {deals.map(deal => (
                 <div key={deal.id} style={{
-                  background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.03)',
+                 
                   borderRadius: '8px',
                   padding: '1rem',
                   borderLeft: `4px solid ${darkMode ? '#81c784' : '#4caf50'}`
@@ -340,7 +339,7 @@ const Solutions = ({ darkMode }) => {
                     marginBottom: '0.5rem',
                     opacity: 0.9
                   }}>
-                    <strong>{language === 'en' ? 'Best for:' : 'সেরা জন্য:'}</strong> {deal.bestFor}
+                    <strong>{language === 'en' ? 'Best for:' : ' Best for:'}</strong> {deal.bestFor}
                   </p>
                   <div style={{ 
                     display: 'flex',

@@ -51,34 +51,34 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
       transition: 'all 0.3s ease'
     }}>
       {/* Language Toggle */}
-      <div style={{
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5rem'
-      }}>
-        <button 
-          onClick={toggleLanguage}
-          style={{
-            padding: '0.3rem 0.6rem',
-            borderRadius: '20px',
-            border: 'none',
-            background: darkMode ? '#4caf50' : '#2e7d32',
-            color: 'white',
-            cursor: 'pointer',
-            
-            fontSize: '0.8rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.3rem'
-          }}
-        >
-          {language === 'en' ? 'বাংলা' : 'English'}
-          
-        </button>
-      </div>
+{/* Language Toggle */}
+<div style={{
+  position: 'absolute',
+  top: '20px',
+  right: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem'
+}}>
+  <button 
+    onClick={toggleLanguage}
+    style={{
+      padding: '0.3rem 0.6rem',
+      borderRadius: '20px',
+      border: 'none',
+      background: darkMode ? '#2E7D32' : '#1B5E20', // Darker greens (AAA compliant)
+      color: '#FFFFFF', // Pure white for max contrast
+      cursor: 'pointer',
+      fontSize: '0.8rem',
+      fontWeight: '600', // Semi-bold for better legibility
+      transition: 'background 0.2s ease' // Smooth hover effect (optional)
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.background = darkMode ? '#1B5E20' : '#2E7D32'} // Darken on hover
+    onMouseLeave={(e) => e.currentTarget.style.background = darkMode ? '#2E7D32' : '#1B5E20'} // Revert
+  >
+    {language === 'en' ? 'বাংলা' : 'English'}
+  </button>
+</div>
       
       {/* Logo Container */}
       <div 

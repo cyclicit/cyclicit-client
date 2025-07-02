@@ -42,11 +42,12 @@ const Buy = ({ darkMode }) => {
       sales: "sales",
       categories: {
         all: "All Templates",
-        ecommerce: "E-Commerce",
+        
         portfolio: "Portfolio",
         business: "Business",
         blog: "Blog",
-        marketing: "Marketing"
+        marketing: "Marketing",
+        ecommerce: "E-Commerce"
       }
     },
     bn: {
@@ -141,14 +142,14 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Business Elite" : "বিজনেস এলিট",
       category: "business",
       price: 1899,
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://i.ibb.co/Qv8cTXPB/Screenshot-2025-07-02-080106.png",
       description: language === 'en' 
         ? "Professional corporate website with services, team, and testimonials" 
         : "সেবা, টিম এবং সাক্ষ্য সহ পেশাদার কর্পোরেট ওয়েবসাইট",
       features: language === 'en' 
         ? ["Service pages", "Team section", "Testimonials", "Pricing tables", "FAQ section"]
         : ["সেবা পৃষ্ঠা", "টিম সেকশন", "সাক্ষ্য", "মূল্য তালিকা", "প্রশ্নোত্তর সেকশন"],
-      liveDemo: "https://fireflythemes.com/preview/?demo=elite-business-dark-free",
+      liveDemo: "https://mangopro.netlify.app",
       rating: 4.0,
       sales: 112,
       color: "linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%)"
@@ -158,14 +159,14 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Blog Standard" : "স্ট্যান্ডার্ড ব্লগ",
       category: "blog",
       price: 899,
-      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      image: "https://i.ibb.co/XZqrFg9K/Screenshot-2025-07-02-080902.png",
       description: language === 'en' 
         ? "Modern blog template with article layouts and newsletter integration" 
         : "আর্টিকেল লেআউট এবং নিউজলেটার ইন্টিগ্রেশন সহ আধুনিক ব্লগ টেমপ্লেট",
       features: language === 'en' 
         ? ["Article layouts", "Categories", "Author profiles", "Newsletter signup", "Social sharing"]
         : ["আর্টিকেল লেআউট", "বিভাগ", "লেখক প্রোফাইল", "নিউজলেটার সাইনআপ", "সোশ্যাল শেয়ারিং"],
-      liveDemo: "https://eris-templateify.blogspot.com/",
+      liveDemo: "https://websitedemos.net/food-drinks-blog-04/?customize=template",
       rating: 4.0,
       sales: 156,
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
@@ -191,11 +192,12 @@ const Buy = ({ darkMode }) => {
 
   const categories = [
     { id: 'all', name: t.categories.all },
-    { id: 'ecommerce', name: t.categories.ecommerce },
+   
     { id: 'portfolio', name: t.categories.portfolio },
     { id: 'business', name: t.categories.business },
     { id: 'blog', name: t.categories.blog },
     { id: 'marketing', name: t.categories.marketing },
+     { id: 'ecommerce', name: t.categories.ecommerce },
   ];
 
   const filteredTemplates = selectedCategory === 'all' 
