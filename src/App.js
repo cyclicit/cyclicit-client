@@ -12,6 +12,7 @@ import Internship from './components/pages/Internship';
 import Contact from './components/pages/Contact';
 import Buy from './components/pages/Buy';
 import './App.css';
+import Edu from './components/pages/Edu';
 
 
 function ScrollToTop() {
@@ -191,6 +192,7 @@ function App() {
             <Route path="/internship" element={<Internship darkMode={darkMode} />} />
             <Route path="/contact" element={<Contact darkMode={darkMode} />} />
             <Route path="/buy" element={<Buy darkMode={darkMode} />} />
+             <Route path="/edu" element={<Edu darkMode={darkMode} />} />
           
 
             {/* Redirect to home if route doesn't exist */}

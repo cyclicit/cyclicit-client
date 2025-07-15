@@ -31,9 +31,17 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
   const navItems = [
     { path: '/', label: { en: 'Home', bn: 'হোম' } },
     { path: '/services', label: { en: 'Services', bn: 'সেবা' } },
-    { path: '/solutions', label: { en: 'Deals', bn: 'ডিলস' } },
+    //{ path: '/solutions', label: { en: 'Deals', bn: 'ডিলস' } },//
      { path: '/buy', label: { en: 'Buy Site', bn: 'সাইট কিনুন' } },
-   
+     {
+  path: '/edu',
+  label: { 
+    en: 'Education Package', 
+    bn: 'শিক্ষা প্যাকেজ' 
+  
+  }
+},
+
     { path: '/funding', label: { en: 'Entrepreneur', bn: 'উদ্যোক্তা' } },
    
    
