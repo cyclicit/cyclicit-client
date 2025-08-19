@@ -8,7 +8,7 @@ const Home = ({ darkMode }) => {
   const [typedText, setTypedText] = useState('');
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [typingForward, setTypingForward] = useState(true);
-  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
+  const [language, setLanguage] = useState('en'); // 'en' for English, 'bn' for Bengali
 
   // English phrases
   const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems","Mobile Apps", "AI Solutions"];

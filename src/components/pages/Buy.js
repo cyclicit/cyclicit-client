@@ -91,7 +91,7 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Farmers E-Commerce" : "কৃষক ই-কমার্স",
       category: "ecommerce",
       price: 1599,
-      image: "https://i.ibb.co/xqZjj0CK/Screenshot-2025-05-05-105451.png",
+      image: "https://github.com/cyclicit/cyclicit-img/blob/main/cy-1.png?raw=true",
       description: language === 'en' 
         ? "Appetizing restaurant website with menu, reservations, and gallery" 
         : "মেনু, রিজার্ভেশন এবং গ্যালারি সহ রেস্তোরাঁ ওয়েবসাইট",
@@ -108,7 +108,7 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Portfolio Premium" : "প্রিমিয়াম পোর্টফোলিও",
       category: "portfolio",
       price: 1299,
-      image: "https://i.ibb.co/fVv70dxj/Screenshot-2025-05-28-213536.png",
+      image: "https://github.com/cyclicit/cyclicit-img/blob/main/cy-2.png?raw=true",
       description: language === 'en' 
         ? "Elegant portfolio to showcase your work with gallery and contact form" 
         : "গ্যালারি এবং কন্টাক্ট ফর্ম সহ আপনার কাজ প্রদর্শনের জন্য মার্জিত পোর্টফোলিও",
@@ -125,7 +125,7 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Pet e-commerce" : "পোষা প্রাণী ই-কমার্স",
       category: "ecommerce",
       price: 699,
-      image: "https://i.ibb.co/whH2D9K0/Screenshot-2025-05-05-105046.png",
+      image: "https://github.com/cyclicit/cyclicit-img/blob/main/cy-3.png?raw=true",
       description: language === 'en' 
         ? "High-converting landing page for products or services" 
         : "পণ্য বা সেবার জন্য উচ্চ রূপান্তর সহ ল্যান্ডিং পেজ",
@@ -142,7 +142,7 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Business Elite" : "বিজনেস এলিট",
       category: "business",
       price: 1899,
-      image: "https://i.ibb.co/Qv8cTXPB/Screenshot-2025-07-02-080106.png",
+      image: "https://github.com/cyclicit/cyclicit-img/blob/main/cy-4.png?raw=true",
       description: language === 'en' 
         ? "Professional corporate website with services, team, and testimonials" 
         : "সেবা, টিম এবং সাক্ষ্য সহ পেশাদার কর্পোরেট ওয়েবসাইট",
@@ -159,7 +159,7 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Blog Standard" : "স্ট্যান্ডার্ড ব্লগ",
       category: "blog",
       price: 899,
-      image: "https://i.ibb.co/XZqrFg9K/Screenshot-2025-07-02-080902.png",
+      image: "https://github.com/cyclicit/cyclicit-img/blob/main/cy-5.png?raw=true",
       description: language === 'en' 
         ? "Modern blog template with article layouts and newsletter integration" 
         : "আর্টিকেল লেআউট এবং নিউজলেটার ইন্টিগ্রেশন সহ আধুনিক ব্লগ টেমপ্লেট",
@@ -176,7 +176,7 @@ const Buy = ({ darkMode }) => {
       title: language === 'en' ? "Elite Events House" : "এলিট ইভেন্টস হাউস",
       category: "marketing",
       price: 2499,
-      image: "https://i.ibb.co/tMg8bmqZ/Screenshot-2025-05-25-234847.png",
+      image: "https://github.com/cyclicit/cyclicit-img/blob/main/cy-6.png?raw=true",
       description: language === 'en' 
         ? "Complete online store with product management, cart, and secure checkout" 
         : "পণ্য ব্যবস্থাপনা, কার্ট এবং সুরক্ষিত চেকআউট সহ সম্পূর্ণ অনলাইন স্টোর",
