@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Internship = ({ darkMode }) => {
   // State for language
-  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
+  const [language, setLanguage] = useState('en'); // 'en' for English, 'bn' for Bengali
 
   // Toggle language
   const toggleLanguage = () => {

@@ -32,12 +32,12 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
     { path: '/', label: { en: 'Home', bn: 'হোম' } },
     { path: '/services', label: { en: 'Services', bn: 'সেবা' } },
     //{ path: '/solutions', label: { en: 'Deals', bn: 'ডিলস' } },//
-     { path: '/buy', label: { en: 'Buy Site', bn: 'সাইট কিনুন' } },
+     { path: '/buy', label: { en: 'Template', bn: 'টেমপ্লেট' } },
      {
-  path: '/edu',
+  path: 'c&p',
   label: { 
-    en: 'Education Package', 
-    bn: 'শিক্ষা প্যাকেজ' 
+    en: 'Clients & Packages', 
+    bn: 'ক্লায়েন্ট এবং প্যাকেজস' 
   
   }
 },

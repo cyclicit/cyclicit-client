@@ -11,7 +11,7 @@ const Funding = ({ darkMode }) => {
   // State for accordion and tabs
   const [activeTab, setActiveTab] = useState('startups');
   const [expandedFaq, setExpandedFaq] = useState(null);
-  const [language, setLanguage] = useState('bengali'); // 'english' or 'bengali'
+  const [language, setLanguage] = useState('english'); // 'english' or 'bengali'
 
   // Toggle FAQ accordion
   const toggleFaq = (index) => {

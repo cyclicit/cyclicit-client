@@ -9,7 +9,7 @@ const Process = ({ darkMode }) => {
   const darkGreen = '#1b5e20';
 
   const [expandedStep, setExpandedStep] = useState(null);
-  const [isBengali, setIsBengali] = useState(true);
+  const [isBengali, setIsBengali] = useState(false);
 
   const toggleStep = (index) => {
     setExpandedStep(expandedStep === index ? null : index);

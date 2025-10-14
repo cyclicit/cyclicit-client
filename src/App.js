@@ -96,7 +96,7 @@ function MouseEffects() {
         ctx.fill();
       }
 
-      // Update and draw particles
+      
       for (let i = 0; i < particles.current.length; i++) {
         const p = particles.current[i];
         p.x += p.speedX;
@@ -192,7 +192,7 @@ function App() {
             <Route path="/internship" element={<Internship darkMode={darkMode} />} />
             <Route path="/contact" element={<Contact darkMode={darkMode} />} />
             <Route path="/buy" element={<Buy darkMode={darkMode} />} />
-             <Route path="/edu" element={<Edu darkMode={darkMode} />} />
+             <Route path="/c&p" element={<Edu darkMode={darkMode} />} />
           
 
             {/* Redirect to home if route doesn't exist */}

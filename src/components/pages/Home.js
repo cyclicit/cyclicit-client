@@ -393,6 +393,19 @@ const Home = ({ darkMode }) => {
 
         <div style={styles.buttonsContainer}>
 
+           <motion.div 
+  style={styles.buttonWrapper}
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.98 }}
+>
+  <Link 
+    to="/c&p" 
+    style={styles.secondaryButton}
+  >
+    {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'}
+  </Link>
+</motion.div>
+
            
 
 
@@ -422,6 +435,8 @@ const Home = ({ darkMode }) => {
               {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
             </Link>
           </motion.div>
+
+         
 
           <motion.div 
             style={styles.buttonWrapper}

@@ -4,11 +4,20 @@ import { motion } from 'framer-motion';
 
 const Services = ({ darkMode }) => {
   const [expandedService, setExpandedService] = useState(null);
+  const [expandedBenefit, setExpandedBenefit] = useState(null);
   const [activeTab, setActiveTab] = useState('development');
-  const [isBengali, setIsBengali] = useState(true);
+  const [isBengali, setIsBengali] = useState(false);
 
   const toggleLanguage = () => {
     setIsBengali(!isBengali);
+  };
+
+  const toggleServiceExpand = (index) => {
+    setExpandedService(expandedService === index ? null : index);
+  };
+
+  const toggleBenefitExpand = (index) => {
+    setExpandedBenefit(expandedBenefit === index ? null : index);
   };
 
   const serviceCategories = {
@@ -249,10 +258,6 @@ const Services = ({ darkMode }) => {
     }
   };
 
-  const toggleExpand = (index) => {
-    setExpandedService(expandedService === index ? null : index);
-  };
-
   return (
     <div style={{
         maxWidth: '1200px',
@@ -287,12 +292,10 @@ const Services = ({ darkMode }) => {
         {isBengali ? (
           <>
             <span>English</span>
-            
           </>
         ) : (
           <>
             <span>বাংলা</span>
-           
           </>
         )}
       </motion.button>
@@ -374,8 +377,6 @@ const Services = ({ darkMode }) => {
                 <span style={{ 
                   color: '#4caf50',
                   fontWeight: 600,
-                  
-                  
                 }}>CycliciT</span> প্রযুক্তি খাতে আস্থার প্রতীক
               </>
             ) : (
@@ -383,7 +384,6 @@ const Services = ({ darkMode }) => {
                 <span style={{ 
                   color: '#4caf50',
                   fontWeight: 600,
-                 
                 }}>CycliciT</span> - Trusted by Real Institutions 
               </>
             )}
@@ -472,7 +472,7 @@ const Services = ({ darkMode }) => {
                 key={index}
                 variants={cardVariants}
                 whileHover="hover"
-                onClick={() => toggleExpand(index)}
+                onClick={() => toggleServiceExpand(index)}
                 style={{
                   background: darkMode 
                     ? 'linear-gradient(145deg, #1a1a1a, #222)' 
@@ -679,7 +679,7 @@ const Services = ({ darkMode }) => {
                 key={index}
                 variants={cardVariants}
                 whileHover="hover"
-                onClick={() => toggleExpand(index)}
+                onClick={() => toggleBenefitExpand(index)}
                 style={{
                   background: darkMode 
                     ? 'linear-gradient(145deg, #1a1a1a, #222)' 
@@ -698,7 +698,7 @@ const Services = ({ darkMode }) => {
                   transformStyle: 'preserve-3d',
                   position: 'relative',
                   overflow: 'hidden',
-                  minHeight: expandedService === index ? '400px' : '220px',
+                  minHeight: expandedBenefit === index ? '400px' : '220px',
                   cursor: 'pointer',
                   transition: 'min-height 0.3s ease'
                 }}
@@ -740,22 +740,50 @@ const Services = ({ darkMode }) => {
                 >
                   {benefit.desc}
                 </motion.p>
-                
+
+                {expandedBenefit === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                      width: '100%',
+                      textAlign: 'left',
+                      padding: '0.5rem 0',
+                      borderTop: `1px solid ${darkMode ? '#333' : '#eee'}`,
+                      marginTop: '0.5rem'
+                    }}
+                  >
+                    <h4 style={{
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      color: '#4caf50',
+                      margin: '0.5rem 0'
+                    }}>
+                      {isBengali ? 'বিস্তারিত:' : 'Details:'}
+                    </h4>
+                    <p style={{
+                      fontSize: '0.9rem',
+                      lineHeight: '1.5',
+                      color: darkMode ? '#ddd' : '#555',
+                      marginBottom: '1rem'
+                    }}>
+                      {benefit.details}
+                    </p>
+                  </motion.div>
+                )}
+
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  whileHover={{ height: 'auto', opacity: 1 }}
+                  animate={{ rotate: expandedBenefit === index ? 180 : 0 }}
                   style={{
-                    overflow: 'hidden',
-                    fontSize: '0.9rem',
-                    lineHeight: '1.5',
-                    color: darkMode ? '#bdbdbd' : '#666',
-                    textAlign: 'left',
-                    padding: '0 0.5rem'
+                    position: 'absolute',
+                    bottom: '1rem',
+                    color: '#4caf50',
+                    fontSize: '1.2rem'
                   }}
                 >
-                  {benefit.details}
+                  ▼
                 </motion.div>
-               
                 
                 {/* Hover effect line */}
                 <motion.div
@@ -964,8 +992,6 @@ const Services = ({ darkMode }) => {
                 {isBengali ? 'আজই শুরু করুন' : 'Get Started Today'}
               </Link>
             </motion.div>
-            
-            
           </div>
         </motion.div>
       </div>

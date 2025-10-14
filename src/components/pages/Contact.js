@@ -9,7 +9,7 @@ const Contact = ({ darkMode }) => {
   const lightGreen = '#e8f5e9';
 
   // Language state
-  const [language, setLanguage] = useState('bn'); // 'en' or 'bn'
+  const [language, setLanguage] = useState('en'); // 'en' or 'bn'
 
   // Form state
   const [formData, setFormData] = useState({

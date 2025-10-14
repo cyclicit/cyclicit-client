@@ -14,7 +14,7 @@ const Buy = ({ darkMode }) => {
     email: '',
     phone: ''
   });
-  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
+  const [language, setLanguage] = useState('en'); // 'en' for English, 'bn' for Bengali
 
   // Translations
   const translations = {

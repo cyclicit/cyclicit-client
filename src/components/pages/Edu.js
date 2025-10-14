@@ -2,38 +2,127 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Edu = ({ darkMode }) => {
-  const [isBengali, setIsBengali] = useState(true);
+  const [isBengali, setIsBengali] = useState(false);
   
   // English content
   const content = {
     hero: {
-      title: "Complete Website Package for Educational Institutions",
-      subtitle: "Fully compliant with the Bangladesh Government's Digital Education Policy",
-      button: "View Demo"
+      title: "Professional Web Solutions for Your Business",
+      subtitle: "Custom websites for EdTech and Ecommerce with modern features",
+      button: "View Packages"
     },
-    features: [
-      { title: "Dynamic Website", desc: "Modern design fully responsive website that will display correctly on any device" },
-      { title: "Monthly Maintenance", desc: "Regular updates, backups and complete maintenance including technical support" },
-      { title: "Admin Dashboard", desc: "Facility to easily manage all content including notices, results, gallery" },
-      { title: "Special Recognition", desc: "Feature for student of the month and teacher of the month" },
-      { title: "Free Course Section", desc: "Educational content and resources open to all" },
-      { title: "Affordable Price", desc: "Affordable packages with monthly installment facilities" }
-    ],
-    gov: {
-      title: "Government Guidelines",
-      desc: "The Bangladesh government has made it mandatory for all educational institutions to have their own website. Our solution not only meets this requirement but also provides many additional benefits.",
-      benefits: [
-        "Compliant with all government policies",
-        "No need for large one-time investment - monthly installment payment",
-        "Regular updates and development",
-        "Dedicated support team that understands the needs of educational institutions",
-        "Proven track record of increasing institutional digital presence"
+    clients: {
+      edtech: [
+       
+        
+        
+        { 
+          title: "Collectorate Collegiate School", 
+          link: "https://ccs-lal-edu-bd.com/",
+           image: "https://github.com/cyclicit/cyclicit-img/blob/main/cp3.png?raw=true"
+        },
+        { 
+          title: "Crossing International School", 
+          link: "https://crossinginternationalschool.com/",
+           image: "https://github.com/cyclicit/cyclicit-img/blob/main/c4.png?raw=true"
+        }, { 
+          title: "Shahid Abul Kashem College", 
+          link: "https://shahidabulkashemcollege.com/",
+          image: "https://github.com/cyclicit/cyclicit-img/blob/main/cp1.png?raw=true"
+        },
+        { 
+          title: "Church Of God High School", 
+          link: "https://coghslal.edu.bd/",
+         image: "https://github.com/cyclicit/cyclicit-img/blob/main/cp2.png?raw=true"
+        },
+      ],
+      ecommerce: [
+        { 
+          title: "BLKBRD Shoemaker", 
+          link: "https://www.blkbrdshoemaker.com/",
+          image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        { 
+          title: "Topshop Fashion", 
+          link: "https://www.topshop.com/gb/topshop",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        { 
+          title: "Jowissa Watches", 
+          link: "https://www.jowissa.com/",
+          image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        }
       ]
     },
+    packages: {
+      edtech: [
+        {
+          name: "Basic",
+          price: "53,000৳",
+          features: [
+            "Responsive Professional Design",
+            "History & Academic Info",
+            "Teachers & Staff Section",
+            "4 Dynamic Data Management",
+            "Notices & Announcements",
+            "Results Center",
+            "Blog Management",
+            "Gallery Management",
+            "Admin Access",
+             "SEO Optimization"
+          ]
+        },
+        {
+          name: "Classic",
+          price: "120000৳",
+          features: [
+            "All Basic Features",
+            "Student Login System",
+            "Individual Result Access",
+            "Student Information Portal",
+            "Advanced Admin Panel",
+            "Email Integration",
+            "Enhanced Security"
+          ]
+        },
+        {
+          name: "Premium",
+          price: "270000৳",
+          features: [
+            "All Classic Features",
+            "Teacher & Student Portal",
+            "Payment System Integration",
+            "Career Section",
+            "Advanced Analytics",
+            "Custom Modules",
+            "Priority Support",
+           
+          ]
+        }
+      ],
+      ecommerce: {
+        special: {
+          title: "Ecommerce Special Offer",
+          originalPrice: "1,00,000৳",
+          discountedPrice: "50,000৳",
+          discount: "50% OFF",
+          features: [
+            "Full Ecommerce Website",
+            "Product Management",
+            "Shopping Cart",
+          
+            "Order Management",
+            "Customer Accounts",
+            " Maintenance",
+            "Free Payment Options (bKash/Nagad)"
+          ]
+        }
+      }
+    },
     cta: {
-      title: "Ready to upgrade your institution's digital presence?",
-      desc: "Get started today with our complete solution",
-      buttons: ["View Demo Website", "Contact Us"],
+      title: "Ready to build your professional website?",
+      desc: "Get started today with our affordable packages",
+      buttons: ["View Packages", "Contact Us"],
       phone: "Call for any questions: +88 01780755531"
     }
   };
@@ -41,42 +130,125 @@ const Edu = ({ darkMode }) => {
   // Bengali content
   const bengaliContent = {
     hero: {
-      title: "শিক্ষা প্রতিষ্ঠানের জন্য সম্পূর্ণ ওয়েবসাইট প্যাকেজ",
-      subtitle: "বাংলাদেশ সরকারের ডিজিটাল শিক্ষা নীতির সাথে সম্পূর্ণ সামঞ্জস্যপূর্ণ",
-      button: "ডেমো দেখুন"
+      title: "আপনার ব্যবসার জন্য প্রফেশনাল ওয়েব সলিউশন",
+      subtitle: "এডটেক এবং ইকমার্সের জন্য আধুনিক ফিচার সহ কাস্টম ওয়েবসাইট",
+      button: "প্যাকেজ দেখুন"
     },
-    features: [
-      { title: "ডাইনামিক ওয়েবসাইট", desc: "আধুনিক ডিজাইনের সম্পূর্ণ রেসপনসিভ ওয়েবসাইট যা যেকোনো ডিভাইসে সঠিকভাবে দেখা যাবে" },
-      { title: "মাসিক মেইনটেনেন্স", desc: "নিয়মিত আপডেট, ব্যাকআপ এবং টেকনিক্যাল সাপোর্টসহ সম্পূর্ণ রক্ষণাবেক্ষণ" },
-      { title: "অ্যাডমিন ড্যাশবোর্ড", desc: "নোটিশ, রেজাল্ট, গ্যালারি সহ সকল কন্টেন্ট সহজে ম্যানেজ করার সুবিধা" },
-      { title: "বিশেষ স্বীকৃতি", desc: "মাসের সেরা শিক্ষার্থী এবং মাসের সেরা শিক্ষক ফিচার" },
-      { title: "ফ্রি কোর্স সেকশন", desc: "সকলের জন্য উন্মুক্ত শিক্ষামূলক কন্টেন্ট এবং রিসোর্স" },
-      { title: "সাশ্রয়ী মূল্য", desc: "মাসিক কিস্তিতে পরিশোধের সুবিধা সহ সাশ্রয়ী প্যাকেজ" }
-    ],
-    gov: {
-      title: "বাংলাদেশ সরকারের নির্দেশনা",
-      desc: "বাংলাদেশ সরকার সকল শিক্ষা প্রতিষ্ঠানের জন্য নিজস্ব ওয়েবসাইট বাধ্যতামূলক করেছে। আমাদের সমাধান শুধু এই প্রয়োজনই পূরণ করে না বরং আরও অনেক অতিরিক্ত সুবিধা প্রদান করে।",
-      benefits: [
-        "সরকারি সকল নীতিমালার সাথে সঙ্গতিপূর্ণ",
-        "একালীন বড় অংকের বিনিয়োগের প্রয়োজন নেই - মাসিক কিস্তিতে পরিশোধ",
-        "নিয়মিত আপডেট এবং উন্নয়ন",
-        "শিক্ষা প্রতিষ্ঠানের প্রয়োজন বুঝে এমন ডেডিকেটেড সাপোর্ট টিম",
-        "প্রতিষ্ঠানের ডিজিটাল উপস্থিতি বৃদ্ধির প্রমাণিত রেকর্ড"
+    clients: {
+      edtech: [
+        
+        { 
+          title: "ক্রসিং ইন্টারন্যাশনাল স্কুল", 
+          link: "https://crossinginternationalschool.com/",
+          image: "https://github.com/cyclicit/cyclicit-img/blob/main/c4.png?raw=true"
+        },
+        { 
+          title: "কালেক্টরেট কলেজিয়েট স্কুল", 
+          link: "https://ccs-lal-edu-bd.com/",
+          image: "https://github.com/cyclicit/cyclicit-img/blob/main/cp3.png?raw=true"
+        },{ 
+          title: "শহীদ আবুল কাশেম কলেজ", 
+          link: "https://shahidabulkashemcollege.com/",
+          image: "https://github.com/cyclicit/cyclicit-img/blob/main/cp1.png?raw=true"
+        },
+        { 
+          title: "চার্চ অফ গড হাই স্কুল", 
+          link: "https://coghslal.edu.bd/",
+          image: "https://github.com/cyclicit/cyclicit-img/blob/main/cp2.png?raw=true"
+        }
+      ],
+      ecommerce: [
+        { 
+          title: "বিএলকেবিআরডি শুমেকার", 
+          link: "https://www.blkbrdshoemaker.com/",
+          image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        { 
+          title: "টপশপ ফ্যাশন", 
+          link: "https://www.topshop.com/gb/topshop",
+          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        },
+        { 
+          title: "জোভিসা ওয়াচ", 
+          link: "https://www.jowissa.com/",
+          image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+        }
       ]
     },
+    packages: {
+      edtech: [
+        {
+          name: "বেসিক",
+          price: "৫,৩০০০৳",
+          features: [
+            "রেসপনসিভ প্রফেশনাল ডিজাইন",
+            "ইতিহাস ও একাডেমিক তথ্য",
+            "শিক্ষক ও স্টাফ সেকশন",
+            "৪টি ডাইনামিক ডাটা ম্যানেজমেন্ট",
+            "নোটিশ ও ঘোষণা",
+            "রেজাল্ট সেন্টার",
+            "ব্লগ ম্যানেজমেন্ট",
+            "গ্যালারি ম্যানেজমেন্ট",
+            "অ্যাডমিন এক্সেস",
+             "এসইও অপ্টিমাইজেশন"
+          ]
+        },
+        {
+          name: "ক্লাসিক",
+          price: "১,২০,০০০৳",
+          features: [
+            "সকল বেসিক ফিচার",
+            "স্টুডেন্ট লগইন সিস্টেম",
+            "ব্যক্তিগত রেজাল্ট এক্সেস",
+            "স্টুডেন্ট ইনফরমেশন পোর্টাল",
+            "অ্যাডভান্সড অ্যাডমিন প্যানেল",
+            "ইমেইল ইন্টিগ্রেশন",
+            "এনহ্যান্সড সিকিউরিটি"
+          ]
+        },
+        {
+          name: "প্রিমিয়াম",
+          price: "২,৭০,০০০৳",
+          features: [
+            "সকল ক্লাসিক ফিচার",
+            "শিক্ষক ও ছাত্র পোর্টাল",
+            "পেমেন্ট সিস্টেম ইন্টিগ্রেশন",
+      
+            "অ্যাডভান্সড অ্যানালিটিক্স",
+            "কাস্টম মডিউল",
+            "প্রায়োরিটি সাপোর্ট",
+      
+          ]
+        }
+      ],
+      ecommerce: {
+        special: {
+          title: "ইকমার্স স্পেশাল অফার",
+          originalPrice: "১,০০,০০০৳",
+          discountedPrice: "৫০,০০০৳",
+          discount: "৫০% ছাড়",
+          features: [
+            "ফুল ইকমার্স ওয়েবসাইট",
+            "প্রোডাক্ট ম্যানেজমেন্ট",
+            "শপিং কার্ট",
+           
+            "অর্ডার ম্যানেজমেন্ট",
+            "কাস্টমার অ্যাকাউন্ট",
+            "মেইনটেনেন্স",
+            "ফ্রি পেমেন্ট অপশন (বিকাশ/নগদ)"
+          ]
+        }
+      }
+    },
     cta: {
-      title: "আপনার প্রতিষ্ঠানের ডিজিটাল উপস্থিতি আপগ্রেড করতে প্রস্তুত?",
-      desc: "আজই শুরু করুন আমাদের সম্পূর্ণ সমাধান দিয়ে",
-      buttons: ["ডেমো ওয়েবসাইট দেখুন", "যোগাযোগ করুন"],
+      title: "আপনার প্রফেশনাল ওয়েবসাইট বানাতে প্রস্তুত?",
+      desc: "আজই শুরু করুন আমাদের সাশ্রয়ী প্যাকেজ দিয়ে",
+      buttons: ["প্যাকেজ দেখুন", "যোগাযোগ করুন"],
       phone: "যেকোনো প্রশ্নের জন্য কল করুন: +৮৮ ০১৭৮০৭৫৫৫৩১"
     }
   };
 
   const currentContent = isBengali ? bengaliContent : content;
-
-  const handleDemoClick = () => {
-    window.open('https://eduinsbycyclic.netlify.app/', '_blank');
-  };
 
   const toggleLanguage = () => {
     setIsBengali(!isBengali);
@@ -91,7 +263,7 @@ const Edu = ({ darkMode }) => {
   const borderColor = darkMode ? '#2d2d2d' : '#e0e0e0';
   const lightText = darkMode ? '#cccccc' : '#666666';
 
-return (
+  return (
     <div style={{
         backgroundColor: bgColor,
         color: textColor,
@@ -123,7 +295,7 @@ return (
         <div style={{
             maxWidth: '1200px',
             margin: '0 auto',
-            padding: '20px 24px', // Increased left and right padding
+            padding: '20px 24px',
             boxSizing: 'border-box'
         }}>
             {/* Hero Section */}
@@ -132,7 +304,7 @@ return (
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: '2rem',
-                padding: '3rem 0',
+                
                 marginBottom: '2rem'
             }}>
                 <div style={{ textAlign: 'center' }}>
@@ -153,7 +325,7 @@ return (
                         {currentContent.hero.subtitle}
                     </p>
                     <button 
-                        onClick={handleDemoClick}
+                        onClick={() => document.getElementById('packages').scrollIntoView({behavior: 'smooth'})}
                         style={{
                             backgroundColor: primaryColor,
                             color: 'white',
@@ -180,38 +352,12 @@ return (
                         {currentContent.hero.button}
                     </button>
                 </div>
-                <div 
-                    style={{
-                        width: '100%',
-                        maxWidth: '600px',
-                        cursor: 'pointer'
-                    }}
-                    onClick={handleDemoClick}
-                >
-                    <img 
-                        src="https://i.ibb.co/mVCh0trM/Screenshot-2025-07-15-204341.png" 
-                        alt={isBengali ? "শিক্ষা ওয়েবসাইট ড্যাশবোর্ড" : "Education Website Dashboard"} 
-                        style={{
-                            width: '100%',
-                            height: 'auto',
-                            borderRadius: '8px',
-                            boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
-                            transition: 'transform 0.3s ease',
-                            border: `1px solid ${borderColor}`
-                        }}
-                        onMouseOver={(e) => e.target.style.transform = 'scale(1.02)'}
-                        onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                    />
-                </div>
             </section>
 
-            {/* Features Section */}
+            {/* Clients Section */}
             <section style={{
-                padding: '3rem 0',
                 
-                
-                margin: '2rem 0',
-               
+                margin: '2rem 0'
             }}>
                 <h2 style={{
                     fontSize: '1.8rem',
@@ -219,109 +365,331 @@ return (
                     marginBottom: '2rem',
                     textAlign: 'center'
                 }}>
-                    {isBengali ? "আমাদের সেবাসমূহ" : "Our Services"}
+                    {isBengali ? "আমাদের ক্লায়েন্টস" : "Our Clients"}
                 </h2>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '1.5rem',
-                    padding: '0 1rem'
-                }}>
-                    {currentContent.features.map((feature, index) => (
-                        <div 
-                            key={index}
-                            style={{
-                                backgroundColor: cardBg,
-                                padding: '1.5rem',
-                                borderRadius: '8px',
-                                boxShadow: '0 3px 10px rgba(0,0,0,0.1)',
-                                transition: 'all 0.3s ease',
-                                border: `1px solid ${borderColor}`
-                            }}
-                            onMouseOver={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-5px)';
-                                e.currentTarget.style.boxShadow = `0 8px 24px rgba(76, 175, 80, 0.15)`;
-                                e.currentTarget.style.borderColor = secondaryColor;
-                            }}
-                            onMouseOut={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
-                                e.currentTarget.style.borderColor = borderColor;
-                            }}
-                        >
-                            <h3 style={{ 
-                                color: secondaryColor, 
-                                marginBottom: '0.8rem',
-                                fontSize: '1.2rem'
-                            }}>
-                                {feature.title}
-                            </h3>
-                            <p style={{ color: lightText }}>
-                                {feature.desc}
-                            </p>
-                        </div>
-                    ))}
+
+                           {/* Ecommerce Clients */}
+                <div>
+                    <h3 style={{
+                        color: secondaryColor,
+                        marginBottom: '1.5rem',
+                        textAlign: 'center',
+                        fontSize: '1.4rem'
+                    }}>
+                        {isBengali ? "ইকমার্স ক্লায়েন্টস" : "Ecommerce Clients"}
+                    </h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                        gap: '1.5rem'
+                    }}>
+                        {currentContent.clients.ecommerce.map((client, index) => (
+                            <div 
+                                key={index}
+                                style={{
+                                    backgroundColor: cardBg,
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                    boxShadow: '0 3px 10px rgba(0,0,0,0.1)',
+                                    transition: 'all 0.3s ease',
+                                    border: `1px solid ${borderColor}`
+                                }}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.boxShadow = `0 8px 24px rgba(76, 175, 80, 0.15)`;
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
+                                }}
+                            >
+                                <img 
+                                    src={client.image} 
+                                    alt={client.title}
+                                    style={{
+                                        width: '100%',
+                                        height: '200px',
+                                        objectFit: 'cover'
+                                    }}
+                                />
+                                <div style={{ padding: '1.5rem' }}>
+                                    <h4 style={{ 
+                                        color: secondaryColor, 
+                                        marginBottom: '0.5rem',
+                                        fontSize: '1.1rem'
+                                    }}>
+                                        {client.title}
+                                    </h4>
+                                    <a 
+                                        href={client.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            color: primaryColor,
+                                            textDecoration: 'none',
+                                            fontSize: '0.9rem'
+                                        }}
+                                        onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
+                                        onMouseOut={(e) => e.target.style.textDecoration = 'none'}
+                                    >
+                                        {isBengali ? "ওয়েবসাইট দেখুন" : "Visit Website"} →
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+                
+                {/* EdTech Clients */}
+                <div style={{ marginBottom: '3rem' }}>
+                    <h3 style={{
+                        color: secondaryColor,
+                        marginBottom: '1.5rem',
+                        textAlign: 'center',
+                        fontSize: '1.4rem'
+                    }}>
+                        {isBengali ? "এডটেক ক্লায়েন্টস" : "EdTech Clients"}
+                    </h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                        gap: '1.5rem'
+                    }}>
+                        {currentContent.clients.edtech.map((client, index) => (
+                            <div 
+                                key={index}
+                                style={{
+                                    backgroundColor: cardBg,
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                    boxShadow: '0 3px 10px rgba(0,0,0,0.1)',
+                                    transition: 'all 0.3s ease',
+                                    border: `1px solid ${borderColor}`
+                                }}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.boxShadow = `0 8px 24px rgba(76, 175, 80, 0.15)`;
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
+                                }}
+                            >
+                                <img 
+                                    src={client.image} 
+                                    alt={client.title}
+                                    style={{
+                                        width: '100%',
+                                        height: '200px',
+                                        objectFit: 'contain'
+                                    }}
+                                />
+                                <div style={{ padding: '1.5rem' }}>
+                                    <h4 style={{ 
+                                        color: secondaryColor, 
+                                        marginBottom: '0.5rem',
+                                        fontSize: '1.1rem'
+                                    }}>
+                                        {client.title}
+                                    </h4>
+                                    <a 
+                                        href={client.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            color: primaryColor,
+                                            textDecoration: 'none',
+                                            fontSize: '0.9rem'
+                                        }}
+                                        onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
+                                        onMouseOut={(e) => e.target.style.textDecoration = 'none'}
+                                    >
+                                        {isBengali ? "ওয়েবসাইট দেখুন" : "Visit Website"} →
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+     
             </section>
 
-            {/* Government Compliance Section */}
-            <section style={{
-                padding: '3rem 1rem',
-                margin: '2rem 0',
-                textAlign: 'center'
+            {/* Packages Section */}
+            <section id="packages" style={{
+                padding: '3rem 0',
+                margin: '2rem 0'
             }}>
                 <h2 style={{
                     fontSize: '1.8rem',
                     color: primaryColor,
-                    marginBottom: '1.5rem'
+                    marginBottom: '2rem',
+                    textAlign: 'center'
                 }}>
-                    {currentContent.gov.title}
+                    {isBengali ? "আমাদের প্যাকেজস" : "Our Packages"}
                 </h2>
-                <p style={{
-                    textAlign: 'center',
-                    maxWidth: '800px',
-                    margin: '0 auto 2rem',
-                    fontSize: '1.1rem',
-                    color: lightText
-                }}>
-                    {currentContent.gov.desc}
-                </p>
-                <div style={{
-                    backgroundColor: darkMode ? '#2d2d2d' : '#eaf2f8',
-                    padding: '2rem',
-                    borderRadius: '8px',
-                    maxWidth: '800px',
-                    margin: '0 auto',
-                    textAlign: 'left',
-                    border: `1px solid ${borderColor}`
-                }}>
+
+                 {/* Ecommerce Special Offer */}
+                <div>
                     <h3 style={{
-                        textAlign: 'center',
-                        marginBottom: '1rem',
                         color: secondaryColor,
-                        fontSize: '1.3rem'
+                        marginBottom: '1.5rem',
+                        textAlign: 'center',
+                        fontSize: '1.4rem'
                     }}>
-                        {isBengali ? "কেন আমাদের সেবা নির্বাচন করবেন?" : "Why Choose Our Service?"}
+                        {isBengali ? "ইকমার্স স্পেশাল অফার" : "Ecommerce Special Offer"}
                     </h3>
-                    <ul style={{
-                        listStyleType: 'none',
-                        padding: '0'
+                    <div style={{
+                        backgroundColor: darkMode ? '#2d2d2d' : '#eaf2f8',
+                        padding: '2rem',
+                        borderRadius: '8px',
+                        textAlign: 'center',
+                        border: `2px solid ${secondaryColor}`,
+                        position: 'relative',
+                        overflow: 'hidden'
                     }}>
-                        {currentContent.gov.benefits.map((benefit, index) => (
-                            <li 
+                        <div style={{
+                            position: 'absolute',
+                            top: '20px',
+                            right: '-30px',
+                            background: '#ff4444',
+                            color: 'white',
+                            padding: '5px 40px',
+                            transform: 'rotate(45deg)',
+                            fontSize: '0.9rem',
+                            fontWeight: 'bold'
+                        }}>
+                            {currentContent.packages.ecommerce.special.discount}
+                        </div>
+                        
+                        <h4 style={{ 
+                            color: secondaryColor, 
+                            marginBottom: '1rem',
+                            fontSize: '1.5rem'
+                        }}>
+                            {currentContent.packages.ecommerce.special.title}
+                        </h4>
+                        
+                        <div style={{ marginBottom: '1.5rem' }}>
+                            <span style={{
+                                textDecoration: 'line-through',
+                                color: '#ff4444',
+                                fontSize: '1.2rem',
+                                marginRight: '1rem'
+                            }}>
+                                {currentContent.packages.ecommerce.special.originalPrice}
+                            </span>
+                            <span style={{
+                                fontSize: '1.8rem',
+                                fontWeight: 'bold',
+                                color: primaryColor
+                            }}>
+                                {currentContent.packages.ecommerce.special.discountedPrice}
+                            </span>
+                        </div>
+                        
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                            gap: '1rem',
+                            marginBottom: '2rem'
+                        }}>
+                            {currentContent.packages.ecommerce.special.features.map((feature, idx) => (
+                                <div 
+                                    key={idx}
+                                    style={{
+                                        backgroundColor: cardBg,
+                                        padding: '0.8rem',
+                                        borderRadius: '4px',
+                                        color: lightText,
+                                        fontSize: '0.9rem'
+                                    }}
+                                >
+                                    ✔ {feature}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* EdTech Packages */}
+                <div style={{ marginBottom: '3rem' }}>
+                    <h3 style={{
+                        color: secondaryColor,
+                        marginBottom: '1.5rem',
+                        textAlign: 'center',
+                        fontSize: '1.4rem'
+                    }}>
+                        {isBengali ? "এডটেক ওয়েবসাইট প্যাকেজ" : "EdTech Website Packages"}
+                    </h3>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gap: '1.5rem'
+                    }}>
+                        {currentContent.packages.edtech.map((pkg, index) => (
+                            <div 
                                 key={index}
                                 style={{
-                                    padding: '0.5rem 0',
-                                    position: 'relative',
-                                    paddingLeft: '1.5rem',
-                                    color: lightText
+                                    backgroundColor: cardBg,
+                                    padding: '2rem',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 3px 10px rgba(0,0,0,0.1)',
+                                    transition: 'all 0.3s ease',
+                                    border: `1px solid ${borderColor}`,
+                                    textAlign: 'center'
+                                }}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(-5px)';
+                                    e.currentTarget.style.boxShadow = `0 8px 24px rgba(76, 175, 80, 0.15)`;
+                                    e.currentTarget.style.borderColor = secondaryColor;
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
+                                    e.currentTarget.style.borderColor = borderColor;
                                 }}
                             >
-                                ✔ {benefit}
-                            </li>
+                                <h4 style={{ 
+                                    color: secondaryColor, 
+                                    marginBottom: '1rem',
+                                    fontSize: '1.3rem'
+                                }}>
+                                    {pkg.name}
+                                </h4>
+                                <div style={{
+                                    fontSize: '1.5rem',
+                                    fontWeight: 'bold',
+                                    color: primaryColor,
+                                    marginBottom: '1.5rem'
+                                }}>
+                                    {pkg.price}
+                                </div>
+                                <ul style={{
+                                    listStyleType: 'none',
+                                    padding: '0',
+                                    textAlign: 'left'
+                                }}>
+                                    {pkg.features.map((feature, idx) => (
+                                        <li 
+                                            key={idx}
+                                            style={{
+                                                padding: '0.5rem 0',
+                                                position: 'relative',
+                                                paddingLeft: '1.5rem',
+                                                color: lightText
+                                            }}
+                                        >
+                                            ✔ {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
+
+               
             </section>
 
             {/* CTA Section */}
@@ -356,33 +724,7 @@ return (
                     flexWrap: 'wrap',
                     marginBottom: '1.5rem'
                 }}>
-                    <button 
-                        onClick={handleDemoClick}
-                        style={{
-                            backgroundColor: secondaryColor,
-                            color: 'white',
-                            border: 'none',
-                            padding: '12px 30px',
-                            fontSize: '1.1rem',
-                            borderRadius: '50px',
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                            fontWeight: '600',
-                            boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-                        }}
-                        onMouseOver={(e) => {
-                            e.target.style.backgroundColor = darkMode ? '#4caf50' : '#239b56';
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 6px 8px rgba(0,0,0,0.15)';
-                        }}
-                        onMouseOut={(e) => {
-                            e.target.style.backgroundColor = secondaryColor;
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-                        }}
-                    >
-                        {currentContent.cta.buttons[0]}
-                    </button>
+                   
                     <button
                         onClick={() => window.location.href = '/contact'}
                         style={{
@@ -422,50 +764,9 @@ return (
                     {currentContent.cta.phone}
                 </div>
             </section>
-
-            {/* Responsive Adjustments */}
-            <style>
-                {`
-                @media (min-width: 768px) {
-                    section:first-child {
-                        flex-direction: row !important;
-                        text-align: left !important;
-                    }
-                    
-                    section:first-child > div:first-child {
-                        text-align: left !important;
-                        flex: 1;
-                    }
-                    
-                    section:first-child h1 {
-                        font-size: 2.5rem !important;
-                    }
-                    .edu-main-container {
-                        padding-left: 48px !important;
-                        padding-right: 48px !important;
-                    }
-                }
-
-                @media (min-width: 992px) {
-                    section:first-child h1 {
-                        font-size: 3rem !important;
-                        line-height: 1.2 !important;
-                        margin-bottom: 1.5rem !important;
-                    }
-                    
-                    section:first-child p {
-                        font-size: 1.3rem !important;
-                    }
-                    .edu-main-container {
-                        padding-left: 80px !important;
-                        padding-right: 80px !important;
-                    }
-                }
-                `}
-            </style>
         </div>
     </div>
-);
+  );
 };
 
 export default Edu;
