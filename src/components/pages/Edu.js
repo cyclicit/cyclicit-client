@@ -376,7 +376,7 @@ const Edu = ({ darkMode }) => {
                         textAlign: 'center',
                         fontSize: '1.4rem'
                     }}>
-                        {isBengali ? "ইকমার্স ক্লায়েন্টস" : "Ecommerce Clients"}
+                        {isBengali ? "ইকমার্স ক্লায়েন্টস (UI/UX)" : "Ecommerce Clients (UI/UX)"}
                     </h3>
                     <div style={{
                         display: 'grid',
@@ -448,7 +448,7 @@ const Edu = ({ darkMode }) => {
                         textAlign: 'center',
                         fontSize: '1.4rem'
                     }}>
-                        {isBengali ? "এডটেক ক্লায়েন্টস" : "EdTech Clients"}
+                        {isBengali ? "এডটেক ক্লায়েন্টস (E2E)" : "EdTech Clients (E2E)"}
                     </h3>
                     <div style={{
                         display: 'grid',
@@ -492,6 +492,7 @@ const Edu = ({ darkMode }) => {
                                     }}>
                                         {client.title}
                                     </h4>
+                                    
                                     <a 
                                         href={client.link}
                                         target="_blank"
