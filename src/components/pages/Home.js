@@ -8,12 +8,12 @@ const Home = ({ darkMode }) => {
   const [typedText, setTypedText] = useState('');
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [typingForward, setTypingForward] = useState(true);
-  const [language, setLanguage] = useState('en'); // 'en' for English, 'bn' for Bengali
+  const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
 
   // English phrases
-  const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems","Mobile Apps", "AI Solutions"];
+  const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems", "Mobile Apps", "AI Solutions"];
   // Bengali phrases
-  const bnPhrases = ["ওয়েবসাইট", "মোবাইল অ্যাপ", "এআই সমাধান", "ক্লাউড সার্ভিস", "আইওটি সিস্টেম","মোবাইল অ্যাপ", "এআই সমাধান"];
+  const bnPhrases = ["ওয়েবসাইট", "মোবাইল অ্যাপ", "এআই সমাধান", "ক্লাউড সার্ভিস", "আইওটি সিস্টেম", "মোবাইল অ্যাপ", "এআই সমাধান"];
 
   const phrases = language === 'en' ? enPhrases : bnPhrases;
 
@@ -77,7 +77,7 @@ const Home = ({ darkMode }) => {
     },
     {
       id: 'ai',
-      label: language === 'en' ? 'ai' : 'এআই',
+      label: language === 'en' ? 'AI' : 'এআই',
       size: 60,
       top: '30%',
       right: '10%',
@@ -171,7 +171,7 @@ const Home = ({ darkMode }) => {
     },
     typewriterText: {
       fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-      color: '#4caf50',
+      color: '#f2f7f2ff',
       fontWeight: 600,
       whiteSpace: 'nowrap'
     },
@@ -187,63 +187,40 @@ const Home = ({ darkMode }) => {
       fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
       color: darkMode ? 'rgba(255,255,255,0.9)' : 'rgba(0,0,0,0.8)',
       margin: '0 0 2rem',
-      fontWeight: 300,
+      fontWeight: 700,
       maxWidth: '800px',
       textShadow: darkMode ? '0 1px 5px rgba(0,0,0,0.3)' : '0 1px 5px rgba(0,0,0,0.1)'
     },
-    buttonsContainer: {
+    linksContainer: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '1rem',
+      gap: '1.5rem',
       padding: '1rem',
       maxWidth: '500px',
       margin: '0 auto',
       width: '100%'
     },
-    buttonWrapper: {
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      maxWidth: '300px'
-    },
-    primaryButton: {
-      display: 'inline-block',
-      padding: '0.8rem 1.5rem',
-      borderRadius: '50px',
-      background: 'linear-gradient(90deg,rgb(99, 92, 0),rgb(107, 100, 0))',
-      color: 'white',
+    link: {
+      fontSize: '1.2rem',
+      fontWeight: 700, // Increased font weight
+      color: 'transparent',
+      background: 'linear-gradient(90deg, #4caf50, #81c784)', // Gradient color
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
       textDecoration: 'none',
-      fontWeight: 600,
-      fontSize: 'clamp(1rem, 3vw, 1.1rem)',
-      transition: 'all 0.3s ease',
-     
-      border: 'none',
-      cursor: 'pointer',
-      textAlign: 'center',
-      width: '100%',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
+      transition: 'color 0.3s ease',
+      position: 'relative',
+      padding: '0.5rem 0',
     },
-    secondaryButton: {
+    linkHover: {
+      color: darkMode ? '#81c784' : '#0056b3',
+      textShadow: '0 0 5px rgba(0, 0, 0, 0.3)',
+    },
+    arrow: {
+      marginLeft: '0.5rem',
       display: 'inline-block',
-      padding: '0.8rem 1.5rem',
-      borderRadius: '50px',
-      background: 'linear-gradient(90deg,rgb(103, 65, 0),rgb(84, 70, 0))',
-      color: 'white',
-      textDecoration: 'none',
-      fontWeight: 600,
-      fontSize: 'clamp(1rem, 3vw, 1.1rem)',
-      transition: 'all 0.3s ease',
-      
-      border: 'none',
-      cursor: 'pointer',
-      textAlign: 'center',
-      width: '100%',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
+      transition: 'transform 0.3s ease',
     },
     infoCard: {
       position: 'fixed',
@@ -276,10 +253,10 @@ const Home = ({ darkMode }) => {
       right: '1rem',
       padding: '0.5rem 1rem',
       background: darkMode ? '#2e7d32' : '#fff',
-          color: darkMode ? '#fff' : '#2e7d32',
-          border: 'none',
-          borderRadius: '20px',
-          cursor: 'pointer',
+      color: darkMode ? '#fff' : '#2e7d32',
+      border: 'none',
+      borderRadius: '20px',
+      cursor: 'pointer',
       zIndex: 100,
       display: 'flex',
       alignItems: 'center',
@@ -355,21 +332,21 @@ const Home = ({ darkMode }) => {
 
       {/* Main Content */}
       <div style={styles.contentContainer}>
-       <h1 style={styles.heading}>
-  {language === 'en' ? (
-    'Welcome to '
-  ) : (
-    <span style={{ fontFamily: "'Noto Sans Bengali', 'SolaimanLipi', sans-serif" }}>স্বাগতম </span>
-  )}
-  Cyclic<span style={{ color: '#4caf50' }}>-iT</span>
-  {language === 'bn' && (
-    <span style={{ 
-      fontFamily: "'Noto Sans Bengali', 'SolaimanLipi', sans-serif",
-      fontSize: '0.9em',
-      marginLeft: '0.3em'
-    }}>এ</span>
-  )}
-</h1>
+        <h1 style={styles.heading}>
+          {language === 'en' ? (
+            'Welcome to '
+          ) : (
+            <span style={{ fontFamily: "'Noto Sans Bengali', 'SolaimanLipi', sans-serif" }}></span>
+          )}
+          Cyclic<span style={{ color: '#4caf50' }}>-iT</span>
+          {language === 'bn' && (
+            <span style={{ 
+              fontFamily: "'Noto Sans Bengali', 'SolaimanLipi', sans-serif",
+              fontSize: '0.9em',
+              marginLeft: '0.3em'
+            }}></span>
+          )}
+        </h1>
 
         <div style={styles.typewriterContainer}>
           <motion.div
@@ -379,97 +356,79 @@ const Home = ({ darkMode }) => {
             style={styles.typewriterText}
           >
             {typedText}
-            <motion.span
-              
-            />
+            <motion.span />
           </motion.div>
         </div>
 
-        <p style={styles.servicesText}>
-          <span style={{whiteSpace: 'nowrap'}}>🌐 {language === 'en' ? 'Websites' : 'ওয়েবসাইট'}</span>{' '}
-          <span style={{whiteSpace: 'nowrap'}}>📱 {language === 'en' ? 'Mobile Apps' : 'মোবাইল অ্যাপ'}</span>{' '}
-          <span style={{whiteSpace: 'nowrap'}}>💻 {language === 'en' ? 'Custom Software' : 'কাস্টম সফটওয়্যার'}</span>
-        </p>
+       <p style={styles.servicesText}>
+  {language === 'en' ? (
+    <>
+      From E-commerce to Business Management - We are providing Qualityful Websites, Apps, Custom Software
+    </>
+  ) : (
+    <>
+      ই-কমার্স থেকে বিজনেস ম্যানেজমেন্ট -আমরা প্রদান করছি মানসম্মত ওয়েবসাইট, অ্যাপস, কাস্টম সফটওয়্যার
+    </>
+  )}
+</p>
 
-        <div style={styles.buttonsContainer}>
-
-           <motion.div 
-  style={styles.buttonWrapper}
-  whileHover={{ scale: 1.03 }}
-  whileTap={{ scale: 0.98 }}
->
-  <Link 
-    to="/c&p" 
-    style={styles.secondaryButton}
-  >
-    {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'}
-  </Link>
-</motion.div>
-
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          style={{
+            textAlign: 'center',
+            margin: '1.5rem 0',
+            padding: '1rem',
+          }}
+        >
+          <p style={{
+            fontSize: language === 'en' ? '1.3rem' : '1.4rem',
+            fontFamily: language === 'en' 
+              ? "'Georgia', 'Times New Roman', serif" 
+              : "'Noto Sans Bengali', serif",
+            fontStyle: 'italic',
+            lineHeight: '1.4',
+            fontWeight: '600',
+            margin: 0,
+            background: 'linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
            
+          }}>
+            {language === 'en' 
+              ? '"Our mission is to empower local Bangladeshi entrepreneurs and businesses by becoming their dedicated technology partner for the long run"' 
+              : '"আমরা স্থানীয় বাংলাদেশী উদ্যোক্তা এবং ব্যবসায়ীদের দীর্ঘমেয়াদী প্রযুক্তি অংশীদার হতে চাই।"'
+            }
+          </p>
+        </motion.div>
 
-
-
-          <motion.div 
-            style={styles.buttonWrapper}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link 
-              to="/services" 
-              style={styles.primaryButton}
-            >
-              {language === 'en' ? 'Explore Our Services' : 'আমাদের সেবা সমূহ'}
-            </Link>
-          </motion.div>
-          
-          <motion.div 
-            style={styles.buttonWrapper}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link 
-              to="/buy" 
-              style={styles.secondaryButton}
-            >
-              {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
-            </Link>
-          </motion.div>
-
-         
-
-          <motion.div 
-            style={styles.buttonWrapper}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link 
-              to="/contact" 
-              style={styles.primaryButton}
-            >
-              {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'}
-            </Link>
-          </motion.div>
-
-          <motion.div 
-            style={styles.buttonWrapper}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link 
-              to="/funding" 
-              style={styles.secondaryButton}
-            >
-              {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
-            </Link>
-          </motion.div>
-
-
+        {/* Links Section */}
+        <div style={styles.linksContainer}>
+          <Link to="/c&p" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
+          <Link to="/services" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Explore Our Services' : 'আমাদের সেবা সমূহ'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
+          <Link to="/buy" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
+          <Link to="/contact" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
+          <Link to="/funding" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
         </div>
         
       </div>
-
-      
     </div>
   );
 };
