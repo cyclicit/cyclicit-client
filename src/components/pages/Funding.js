@@ -2,184 +2,140 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Funding = ({ darkMode }) => {
+
+
   // Green theme colors
   const primaryGreen = '#2e7d32';
   const secondaryGreen = '#4caf50';
-  const darkGreen = '#1b5e20';
+  const darkGreen = '#1b5e20ff';
   const lightGreen = '#e8f5e9';
 
-  // State for accordion and tabs
-  const [activeTab, setActiveTab] = useState('startups');
-  const [expandedFaq, setExpandedFaq] = useState(null);
-  const [language, setLanguage] = useState('english'); // 'english' or 'bengali'
+  // State for language
+  const [language, setLanguage] = useState('bengali'); // 'english' or 'bengali'
 
-  // Toggle FAQ accordion
-  const toggleFaq = (index) => {
-    setExpandedFaq(expandedFaq === index ? null : index);
-  };
-
-  // Funding options data
-  const fundingOptions = {
-    startups: [
-      { 
-        name: language === 'english' ? "Seed Funding" : "সীড ফান্ডিং", 
-        amount: language === 'english' ? "Up to 50,000" : "৫০,০০০ পর্যন্ত", 
-        desc: language === 'english' ? "For early-stage ideas with prototype" : "প্রোটোটাইপ সহ প্রাথমিক পর্যায়ের ধারণার জন্য" 
+  // Translated content
+  const content = {
+    english: {
+      header: {
+        title: "Cyclic-it's Vision",
+        subtitle: "Empowering Bangladeshi Entrepreneurs Through Technology"
       },
-      { 
-        name: language === 'english' ? "Growth Funding" : "গ্রোথ ফান্ডিং", 
-        amount: language === 'english' ? "50,000 - 200,000" : "৫০,০০০ - ২,০০,০০০", 
-        desc: language === 'english' ? "For scaling existing products" : "বিদ্যমান পণ্য স্কেল করার জন্য" 
+      sections: {
+        vision: {
+          title: "Our Vision for Bangladesh",
+          content: [
+            "At Cyclicit, we envision a Bangladesh where every entrepreneur has access to cutting-edge technology and digital solutions. We are committed to bridging the digital divide and creating equal opportunities for business growth across all regions of the country.",
+            "Our mission extends beyond immediate solutions - we're building sustainable partnerships that nurture long-term success and technological independence for Bangladeshi businesses."
+          ]
+        },
+        partnership: {
+          title: "Long-Term Partnerships & Support",
+          content: [
+            "We believe in growing together with our partners. That's why we offer comprehensive tech support, exclusive discounts, and customized solutions tailored to the unique needs of Bangladeshi entrepreneurs.",
+            "Our partnership model includes ongoing technical assistance, regular updates, and strategic guidance to ensure your business stays ahead in the competitive digital landscape."
+          ]
+        },
+        opportunity: {
+          title: "The E-commerce Revolution in Bangladesh",
+          content: [
+            "Bangladesh's e-commerce market is experiencing unprecedented growth, with projections showing exponential expansion in the coming years. We strongly recommend our services to position your business at the forefront of this digital transformation.",
+            "With increasing internet penetration, digital literacy, and consumer confidence in online transactions, now is the perfect time to establish a robust digital presence. Our solutions are designed to help you capitalize on this massive opportunity."
+          ]
+        },
+        education: {
+          title: "EdTech Initiatives with Local Institutions",
+          content: [
+            "Through our educational technology programs, we collaborate with local universities, colleges, and training centers to build the next generation of tech-savvy entrepreneurs.",
+            "Our EdTech initiatives include digital literacy workshops, advanced technology training, and entrepreneurship development programs that equip students and professionals with the skills needed to thrive in the digital economy."
+          ]
+        },
+        impact: {
+          title: "Creating Lasting Impact",
+          content: [
+            "We measure our success by the success of our partners. From rural startups to urban enterprises, we've helped hundreds of businesses establish their digital footprint and achieve sustainable growth.",
+            "Our commitment to Bangladesh's entrepreneurial ecosystem includes mentorship programs, networking opportunities, and continuous innovation to address the evolving challenges of the digital marketplace."
+          ]
+        }
       },
-      { 
-        name: language === 'english' ? "Innovation Grants" : "ইনোভেশন গ্রান্ট", 
-        amount: language === 'english' ? "10,000 - 30,000" : "১০,০০০ - ৩০,০০০", 
-        desc: language === 'english' ? "For research-driven projects" : "গবেষণা-চালিত প্রকল্পের জন্য" 
+      stats: {
+        entrepreneurs: "500+ Entrepreneurs Supported",
+        partnerships: "50+ Long-term Partnerships",
+        institutions: "25+ Educational Institutions",
+        growth: "300% Market Growth Potential"
+      },
+      cta: {
+        title: "Join the Digital Revolution",
+        description: "Partner with Cyclicit to transform your business and be part of Bangladesh's exciting digital future",
+        partner: "Become a Partner",
+        learn: "Learn More"
       }
-    ],
-    students: [
-      { 
-        name: language === 'english' ? "Scholarships" : "স্কলারশিপ", 
-        amount: language === 'english' ? "5,000 - 20,000" : "৫,০০০ - ২০,০০০", 
-        desc: language === 'english' ? "For student-led tech projects" : "ছাত্র-নেতৃত্বাধীন প্রযুক্তি প্রকল্পের জন্য" 
+    },
+    bengali: {
+      header: {
+        title: "ভিশন",
+        subtitle: "প্রযুক্তির মাধ্যমে বাংলাদেশী উদ্যোক্তাদের ক্ষমতায়ন"
       },
-      { 
-        name: language === 'english' ? "Hackathon Prizes" : "হ্যাকাথন পুরস্কার", 
-        amount: language === 'english' ? "1,000 - 10,000" : "১,০০০ - ১০,০০০", 
-        desc: language === 'english' ? "Competitive funding for winners" : "বিজয়ীদের জন্য প্রতিযোগিতামূলক তহবিল" 
+      sections: {
+        vision: {
+          title: "বাংলাদেশের জন্য আমাদের ভিশন",
+          content: [
+            " আমরা একটি বাংলাদেশের স্বপ্ন দেখি যেখানে প্রতিটি উদ্যোক্তার কাছে অত্যাধুনিক প্রযুক্তি এবং ডিজিটাল সমাধান প্রবেশযোগ্য। আমরা ডিজিটাল বিভেদ দূর করতে এবং দেশের সকল অঞ্চলে ব্যবসায়িক বৃদ্ধির জন্য সমান সুযোগ সৃষ্টিতে প্রতিশ্রুতিবদ্ধ।",
+            "আমাদের মিশন তাৎক্ষণিক সমাধানের বাইরে প্রসারিত - আমরা বাংলাদেশী ব্যবসার জন্য দীর্ঘমেয়াদী সাফল্য এবং প্রযুক্তিগত স্বাধীনতা লালন করে এমন টেকসই অংশীদারিত্ব গড়ে তুলছি।"
+          ]
+        },
+        partnership: {
+          title: "দীর্ঘমেয়াদী অংশীদারিত্ব ও সমর্থন",
+          content: [
+            "আমরা আমাদের অংশীদারদের সাথে একসাথে বৃদ্ধি বিশ্বাস করি। এইজন্যই আমরা বাংলাদেশী উদ্যোক্তাদের অনন্য প্রয়োজন অনুযায়ী কাস্টমাইজড সমাধান, ব্যাপক প্রযুক্তি সহায়তা এবং বিশেষ ছাড় প্রদান করি।",
+            "আমাদের অংশীদারিত্ব মডেলে চলমান প্রযুক্তিগত সহায়তা, নিয়মিত আপডেট এবং কৌশলগত নির্দেশনা অন্তর্ভুক্ত রয়েছে যা নিশ্চিত করে যে আপনার ব্যবসা প্রতিযোগিতামূলক ডিজিটাল ল্যান্ডস্কেপে এগিয়ে থাকে।"
+          ]
+        },
+        opportunity: {
+          title: "বাংলাদেশে ই-কমার্স বিপ্লব",
+          content: [
+            "বাংলাদেশের ই-কমার্স বাজার অভূতপূর্ব বৃদ্ধি অনুভব করছে, আগামী বছরগুলিতে সূচকীয় সম্প্রসারণ দেখানো পূর্বাভাস সহ। আমরা এই ডিজিটাল রূপান্তরের অগ্রভাগে আপনার ব্যবসাকে অবস্থান করতে আমাদের পরিষেবাগুলি দৃঢ়ভাবে সুপারিশ করি।",
+            "বর্ধমান ইন্টারনেট অনুপ্রবেশ, ডিজিটাল সাক্ষরতা এবং অনলাইন লেনদেনে ভোক্তাদের আত্মবিশ্বাসের সাথে, এখন একটি শক্তিশালী ডিজিটাল উপস্থিতি প্রতিষ্ঠার জন্য নিখুঁত সময়। আমাদের সমাধানগুলি এই বিশাল সুযোগের সদ্ব্যবহার করতে আপনাকে সাহায্য করার জন্য ডিজাইন করা হয়েছে।"
+          ]
+        },
+        education: {
+          title: "স্থানীয় প্রতিষ্ঠানের সাথে এডটেক উদ্যোগ",
+          content: [
+            "আমাদের শিক্ষাগত প্রযুক্তি প্রোগ্রামের মাধ্যমে, আমরা প্রযুক্তি-সচেত উদ্যোক্তাদের পরবর্তী প্রজন্ম গড়ে তুলতে স্থানীয় বিশ্ববিদ্যালয়, কলেজ এবং প্রশিক্ষণ কেন্দ্রগুলির সাথে সহযোগিতা করি।",
+            "আমাদের এডটেক উদ্যোগগুলিতে ডিজিটাল সাক্ষরতা কর্মশালা, উন্নত প্রযুক্তি প্রশিক্ষণ এবং উদ্যোক্তা উন্নয়ন প্রোগ্রাম অন্তর্ভুক্ত রয়েছে যা শিক্ষার্থী এবং পেশাদারদের ডিজিটাল অর্থনীতিতে উন্নতি করার জন্য প্রয়োজনীয় দক্ষতা দিয়ে সজ্জিত করে।"
+          ]
+        },
+        impact: {
+          title: "স্থায়ী প্রভাব সৃষ্টি",
+          content: [
+            "আমরা আমাদের অংশীদারদের সাফল্য দ্বারা আমাদের সাফল্য পরিমাপ করি। গ্রামীণ স্টার্টআপ থেকে শহুরে উদ্যোগ পর্যন্ত, আমরা শত শত ব্যবসাকে তাদের ডিজিটাল পদচিহ্ন প্রতিষ্ঠা করতে এবং টেকসই বৃদ্ধি অর্জন করতে সাহায্য করেছি।",
+            "বাংলাদেশের উদ্যোক্তা ইকোসিস্টেমের প্রতি আমাদের প্রতিশ্রুতিতে পরামর্শদাতা প্রোগ্রাম, নেটওয়ার্কিং সুযোগ এবং ডিজিটাল মার্কেটপ্লেসের বিবর্তনশীল চ্যালেঞ্জগুলি মোকাবেলা করার জন্য অবিচ্ছিন্ন উদ্ভাবন অন্তর্ভুক্ত রয়েছে।"
+          ]
+        }
       },
-      { 
-        name: language === 'english' ? "Research Fellowships" : "গবেষণা ফেলোশিপ", 
-        amount: language === 'english' ? "2,000/month" : "২,০০০/মাস", 
-        desc: language === 'english' ? "For academic tech research" : "একাডেমিক প্রযুক্তি গবেষণার জন্য" 
+      stats: {
+        entrepreneurs: "৫০০+ উদ্যোক্তা সমর্থিত",
+        partnerships: "৫০+ দীর্ঘমেয়াদী অংশীদারিত্ব",
+        institutions: "২৫+ শিক্ষাগত প্রতিষ্ঠান",
+        growth: "৩০০% মার্কেট গ্রোথ সম্ভাবনা"
+      },
+      cta: {
+        title: "ডিজিটাল বিপ্লবে যোগ দিন",
+        description: "আপনার ব্যবসা রূপান্তর করতে এবং বাংলাদেশের উত্তেজনাপূর্ণ ডিজিটাল ভবিষ্যতের অংশ হতে সাইক্লিসিটের সাথে অংশীদার হন",
+        partner: "একটি অংশীদার হন",
+        learn: "আরও জানুন"
       }
-    ],
-    nonprofits: [
-      { 
-        name: language === 'english' ? "Tech for Good Grants" : "সামাজিক প্রযুক্তি অনুদান", 
-        amount: language === 'english' ? "25,000 - 100,000" : "২৫,০০০ - ১,০০,০০০", 
-        desc: language === 'english' ? "For social impact projects" : "সামাজিক প্রভাব প্রকল্পের জন্য" 
-      },
-      { 
-        name: language === 'english' ? "Digital Inclusion Fund" : "ডিজিটাল অন্তর্ভুক্তি তহবিল", 
-        amount: language === 'english' ? "Up to 75,000" : "৭৫,০০০ পর্যন্ত", 
-        desc: language === 'english' ? "Bridging the digital divide" : "ডিজিটাল বিভেদ দূর করা" 
-      },
-      { 
-        name: language === 'english' ? "Community Innovation" : "সম্পদায় উদ্ভাবন", 
-        amount: language === 'english' ? "10,000 - 50,000" : "১০,০০০ - ৫০,০০০", 
-        desc: language === 'english' ? "Local tech solutions" : "স্থানীয় প্রযুক্তি সমাধান" 
-      }
-    ]
-  };
-
-  // FAQ items
-  const faqs = [
-    {
-      question: language === 'english' ? "What types of projects do you fund?" : "আপনারা কোন ধরনের প্রকল্পে তহবিল প্রদান করেন?",
-      answer: language === 'english' 
-        ? "We fund a wide range of tech projects including software development, hardware innovation, AI/ML applications, and social impact technology. The project should demonstrate innovation, feasibility, and potential for impact." 
-        : "আমরা সফ্টওয়্যার ডেভেলপমেন্ট, হার্ডওয়্যার উদ্ভাবন, AI/ML অ্যাপ্লিকেশন এবং সামাজিক প্রভাব প্রযুক্তি সহ বিস্তৃত পরিসরের প্রযুক্তি প্রকল্পে তহবিল প্রদান করি। প্রকল্পটিতে উদ্ভাবন, সম্ভাব্যতা এবং প্রভাবের সম্ভাবনা প্রদর্শন করা উচিত।"
-    },
-    {
-      question: language === 'english' ? "How long does the application process take?" : "আবেদন প্রক্রিয়াটি কতদিন সময় নেয়?",
-      answer: language === 'english' 
-        ? "The initial review takes 2-3 weeks. If your application progresses, the full evaluation typically takes 4-6 weeks. We'll keep you informed at every stage of the process." 
-        : "প্রাথমিক পর্যালোচনায় ২-৩ সপ্তাহ সময় লাগে। যদি আপনার আবেদন এগিয়ে যায়, সম্পূর্ণ মূল্যায়ন সাধারণত ৪-৬ সপ্তাহ সময় নেয়। আমরা প্রক্রিয়ার প্রতিটি পর্যায়ে আপনাকে অবহিত রাখব।"
-    },
-    {
-      question: language === 'english' ? "Do I need to have a team to apply?" : "আবেদন করার জন্য কি আমার একটি দল প্রয়োজন?",
-      answer: language === 'english' 
-        ? "While having a team is beneficial, solo founders can also apply. What's most important is your ability to execute the project, whether through your own skills or by building the right team with our support." 
-        : "একটি দল থাকা উপকারী হলেও, একক প্রতিষ্ঠাতারাও আবেদন করতে পারেন। সবচেয়ে গুরুত্বপূর্ণ হল প্রকল্পটি বাস্তবায়নের আপনার সক্ষমতা, তা আপনার নিজের দক্ষতার মাধ্যমে হোক বা আমাদের সমর্থন নিয়ে সঠিক দল গঠনের মাধ্যমে।"
-    },
-    {
-      question: language === 'english' ? "What happens after funding is awarded?" : "তহবিল প্রদানের পর কি হয়?",
-      answer: language === 'english' 
-        ? "You'll receive the funding in milestone-based installments. We provide ongoing support including mentorship, technical resources, and networking opportunities to help ensure your success." 
-        : "আপনি মাইলফলক-ভিত্তিক কিস্তিতে তহবিল পাবেন। আমরা আপনার সাফল্য নিশ্চিত করতে পরামর্শদান, প্রযুক্তিগত সম্পদ এবং নেটওয়ার্কিং সুযোগ সহ চলমান সহায়তা প্রদান করি।"
     }
-  ];
-
-  // Translated texts
-  const translations = {
-    header: {
-      title: language === 'english' ? "Entrepreneur Tech Funding" : "উদ্যোক্তা প্রযুক্তি তহবিল",
-      subtitle: language === 'english' 
-        ? "Funding Programs for Entrepreneurs and Community" 
-        : "উদ্যোক্তা এবং কমিউনিটির জন্য তহবিল কর্মসূচি"
-    },
-    tabs: {
-      startups: language === 'english' ? "startups" : "স্টার্টআপ",
-      students: language === 'english' ? "students" : "শিক্ষার্থী",
-      nonprofits: language === 'english' ? "nonprofits" : "লাভ-নিরপেক্ষ"
-    },
-    resources: {
-      tipsTitle: language === 'english' ? "Application Tips" : "আবেদনের টিপস",
-      tips: language === 'english' 
-        ? [
-            "Clearly define your problem and solution",
-            "Include market research data",
-            "Show your team's capabilities",
-            "Provide a realistic timeline",
-            "Explain how funding will be used"
-          ]
-        : [
-            "আপনার সমস্যা এবং সমাধান স্পষ্টভাবে সংজ্ঞায়িত করুন",
-            "বাজার গবেষণা ডেটা অন্তর্ভুক্ত করুন",
-            "আপনার দলের সক্ষমতা দেখান",
-            "একটি বাস্তবসম্মত সময়সূচী প্রদান করুন",
-            "ব্যাখ্যা করুন কিভাবে তহবিল ব্যবহার করা হবে"
-          ],
-      eligibilityTitle: language === 'english' ? "Eligibility" : "যোগ্যতা",
-      eligibility: language === 'english' 
-        ? [
-            "Tech-focused projects only",
-            "Open to individuals and organizations",
-            "No geographic restrictions",
-            "Previous experience not required",
-            "Must be original work"
-          ]
-        : [
-            "শুধুমাত্র প্রযুক্তি-কেন্দ্রিক প্রকল্প",
-            "ব্যক্তি এবং সংস্থার জন্য উন্মুক্ত",
-            "কোন ভৌগোলিক সীমাবদ্ধতা নেই",
-            "পূর্ববর্তী অভিজ্ঞতার প্রয়োজন নেই",
-            "মূল কাজ হতে হবে"
-          ],
-      datesTitle: language === 'english' ? "Key Dates" : "গুরুত্বপূর্ণ তারিখ",
-      dates: language === 'english' 
-        ? [
-            "Applications accepted year-round",
-            "Quarterly review cycles",
-            "Next deadline: June 30",
-            "Final decisions within 6 weeks",
-            "Funding disbursed within 2 weeks of approval"
-          ]
-        : [
-            "সারা বছর আবেদন গ্রহণ করা হয়",
-            "ত্রৈমাসিক পর্যালোচনা চক্র",
-            "পরবর্তী শেষ তারিখ: ৩০ জুন",
-            "৬ সপ্তাহের মধ্যে চূড়ান্ত সিদ্ধান্ত",
-            "অনুমোদনের ২ সপ্তাহের মধ্যে তহবিল বিতরণ"
-          ]
-    },
-    cta: {
-      title: language === 'english' ? "Ready to Bring Your Idea to Life?" : "আপনার ধারণাকে বাস্তবে রূপান্তর করতে প্রস্তুত?",
-      description: language === 'english' 
-        ? "Join innovators who have transformed their ideas into successful projects with our funding and support." 
-        : "আমাদের তহবিল এবং সমর্থন নিয়ে তাদের ধারণাকে সফল প্রকল্পে রূপান্তরিত করেছেন এমন উদ্ভাবকদের সাথে যোগ দিন।",
-      apply: language === 'english' ? "Apply Now" : "এখনই আবেদন করুন"
-    },
-    faqTitle: language === 'english' ? "Frequently Asked Questions" : "প্রায়শই জিজ্ঞাসিত প্রশ্ন"
   };
+
+  const t = content[language];
 
   return (
     <div style={{
-      backgroundColor: darkMode ?'rgb(52, 0, 84)' :'#ffffff',
+      backgroundColor: darkMode ? 'rgba(14, 53, 0, 1)' : '#004007ff',
       padding: '4rem 1rem',
       color: darkMode ? '#ffffff' : '#333333',
-      position: 'relative'
+      position: 'relative',
+      minHeight: '100vh'
     }}>
       {/* Language Toggle Button */}
       <button 
@@ -189,13 +145,13 @@ const Funding = ({ darkMode }) => {
           top: '1rem',
           right: '1rem',
           padding: '0.5rem 1rem',
-         
           background: darkMode ? '#2e7d32' : '#fff',
           color: darkMode ? '#fff' : '#2e7d32',
           border: 'none',
           borderRadius: '20px',
           cursor: 'pointer',
-          zIndex: 100
+          zIndex: 100,
+          fontWeight: 600
         }}
       >
         {language === 'english' ? 'বাংলা' : 'English'}
@@ -207,191 +163,84 @@ const Funding = ({ darkMode }) => {
         padding: '0 1rem'
       }}>
         {/* Header Section */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 style={{
-            fontSize: '1.2rem',
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h1 style={{
+            fontSize: '2.5rem',
             color: darkMode ? '#81c784' : primaryGreen,
-            textTransform: 'uppercase',
-            letterSpacing: '2px',
-            marginBottom: '1rem'
-          }}>{translations.header.title}</h2>
+            marginBottom: '1rem',
+            fontWeight: 700
+          }}>{t.header.title}</h1>
+          <p style={{
+            fontSize: '1.3rem',
+            color: darkMode ? '#cccccc' : '#666666',
+            maxWidth: '800px',
+            margin: '0 auto',
+            lineHeight: 1.6
+          }}>{t.header.subtitle}</p>
         </div>
 
-        {/* Funding Options Tabs */}
-        <div style={{ marginBottom: '3rem' }}>
-          <h3 style={{
-            textAlign: 'center',
-            fontSize: '1.5rem',
-            color: darkMode ? '#ffffff' : primaryGreen,
-            marginBottom: '2rem'
-          }}>{translations.header.subtitle}</h3>
-          
-          {/* Tabs Navigation */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: '2rem',
-            flexWrap: 'wrap',
-            gap: '0.5rem'
-          }}>
-            {['startups', 'students', 'nonprofits'].map((tab) => (
-              <button
-                key={tab}
-                style={{
-                  padding: '0.8rem 1.5rem',
-                  borderRadius: '50px',
-                  background: activeTab === tab 
-                    ? `linear-gradient(90deg, ${darkGreen}, ${primaryGreen})` 
-                    : darkMode ? '#2a2a2a' : '#e0e0e0',
-                  color: activeTab === tab ? 'white' : (darkMode ? '#cccccc' : '#333333'),
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontWeight: 600,
-                  textTransform: 'capitalize',
-                  transition: 'all 0.3s ease'
-                }}
-                onClick={() => setActiveTab(tab)}
-              >
-                {translations.tabs[tab]}
-              </button>
-            ))}
-          </div>
-          
-          {/* Tabs Content */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem'
-          }}>
-            {fundingOptions[activeTab].map((option, index) => (
-              <div 
-                key={index}
-                style={{
-                  background: darkMode ? '#1e1e1e' : '#ffffff',
-                  padding: '1.5rem',
-                  borderRadius: '12px',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                  borderLeft: `4px solid ${secondaryGreen}`,
-                  transition: 'transform 0.3s ease',
-                  ':hover': {
-                    transform: 'translateY(-5px)'
-                  }
-                }}
-              >
-                <h4 style={{
-                  fontSize: '1.2rem',
-                  margin: '0 0 0.5rem 0',
-                  color: darkMode ? '#ffffff' : primaryGreen
-                }}>{option.name}</h4>
-                
-                <p style={{
-                  color: darkMode ? '#cccccc' : '#666666',
-                  margin: 0,
-                  lineHeight: 1.6
-                }}>{option.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+       
 
-        {/* Additional Resources */}
+        {/* Main Content Sections */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '1.5rem',
-          marginBottom: '3rem'
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '3rem',
+          marginBottom: '4rem'
         }}>
-          <div style={{
-            background: darkMode ? '#1e1e1e' : '#ffffff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-            borderTop: `4px solid ${secondaryGreen}`
-          }}>
-            <h4 style={{
-              fontSize: '1.2rem',
-              color: darkMode ? '#ffffff' : primaryGreen,
-              margin: '0 0 1rem 0'
-            }}>{translations.resources.tipsTitle}</h4>
-            <ul style={{
-              paddingLeft: '1.2rem',
-              color: darkMode ? '#cccccc' : '#666666',
-              lineHeight: 1.8
+          {Object.entries(t.sections).map(([key, section]) => (
+            <div key={key} style={{
+              background: darkMode ? '#1e1e1e' : '#ffffff',
+              padding: '2.5rem',
+              borderRadius: '12px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
             }}>
-              {translations.resources.tips.map((tip, index) => (
-                <li key={index}>{tip}</li>
-              ))}
-            </ul>
-          </div>
-          <div style={{
-            background: darkMode ? '#1e1e1e' : '#ffffff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-            borderTop: `4px solid ${secondaryGreen}`
-          }}>
-            <h4 style={{
-              fontSize: '1.2rem',
-              color: darkMode ? '#ffffff' : primaryGreen,
-              margin: '0 0 1rem 0'
-            }}>{translations.resources.eligibilityTitle}</h4>
-            <ul style={{
-              paddingLeft: '1.2rem',
-              color: darkMode ? '#cccccc' : '#666666',
-              lineHeight: 1.8
-            }}>
-              {translations.resources.eligibility.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div style={{
-            background: darkMode ? '#1e1e1e' : '#ffffff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-            borderTop: `4px solid ${secondaryGreen}`
-          }}>
-            <h4 style={{
-              fontSize: '1.2rem',
-              color: darkMode ? '#ffffff' : primaryGreen,
-              margin: '0 0 1rem 0'
-            }}>{translations.resources.datesTitle}</h4>
-            <ul style={{
-              paddingLeft: '1.2rem',
-              color: darkMode ? '#cccccc' : '#666666',
-              lineHeight: 1.8
-            }}>
-              {translations.resources.dates.map((date, index) => (
-                <li key={index}>{date}</li>
-              ))}
-            </ul>
-          </div>
+              <h2 style={{
+                fontSize: '1.8rem',
+                color: darkMode ? '#81c784' : primaryGreen,
+                margin: '0 0 1.5rem 0',
+                borderBottom: `2px solid ${secondaryGreen}`,
+                paddingBottom: '0.5rem'
+              }}>{section.title}</h2>
+              <div style={{
+                color: darkMode ? '#cccccc' : '#666666',
+                lineHeight: 1.8,
+                fontSize: '1.1rem'
+              }}>
+                {section.content.map((paragraph, index) => (
+                  <p key={index} style={{ marginBottom: '1rem' }}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* CTA Section */}
         <div style={{ 
           textAlign: 'center',
           background: `linear-gradient(135deg, ${darkGreen}, ${primaryGreen})`,
-          padding: '3rem 2rem',
+          padding: '4rem 2rem',
           borderRadius: '12px',
           marginBottom: '3rem'
         }}>
           <h3 style={{
-            fontSize: '1.8rem',
+            fontSize: '2rem',
             color: '#ffffff',
-            margin: '0 0 1rem 0'
-          }}>{translations.cta.title}</h3>
+            margin: '0 0 1rem 0',
+            fontWeight: 700
+          }}>{t.cta.title}</h3>
           <p style={{
             color: 'rgba(255,255,255,0.9)',
             maxWidth: '700px',
-            margin: '0 auto 2rem',
-            fontSize: '1.1rem',
+            margin: '0 auto 2.5rem',
+            fontSize: '1.2rem',
             lineHeight: 1.6
           }}>
-            {translations.cta.description}
+            {t.cta.description}
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
             <Link 
               to="/contact" 
               style={{
@@ -399,89 +248,51 @@ const Funding = ({ darkMode }) => {
                 padding: '1rem 2.5rem',
                 borderRadius: '50px',
                 background: '#ffffff',
-                
+                color: primaryGreen,
                 textDecoration: 'none',
                 fontWeight: 600,
                 fontSize: '1.1rem',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-                ':hover': {
-                  transform: 'translateY(-3px)',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
-                  background: '#f5f5f5'
-                }
+                boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.2)';
+                e.target.style.background = '#f5f5f5';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                e.target.style.background = '#ffffff';
               }}
             >
-              {translations.cta.apply}
+              {t.cta.partner}
             </Link>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div style={{ marginBottom: '3rem' }}>
-          <h3 style={{
-            textAlign: 'center',
-            fontSize: '1.5rem',
-            color: darkMode ? '#ffffff' : primaryGreen,
-            marginBottom: '2rem'
-          }}>{translations.faqTitle}</h3>
-          
-          <div style={{
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            {faqs.map((faq, index) => (
-              <div 
-                key={index}
-                style={{
-                  background: darkMode ? '#1e1e1e' : '#ffffff',
-                  marginBottom: '1rem',
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
-                }}
-              >
-                <div 
-                  style={{
-                    padding: '1.2rem 1.5rem',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                    backgroundColor: expandedFaq === index 
-                      ? (darkMode ? '#2a2a2a' : lightGreen)
-                      : 'transparent',
-                    transition: 'background-color 0.3s ease'
-                  }}
-                  onClick={() => toggleFaq(index)}
-                >
-                  <h4 style={{
-                    margin: 0,
-                    color: expandedFaq === index ? secondaryGreen : (darkMode ? '#ffffff' : '#333333'),
-                    fontSize: '1.1rem'
-                  }}>
-                    {faq.question}
-                  </h4>
-                  <div style={{
-                    fontSize: '1.2rem',
-                    color: secondaryGreen,
-                    transform: expandedFaq === index ? 'rotate(45deg)' : 'rotate(0)',
-                    transition: 'transform 0.3s ease'
-                  }}>
-                    +
-                  </div>
-                </div>
-                {expandedFaq === index && (
-                  <div style={{
-                    padding: '0 1.5rem 1.5rem',
-                    color: darkMode ? '#cccccc' : '#666666',
-                    lineHeight: 1.6
-                  }}>
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
+            <Link 
+              to="/services" 
+              style={{
+                display: 'inline-block',
+                padding: '1rem 2.5rem',
+                borderRadius: '50px',
+                background: 'transparent',
+                color: '#ffffff',
+                textDecoration: 'none',
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                border: '2px solid #ffffff',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.background = '#ffffff';
+                e.target.style.color = primaryGreen;
+              }}
+              onMouseOut={(e) => {
+                e.target.style.background = 'transparent';
+                e.target.style.color = '#ffffff';
+              }}
+            >
+              {t.cta.learn}
+            </Link>
           </div>
         </div>
       </div>
@@ -490,3 +301,4 @@ const Funding = ({ darkMode }) => {
 };
 
 export default Funding;
+

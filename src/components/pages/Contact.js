@@ -179,7 +179,7 @@ const Contact = ({ darkMode }) => {
       variants={containerVariants}
      style={{
   background: darkMode 
-    ? 'linear-gradient(135deg,rgba(67, 2, 102, 0.4) 0%,rgba(87, 2, 147, 0.4) 100%)' 
+    ? 'linear-gradient(135deg,rgba(0, 0, 0, 0.4) 0%,rgba(20, 0, 34, 0.4) 100%)' 
     : '#f8f9fa',
   color: darkMode ? '#ffffff' : '#333333',
   padding: '2rem 1rem',

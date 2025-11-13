@@ -54,7 +54,7 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
     <div className={`sidebar ${menuOpen ? 'open' : ''}`} style={{
       marginBottom: '3rem',
       background: darkMode 
-        ? 'linear-gradient(to bottom, #1b3a1f, #2d5e31)' 
+        ? 'linear-gradient(to bottom, #112413ff, #1e3c20ff)' 
         : 'linear-gradient(to bottom, #e8f5e9, #c8e6c9)',
       transition: 'all 0.3s ease'
     }}>
@@ -112,7 +112,7 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
         <p style={{
           fontSize: '0.9rem',
           color: darkMode ? '#aaaaaa' : '#666666',
-          margin: '0.5rem 0 0 0',
+          margin: '0.5rem 0 0.5rem 0',
           fontStyle: 'italic'
         }}>
           {language === 'en' 
@@ -123,8 +123,7 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
       
       
       
-      {/* Theme Toggle */}
-      <div 
+      {/* <div 
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -168,7 +167,8 @@ const Sidebar = ({ menuOpen, darkMode, toggleDarkMode, setMenuOpen }) => {
             ? (language === 'en' ? 'Dark Mode' : 'ডার্ক মোড') 
             : (language === 'en' ? 'Light Mode' : 'লাইট মোড')}
         </span>
-      </div>
+      </div> */}
+      
       
       {/* Navigation Buttons */}
       <div style={{

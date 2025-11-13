@@ -11,9 +11,9 @@ const Home = ({ darkMode }) => {
   const [language, setLanguage] = useState('bn'); // 'en' for English, 'bn' for Bengali
 
   // English phrases
-  const enPhrases = ["Web sites", "Mobile Apps", "AI Solutions", "Cloud Services", "IoT Systems", "Mobile Apps", "AI Solutions"];
+  const enPhrases = ["E-commerce", "Mobile Apps", "AI Solutions", "Cloud Services", "Cloud Services ", "Buisness Management", "AI Solutions"];
   // Bengali phrases
-  const bnPhrases = ["ওয়েবসাইট", "মোবাইল অ্যাপ", "এআই সমাধান", "ক্লাউড সার্ভিস", "আইওটি সিস্টেম", "মোবাইল অ্যাপ", "এআই সমাধান"];
+  const bnPhrases = ["ই-কমার্স", "মোবাইল অ্যাপ", "এআই সমাধান", "ক্লাউড সার্ভিস", "ক্লাউড সার্ভিস", "বিজনেস ম্যানেজমেন্ট", "এআই সমাধান"];
 
   const phrases = language === 'en' ? enPhrases : bnPhrases;
 
@@ -131,7 +131,7 @@ const Home = ({ darkMode }) => {
       width: '100%',
       height: '100%',
       background: darkMode 
-        ? 'radial-gradient(circle at 75% 30%,rgb(46, 89, 46) 0%,rgb(29, 48, 29) 60%)' 
+        ? 'radial-gradient(circle at 75% 30%,rgba(0, 1, 0, 1) 0%,rgba(1, 36, 1, 1) 60%)' 
         : 'radial-gradient(circle at 75% 30%,rgb(179, 230, 184) 0%,rgb(199, 234, 200) 60%)',
       zIndex: 0
     },
@@ -195,17 +195,17 @@ const Home = ({ darkMode }) => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '1.5rem',
-      padding: '1rem',
+      gap: '0.1rem',
+      padding: '0rem',
       maxWidth: '500px',
       margin: '0 auto',
       width: '100%'
     },
     link: {
       fontSize: '1.2rem',
-      fontWeight: 700, // Increased font weight
+      fontWeight: 900, // Increased font weight
       color: 'transparent',
-      background: 'linear-gradient(90deg, #4caf50, #81c784)', // Gradient color
+      background: 'linear-gradient(90deg, #ecfaecff, #f3f6f3ff)', // Gradient color
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       textDecoration: 'none',
@@ -214,7 +214,7 @@ const Home = ({ darkMode }) => {
       padding: '0.5rem 0',
     },
     linkHover: {
-      color: darkMode ? '#81c784' : '#0056b3',
+      color: darkMode ? '#009307ff' : '#069501ff',
       textShadow: '0 0 5px rgba(0, 0, 0, 0.3)',
     },
     arrow: {
@@ -389,7 +389,7 @@ const Home = ({ darkMode }) => {
               : "'Noto Sans Bengali', serif",
             fontStyle: 'italic',
             lineHeight: '1.4',
-            fontWeight: '600',
+            fontWeight: '900',
             margin: 0,
             background: 'linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%)',
             backgroundClip: 'text',
@@ -398,35 +398,35 @@ const Home = ({ darkMode }) => {
            
           }}>
             {language === 'en' 
-              ? '"Our mission is to empower local Bangladeshi entrepreneurs and businesses by becoming their dedicated technology partner for the long run"' 
+              ? '"We want to be the Long-term Technology Partner for Local Entrepreneurs and Buisnesses"' 
               : '"আমরা স্থানীয় বাংলাদেশী উদ্যোক্তা এবং ব্যবসায়ীদের দীর্ঘমেয়াদী প্রযুক্তি অংশীদার হতে চাই।"'
             }
           </p>
         </motion.div>
 
         {/* Links Section */}
-        <div style={styles.linksContainer}>
-          <Link to="/c&p" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-            {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'}
-            <span style={styles.arrow}> ➔</span>
-          </Link>
-          <Link to="/services" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-            {language === 'en' ? 'Explore Our Services' : 'আমাদের সেবা সমূহ'}
-            <span style={styles.arrow}> ➔</span>
-          </Link>
-          <Link to="/buy" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-            {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
-            <span style={styles.arrow}> ➔</span>
-          </Link>
-          <Link to="/contact" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-            {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'}
-            <span style={styles.arrow}> ➔</span>
-          </Link>
-          <Link to="/funding" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-            {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
-            <span style={styles.arrow}> ➔</span>
-          </Link>
-        </div>
+       <div style={styles.linksContainer}>
+  <Link to="/funding" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+    {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
+    <span style={styles.arrow}> ➔</span>
+  </Link>
+  <Link to="/c&p" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+    {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'}
+    <span style={styles.arrow}> ➔</span>
+  </Link>
+  <Link to="/services" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+    {language === 'en' ? 'Explore Our Services' : 'আমাদের সেবা সমূহ'}
+    <span style={styles.arrow}> ➔</span>
+  </Link>
+  <Link to="/buy" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+    {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
+    <span style={styles.arrow}> ➔</span>
+  </Link>
+  <Link to="/contact" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+    {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'}
+    <span style={styles.arrow}> ➔</span>
+  </Link>
+</div>
         
       </div>
     </div>
