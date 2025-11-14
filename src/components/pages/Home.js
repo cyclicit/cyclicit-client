@@ -191,6 +191,43 @@ const Home = ({ darkMode }) => {
       maxWidth: '800px',
       textShadow: darkMode ? '0 1px 5px rgba(0,0,0,0.3)' : '0 1px 5px rgba(0,0,0,0.1)'
     },
+    mainImage: {
+      width: '100%',
+      maxWidth: '800px',
+      height: 'auto',
+      borderRadius: '12px',
+      margin: '2rem 0',
+      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+    },
+    sideImage: {
+      width: '80%',
+      maxWidth: '400px',
+      height: 'auto',
+      borderRadius: '8px',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+      margin: '1rem 0'
+    },
+    imageButtonContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '1rem',
+      margin: '1.5rem 0',
+      flexWrap: 'wrap'
+    },
+    imageButton: {
+      padding: '0.8rem 1.5rem',
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: 'white',
+      background: 'linear-gradient(135deg, #4caf50, #2e7d32)',
+      border: 'none',
+      borderRadius: '25px',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      display: 'inline-block',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 15px rgba(76, 175, 80, 0.3)'
+    },
     linksContainer: {
       display: 'flex',
       flexDirection: 'column',
@@ -203,9 +240,9 @@ const Home = ({ darkMode }) => {
     },
     link: {
       fontSize: '1.2rem',
-      fontWeight: 900, // Increased font weight
+      fontWeight: 900,
       color: 'transparent',
-      background: 'linear-gradient(90deg, #ecfaecff, #f3f6f3ff)', // Gradient color
+      background: 'linear-gradient(90deg, #ecfaecff, #f3f6f3ff)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       textDecoration: 'none',
@@ -360,18 +397,42 @@ const Home = ({ darkMode }) => {
           </motion.div>
         </div>
 
-       <p style={styles.servicesText}>
-  {language === 'en' ? (
-    <>
-      From E-commerce to Business Management - We are providing Qualityful Websites, Apps, Custom Software
-    </>
-  ) : (
-    <>
-      ই-কমার্স থেকে বিজনেস ম্যানেজমেন্ট -আমরা প্রদান করছি মানসম্মত ওয়েবসাইট, অ্যাপস, কাস্টম সফটওয়্যার
-    </>
-  )}
-</p>
+        <p style={{
+            fontSize: language === 'en' ? '1.3rem' : '1.4rem',
+            fontFamily: language === 'en' 
+              ? "'Georgia', 'Times New Roman', serif" 
+              : "'Noto Sans Bengali', serif",
+            fontStyle: 'italic',
+            lineHeight: '1.4',
+            fontWeight: '900',
+            margin: 0,
+            background: 'linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+          {language === 'en' ? (
+            <>
+              From E-commerce to Business Management - We are providing Qualityful Websites, Apps, Custom Software
+            </>
+          ) : (
+            <>
+              ই-কমার্স থেকে বিজনেস ম্যানেজমেন্ট -আমরা প্রদান করছি মানসম্মত ওয়েবসাইট, অ্যাপস, কাস্টম সফটওয়্যার
+            </>
+          )}
+        </p>
 
+        {/* Main Image */}
+        <motion.img
+          src="https://github.com/cyclicit/cyclicit-img/blob/main/cycy.jpg?raw=true"
+          alt="Cyclic-iT Services"
+          style={styles.mainImage}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        />
+
+         {/* Mission Statement */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -395,7 +456,6 @@ const Home = ({ darkMode }) => {
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
-           
           }}>
             {language === 'en' 
               ? '"We want to be the Long-term Technology Partner for Local Entrepreneurs and Buisnesses"' 
@@ -404,30 +464,106 @@ const Home = ({ darkMode }) => {
           </p>
         </motion.div>
 
-        {/* Links Section */}
-       <div style={styles.linksContainer}>
-  <Link to="/funding" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-    {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
-    <span style={styles.arrow}> ➔</span>
-  </Link>
-  <Link to="/c&p" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-    {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'}
-    <span style={styles.arrow}> ➔</span>
-  </Link>
-  <Link to="/services" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-    {language === 'en' ? 'Explore Our Services' : 'আমাদের সেবা সমূহ'}
-    <span style={styles.arrow}> ➔</span>
-  </Link>
-  <Link to="/buy" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-    {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
-    <span style={styles.arrow}> ➔</span>
-  </Link>
-  <Link to="/contact" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
-    {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'}
-    <span style={styles.arrow}> ➔</span>
-  </Link>
-</div>
-        
+        {/* Buttons after main image */}
+        <motion.div 
+          style={styles.imageButtonContainer}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <Link 
+            to="/services" 
+            style={styles.imageButton}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 6px 20px rgba(76, 175, 80, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 4px 15px rgba(76, 175, 80, 0.3)';
+            }}
+          >
+            {language === 'en' ? 'Explore Our Services' : 'আমাদের সেবা সমূহ'} ➔
+          </Link>
+          <Link 
+            to="/c&p" 
+            style={styles.imageButton}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 6px 20px rgba(76, 175, 80, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 4px 15px rgba(76, 175, 80, 0.3)';
+            }}
+          >
+            {language === 'en' ? 'Clients & Packages' : 'ক্লায়েন্ট ও প্যাকেজস'} ➔
+          </Link>
+        </motion.div>
+
+       
+
+        {/* Links Section with Side Images */}
+        <div style={styles.linksContainer}>
+
+          {/* First Side Image */}
+          <motion.img
+            src="https://github.com/cyclicit/cyclicit-img/blob/main/cycy2.jpg?raw=true"
+            alt="Cyclic-iT Project 1"
+            style={styles.sideImage}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          />
+          <Link to="/funding" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Entrepreneur Section' : 'উদ্যোক্তা সেকশন'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
+          
+          <Link to="/buy" style={styles.link} onMouseEnter={(e) => e.currentTarget.style.color = styles.linkHover.color} onMouseLeave={(e) => e.currentTarget.style.color = 'transparent'}>
+            {language === 'en' ? 'Browse Templates' : 'টেমপ্লেট ব্রাউজ করুন'}
+            <span style={styles.arrow}> ➔</span>
+          </Link>
+
+          
+
+         
+
+          {/* Second Side Image */}
+          <motion.img
+            src="https://github.com/cyclicit/cyclicit-img/blob/main/cycy3.jpg?raw=true"
+            alt="Cyclic-iT Project 2"
+            style={styles.sideImage}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+          />
+
+          {/* Buttons after second image */}
+          <motion.div 
+            style={styles.imageButtonContainer}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
+            <Link 
+              to="/contact" 
+              style={styles.imageButton}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 6px 20px rgba(76, 175, 80, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 15px rgba(76, 175, 80, 0.3)';
+              }}
+            >
+              {language === 'en' ? 'Contact us' : 'যোগাযোগ করুন'} ➔
+            </Link>
+          </motion.div>
+
+          
+        </div>
       </div>
     </div>
   );
